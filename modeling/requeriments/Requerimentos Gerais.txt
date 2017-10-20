@@ -1,0 +1,26 @@
+A ideia e criar um painel de gerenciamento de projetos que une a facilidade de inserção e gerenciamento com
+uma boa apresentação para outras pessoas.
+
+
+Inicialmente pensei apenas em uma tela para visualização dos projetos que seria pública e outra de inserção
+de projetos que seria privada do usuário. O principal aqui é aprender enquanto o desenvolvimento se desenrola.
+
+Tela de Projetos:
+ - Permite que o usuário possa visualizar projetos separados em quadrados.
+ - cada quadrado terá um subtitulo e uma imagem que sera semi ampliada ao colocar o mouse por cima.
+ - Ao clicar em um quadrado, o site vai ser redirecioando a uma página que mostra mais detalhes daquele projeto
+ sendo links, informações do desenvolvimento, GIT (se houver), etc.
+ - Terá um painel por cima demonstrando o dono daquele repositorio de projetos e alguams opções como alterar
+ senha, ver perfil, etc.
+
+Tela de Adição:
+ - Por enquanto não tenho muita idéia do que colocar aqui, salvo é claro modulos de inserção dos conteudos da tela
+ acima.
+
+Tela de projeto específico
+ - Foto do projeto
+ - Possível site
+ - Possível GIT
+ - Descrição
+ - Envolvidos
+ 
