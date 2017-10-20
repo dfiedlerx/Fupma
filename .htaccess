@@ -1,0 +1,48 @@
+# MAKROUP - HTACCESS RAIZ
+    # TERMINADO EM 11/08/2017 -> 13:13
+    # Restrições: "/" Duplas, Index.php, Falta de WWW, Barras no final do URL.            
+    #
+#
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+
+   #Caso haja repetição de Barras
+    RewriteCond    %{THE_REQUEST} ^.*// [NC]
+    RewriteRule    ^(.*)$ /mvc/pageNotFound [R=301,L]
+
+    #redirect if exist end slash
+    RewriteCond    %{HTTP_HOST} !^\. [NC]
+    RewriteRule    ^(.+[^/])/$ /mvc/$1 [R=301,L]
+
+    #redirect if does not exist www !!!!
+    RewriteCond    %{HTTP_HOST} !^www\. [NC]
+    RewriteRule    ^(.*)$ http://www.%{HTTP_HOST}/mvc/$1 [R=301,L]
+
+
+    #Redireciona caso exista Index no Final como Parâmetro
+    RewriteCond %{THE_REQUEST} ^.*/index [NC]
+    RewriteCond %{THE_REQUEST} !^.*/index/ [NC]
+    RewriteRule (.*?)index/*(.*) /mvc/$1$2 [R=301,NE,L]
+
+
+    #Redireciona para Raiz caso exista Home no Final  como Parâmetro
+    RewriteCond    %{THE_REQUEST} ^.*/home [NC]
+    RewriteCond    %{THE_REQUEST} !^.*/home/ [NC]
+    RewriteRule    (.*?)/home*(.*) /mvc/$1$2 [R=301,L]
+
+    #Remove e redireciona caso exista .php na Url
+    RewriteCond %{THE_REQUEST} ^GET.*.php [NC]
+    RewriteCond %{REQUEST_URI} !/system/.* [NC]
+    RewriteRule (.*?).php/*(.*) /mvc/$1$2 [R=301,NE,L]
+    
+
+    #Gera Url Decifravel para o servidor a partir da url amigável
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /mvc/index.php/$1 [L]
+
+</IfModule>
+    ErrorDocument 404 /mvc/views/error404View.php
+    
