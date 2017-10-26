@@ -5,7 +5,7 @@
 	<head>
 
 		<!-- Chama as dependências da página -->
-		<?php $this->loadFrontDependences(); ?>
+		<?php $this->loadFrontDependences($viewName); ?>
 
 	</head>
 	
