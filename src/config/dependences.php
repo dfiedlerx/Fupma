@@ -14,5 +14,3 @@
  define ('BOOTSTRAP_JS', 'bootstrap.min.js');
  //CSS
  define ('BOOTSTRAP_CSS', 'bootstrap.min.css');
- define ('BOOTSTRAP_GRID', 'bootstrap-grid.min.css');
- define ('BOOTSTRAP_REBOOT', 'bootstrap-reboot.min.css');

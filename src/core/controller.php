@@ -52,12 +52,7 @@ class controller {
         //CSS Dependences
 
         //Bootstrap
-        echo '<link rel="stylesheet" type="text/css" href="',
-        CSS_DIRECTORY,BOOTSTRAP_CSS,'">';
-        echo '<link rel="stylesheet" type="text/css" href="',
-        CSS_DIRECTORY,BOOTSTRAP_GRID,'">';
-        echo '<link rel="stylesheet" type="text/css" href="',
-        CSS_DIRECTORY,BOOTSTRAP_REBOOT,'">';
+        echo '<link rel="stylesheet" type="text/css" href="',CSS_DIRECTORY,BOOTSTRAP_CSS,'">';
 
 	}	
 }
