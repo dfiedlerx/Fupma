@@ -8,7 +8,7 @@
 
 spl_autoload_register(function ($className) {
 	
-    if (strpos($className, 'Controller')) {
+    if (strpos($className, CONTROLLERS_COMPLEMENT)) {
         if (file_exists(CONTROLLERS_DIRECTORY.$className.'.php')) {
             
             require (CONTROLLERS_DIRECTORY .$className.'.php');
