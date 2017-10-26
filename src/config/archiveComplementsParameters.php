@@ -6,10 +6,16 @@
  * 
  */
 
-//Diretório dos Arquivos
+//Diretório dos Arquivos Front-End
+define ('VIEWS_DIRECTORY', 'views/');
+
+define ('JS_DIRECTORY', 'views/assets/js/');
+define ('CSS_DIRECTORY', 'views/assets/css/');
+
+
+//Diretório dos Arquivos Back-End
 define ('CONTROLLERS_DIRECTORY', 'controllers/');
 define ('MODELS_DIRECTORY', 'models/');
-define ('VIEWS_DIRECTORY', 'views/');
 define ('CORE_DIRECTORY', 'core/');
 
 

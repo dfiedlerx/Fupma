@@ -13,6 +13,7 @@
     require 'archiveComplementsParameters.php';
     require 'defaultPageParameters.php';
     require 'tableSequencesParameters.php';
+    require 'dependences.php';
 
 //Arquivos de Configuração Complementares.    
     require 'DBConectionParameters.php';

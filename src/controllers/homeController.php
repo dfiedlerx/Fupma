@@ -2,12 +2,17 @@
 
 class homeController extends controller{
     
-    public function index(){
-        echo "Página Inicial do Sistema.";
+    public function index () {
+
+        $this->loadView('index');
         return TRUE;
-    }  
-    public function index2(){
+
+    }
+
+    public function index2 () {
+
         echo "Hello World 2";
         return TRUE;
+
     }
 }
