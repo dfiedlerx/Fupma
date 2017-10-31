@@ -24,6 +24,8 @@
     #Redireciona caso exista Index no Final como Parâmetro
     RewriteCond %{THE_REQUEST} ^.*/index [NC]
     RewriteCond %{THE_REQUEST} !^.*/index/ [NC]
+	RewriteCond %{THE_REQUEST} !^.*/index.js [NC]
+	RewriteCond %{THE_REQUEST} !^.*/index.css [NC]
     RewriteRule (.*?)index/*(.*) /mvc/$1$2 [R=301,NE,L]
 
 
