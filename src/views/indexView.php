@@ -10,6 +10,9 @@
 	</head>
 	
 	<body>
+
+		Voce está na index
+
 	</body>
 	
 </html>

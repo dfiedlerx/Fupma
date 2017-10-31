@@ -25,3 +25,7 @@ define('CONTROLLERS_COMPLEMENT', 'Controller');
 define('MODELS_COMPLEMENT', '.Class');
 define('VIEWS_COMPLEMENT', 'View');
 define('CORE_COMPLEMENT', '');
+
+//Diretorio Raiz do sistema. Deve incluir index.php
+ 
+define ('SYSTEM_DIRECTORY', '/mvc/index.php');

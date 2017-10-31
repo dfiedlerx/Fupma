@@ -1,18 +1,13 @@
 <?php
 
-class homeController extends controller{
+class homeController extends controller
+{
     
     public function index () {
 
-        $this->loadView('index');
-        return TRUE;
+        $this->loadView('index');  
+        return true;
 
     }
 
-    public function index2 () {
-
-        echo "Hello World 2";
-        return TRUE;
-
-    }
 }

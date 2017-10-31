@@ -15,7 +15,14 @@ class core
 
     public function run () {
 
-        $this->urlParameters = substr(filter_input(INPUT_SERVER, 'PHP_SELF'), 15);
+        $this->urlParameters = str_replace( 
+
+            SYSTEM_DIRECTORY, 
+            '',
+            filter_input(INPUT_SERVER, 'PHP_SELF', FILTER_SANITIZE_URL)
+
+        );
+
         $this->makeParametersArray ();
         $this->setController ();
         $this->setAditionalParameters ();
