@@ -1,4 +1,5 @@
 <?php
+
 /*Esta classe tem como objetivo trazer dados da DATABASE
 * Esta classe só poderá ser utilizada quando os dados retornados nao dependerem de alguma coorelação com outras tabelas.
 * No caso citado acima, a classe que deverá ser utilizada é a DATABASE_JOIN
@@ -22,9 +23,13 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     *
     */
 
-    private function generateQuery ($tableTerms, $tableNames, $conditionTerms = array(),$orderTerms=array(),$limitTerms=array()){
+    private function generateQuery ($tableTerms, $tableNames, 
+        $conditionTerms = array(), 
+        $orderTerms = array(), 
+        $limitTerms = array()) {
 
     	return 'SELECT '.self::generateTerms($tableTerms).' FROM '.self::generateTerms($tableNames).self::additionalTerms($conditionTerms,$orderTerms,$limitTerms);
+
     }
 
     /*
@@ -35,6 +40,7 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     public function query($tableTerms, $tableNames, $conditionTerms = array(),$orderTerms=array(),$limitTerms=array()){
 
     	return self::runQuery(self::generateQuery($tableTerms, $tableNames, $conditionTerms,$orderTerms,$limitTerms));
+
     }
 
     /*
@@ -47,6 +53,7 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     public function prepare($tableTerms, $tableNames, $conditionTerms = array(),$orderTerms=array(),$limitTerms=array()){
 
     	return self::initPrepare(self::generateQuery($tableTerms, $tableNames, $conditionTerms,$orderTerms,$limitTerms));
+
     }
 
     //Função que executará o prepare
@@ -54,6 +61,7 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     public function execute($conditionValues = array(), $orderValues = array(), $limitValues = array()){
 
     	return self::runPrepare(array_merge($conditionValues,$orderValues,$limitValues));
+
     }
 
 

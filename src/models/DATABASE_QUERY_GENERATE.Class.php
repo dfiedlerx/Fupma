@@ -1,4 +1,5 @@
 <?php 
+
 /*
 * Essa classe é encarregada de gerar as strings que serão usadas
 * nas consultas ao Banco de Dados.
@@ -19,25 +20,37 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 	* O segundo parametro é o conector que ficará entre os termos. Nesse caso o padrão sera o ','
 	*
 	*/
-	protected function generateTerms($tableTerms, $intoTerms = ','){
+	protected function generateTerms($tableTerms, $intoTerms = ',') {
 
 		return implode ($intoTerms,$tableTerms);
+
 	}
 
     //Função que retorna possíveis itens adicionais que foram solicitados. Sendo eles: Order, Limit e WHERE
-    protected function additionalTerms ($conditionTerms = array(), $orderTerms = array(), $limitTerms = array()){
+    protected function additionalTerms ($conditionTerms = array(), $orderTerms = array(), $limitTerms = array()) {
 
         $additionalTerms = "";
-        if (!empty($conditionTerms)){
+
+        if (!empty($conditionTerms)) {
+
             $additionalTerms .= " WHERE ".self::generateConditionTerms($conditionTerms);
+
         }
-        if (!empty($orderTerms)){
+
+        if (!empty($orderTerms)) {
+
             $additionalTerms .= " ORDER BY ".self::generateTerms($orderTerms, ' ');
+
         }
-        if (!empty($limitTerms)){
+
+        if (!empty($limitTerms)) {
+
             $additionalTerms .= " LIMIT ".$limitTerms[0]." OFFSET ". $limitTerms[1];
+
         }
+
         return $additionalTerms;
+
     }
 
 
@@ -55,14 +68,20 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
     * O resultado sairá: chave1 = cavalo AND chave2 = Mula OR chave3 = Louco
     * Note que o último termo tem conectivo vazio já que não haverá mais com o que conectar.
     */
-    private function generateConditionTerms($terms){
+    private function generateConditionTerms($terms) {
+
         $preString = '';
         if (!empty($terms)){
+
             foreach ($terms as $currentTerm) {
+
                 $preString .= ' '.self::generateTerms($currentTerm, ' ');
+
        		}
+
         }  
         return $preString;
+
     }
 
 }

@@ -6,29 +6,37 @@
  * 
  */
 
-class core {
+class core 
+{
 
     private $currentController;
     private $currentAction;
     private $urlParameters;
 
-    public function run() {
+    public function run () {
+
         $this->urlParameters = substr(filter_input(INPUT_SERVER, 'PHP_SELF'), 15);
-        $this->makeParametersArray();
-        $this->setController();
-        $this->setAditionalParameters();
-        $this->callControllerAndAction();       
+        $this->makeParametersArray ();
+        $this->setController ();
+        $this->setAditionalParameters ();
+        $this->callControllerAndAction ();       
+
     }
 
     /*
      * Método que irá destrinchar a urlParameters e obtera o Controller e a action em um array.
      */
 
-    private function makeParametersArray() {
+    private function makeParametersArray () {
+
         $this->urlParameters = explode('/', $this->urlParameters);
+
         if (empty($this->urlParameters[0]) && count($this->urlParameters) == 1) {
-            $this->removeFirstParameter();
+
+            $this->removeFirstParameter ();
+
         }
+
     }
     
     /*
@@ -37,14 +45,19 @@ class core {
      * 
      */
 
-    private function setController() {
+    private function setController () {
+
         if (isset($this->urlParameters[0])) {
+
             $this->currentController = $this->urlParameters[0].CONTROLLERS_COMPLEMENT;
-            $this->removeFirstParameter();
-            $this->setAction();
+            $this->removeFirstParameter ();
+            $this->setAction ();
+
         } else {
-            $this->defaultController();
-            $this->defaultAction();
+
+            $this->defaultController ();
+            $this->defaultAction ();
+
         }
     }
 
@@ -52,11 +65,16 @@ class core {
      * Função que ira gerenciar qual action será chamada.
      */
 
-    private function setAction() {
+    private function setAction () {
+
         if (isset($this->urlParameters[0])) {
-            $this->personAction();
+
+            $this->personAction ();
+
         } else {
-            $this->defaultAction();
+
+            $this->defaultAction ();
+
         }
     }
 
@@ -65,7 +83,7 @@ class core {
      *
      */
 
-    private function removeFirstParameter() {
+    private function removeFirstParameter () {
         array_shift($this->urlParameters);
     }
 
@@ -74,14 +92,18 @@ class core {
      * 
      */
 
-    private function removeLastParameter() {
+    private function removeLastParameter () {
+
         array_pop($this->urlParameters);
+
     }
 
     //Atribui o valor personalziado de um parâmetro para a action;
-    private function personAction() {
+    private function personAction () {
+
         $this->currentAction = $this->urlParameters[0];
-        $this->removeFirstParameter();
+        $this->removeFirstParameter ();
+
     }
 
     /*
@@ -90,13 +112,20 @@ class core {
      * 
      */
 
-    private function setAditionalParameters() {
+    private function setAditionalParameters () {
+
         $aditionalParametersQuantity = count($this->urlParameters);
+
         if (empty($this->urlParameters[0])) {
-            $this->removeFirstParameter();
+
+            $this->removeFirstParameter ();
+
         } else if (empty($this->urlParameters[$aditionalParametersQuantity - 1])) {
-            $this->removeLastParameter();
+
+            $this->removeLastParameter ();
+
         }
+
     }
 
     /*
@@ -105,7 +134,9 @@ class core {
      */
 
     private function defaultController() {
+
         $this->currentController = DEFAULT_CONTROLLER.CONTROLLERS_COMPLEMENT;
+
     }
 
     /*
@@ -114,7 +145,9 @@ class core {
      *      */
 
     private function defaultAction() {
+
         $this->currentAction = DEFAULT_ACTION;
+
     }
     
     /*
@@ -122,17 +155,25 @@ class core {
      */
 
     private function callControllerAndAction() {
+
         //Caso o Controller e a Action existam.
         if (method_exists($this->currentController, $this->currentAction) && $this->validateNumberOfParams()) {
-            $callController = new $this->currentController();
+
+            $callController = new $this->currentController ();
+
             if (!call_user_func_array(array($callController, $this->currentAction), $this->urlParameters)) {
-                $this->notFoundPage();
+
+                $this->notFoundPage ();
+
             }
         }
         //Caso o Controller ou a Action não exista.
         else {
-            $this->notFoundPage();
+
+            $this->notFoundPage ();
+
         }
+
     }
 
     /*
@@ -140,10 +181,12 @@ class core {
      * É uma função totalmente maleavel e se adapta a qualquer actopn.
      */
 
-    private function validateNumberOfParams() {
-        $methodArguments = new ReflectionMethod($this->currentController, $this->currentAction);
+    private function validateNumberOfParams () {
+
+        $methodArguments = new ReflectionMethod ($this->currentController, $this->currentAction);
         $numberOfUrlParameters = count($this->urlParameters);
-        return $numberOfUrlParameters >= $methodArguments->getNumberOfRequiredParameters() && $numberOfUrlParameters <= $methodArguments->getNumberOfParameters();
+        return $numberOfUrlParameters >= $methodArguments->getNumberOfRequiredParameters () && $numberOfUrlParameters <= $methodArguments->getNumberOfParameters ();
+
     }
 
 
@@ -153,6 +196,7 @@ class core {
      */
 
     private function notFoundPage() {
+
         $controllerConstant = 'pageNotFound'.CONTROLLERS_COMPLEMENT;
         return (new $controllerConstant())->index();
     

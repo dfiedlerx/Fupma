@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * MAKROUP - ARQUITETURE PLATFORM
+ * Fupma - Mini Framework
  * Este arquivo determina quais serão os parametros padrões de Controller e Action.
  * 
  */

@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * MAKROUP - ARQUITETURE PLATFORM
+ * Fupma - Mini Framework
  * Arquivo que determina os detalhes de conexão ao banco de dados.
  * 
  */

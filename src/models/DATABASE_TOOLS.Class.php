@@ -1,4 +1,5 @@
 <?php
+
 	/* Classe: DATABASE_TOOLS
 	*
 	* Classe que terá como intuito a contenção dos métodos úteis a qualquer classe de INSERT, DELETE, UPDATE, JOIN, etc;
@@ -8,7 +9,8 @@
 	*
 	*/
 
-        abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE{
+       	abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
+        {
 
 		/*
 		* Primeiro virão os métodos de tratamento de uma query.
@@ -22,9 +24,10 @@
 		* sequencial da tabela para que o retorno do id funcione.
 		*
 		*/
-		public function getLastInsertId($sequenceName){
+		public function getLastInsertId ($sequenceName) {
 			
 			return self::$DB_CONNECTION->lastInsertId($sequenceName);
+
 		}
 
 		/*
@@ -33,11 +36,16 @@
 		*
 		*/
 
-		public function getNumOfElements ($queryResult){
-			if (!is_bool($queryResult)){
+		public function getNumOfElements ($queryResult) {
+
+			if (!is_bool($queryResult)) {
+			
 				return $queryResult->rowCount();
+			
 			}
+
 			return FALSE;
+
 		}	
 
 		/*
@@ -46,11 +54,10 @@
 		*
 		*/
 
-		public function verifIfExistsOneOrMoreElements ($queryResult){
-			if (self::getNumOfElements($queryResult) > 0){
-				return TRUE;
-			}
-			return FALSE;
+		public function verifIfExistsOneOrMoreElements ($queryResult) {
+
+			return self::getNumOfElements($queryResult) > 0;
+
 		}
 
 		/*
@@ -60,8 +67,10 @@
 		*
 		*/
 
-		public function getFetchArray ($queryResult){
+		public function getFetchArray ($queryResult) {
+
 			return $queryResult->fetch();
+
 		}
 
 		/*
@@ -71,18 +80,23 @@
 		*
 		*/
 
-		public function getFetchAllArray ($queryResult){
+		public function getFetchAllArray ($queryResult) {
+
 			return $queryResult->fetchAll();
+
 		}
 
 
     	//Método que verifica se o parametro pra se formar o Where foram 
 
-    	protected function isConditionEmptyOrInvalid($conditionTerms){
-        	if ($conditionTerms == '' || $conditionTerms == array() || empty($conditionTerms) || !is_array($conditionTerms)){
-            	return TRUE;
-        	}
-        	return FALSE;
+    	protected function isConditionEmptyOrInvalid ($conditionTerms) {
+
+        	return 
+        	$conditionTerms == '' || 
+        	$conditionTerms == array() || 
+        	empty($conditionTerms) || 
+        	!is_array($conditionTerms));
+
     	}    
 
 	}

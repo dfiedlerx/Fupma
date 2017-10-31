@@ -1,4 +1,5 @@
 <?php 
+
 /*
 * Esta classe tem como objetivo deletar dados na DATABASE
 * É uma classe que exige cuidados acima do normal. Em detrimento disso, as verificações são maiores.
@@ -17,9 +18,10 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
     * Função que irá gerar os valores para o tipo DELETE
     *
     */
-    private function generateQuery ($tableNames, $conditionTerms){
+    private function generateQuery ($tableNames, $conditionTerms) {
 
-    	return 'DELETE FROM '.self::generateTerms($tableNames).self::additionalTerms($conditionTerms);
+    	return 'DELETE FROM '.self::generateTerms ($tableNames).self::additionalTerms ($conditionTerms);
+
     }
 
     /*
@@ -27,10 +29,14 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
     *
     */
 
-    public function query($tableNames, $conditionTerms){
-        if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
+    public function query ($tableNames, $conditionTerms) {
+
+        if (!$this->isConditionEmptyOrInvalid ($conditionTerms)){
+
             return self::runQuery(self::generateQuery($tableNames, $conditionTerms));
+
         }
+
         return FALSE;   
     }
 
@@ -43,20 +49,26 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
 
     public function prepare($tableNames, $conditionTerms){
 
-        if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
+        if (!$this->isConditionEmptyOrInvalid ($conditionTerms)){
+
             return self::initPrepare(self::generateQuery($tableNames, $conditionTerms));
+
         }
+
         return FALSE;   
     }
 
 
     //Função que executará o prepare
 
-    public function execute($conditionTerms){
+    public function execute ($conditionTerms) {
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
+
             return self::runPrepare($conditionTerms);
+
         }   
+
         return FALSE;
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * MAKROUP - ARQUITETURE PLATFORM
+ * Fupma - Mini Framework
  * Arquivo que carrega as contantes do servidor, Será uilizado aqui coisas que
  * em determinado momento poderão ser mudadas ou alteradas com alta probabilidade.
  * 

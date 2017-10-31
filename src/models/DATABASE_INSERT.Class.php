@@ -1,4 +1,5 @@
 <?php
+
 /*
 * 
 * Classe que ficará encarregada de realizar Inserts no banco de Dados.
@@ -29,18 +30,26 @@
     	}
 
     	//Função que gera os valores a serem inseridos. Podendo ser de um a indefinido.
-    	private function generateValuesString ($valueTerms){
+    	private function generateValuesString ($valueTerms) {
+
     		$valuesString = '';
     		$currentElement = 0;
     		$arrayCount = count($valueTerms);
+
     		foreach ($valueTerms as $currentValues) {
+
     			$currentElement += 1;
     			$valuesString .= ' ('.self::generateTerms($currentValues).')';
+
     			if ($currentElement < $arrayCount){
+
     				$valuesString.= ' ,';
+
     			}
     		}
+
     		return $valuesString;
+
     	}
 
     	 /*
@@ -51,6 +60,7 @@
     	public function query($tableNames, $tableTerms, $valueTerms){
         
             return self::runQuery(self::generateQuery($tableNames, $tableTerms, $valueTerms));
+
     	}
 
         /*
@@ -63,6 +73,7 @@
     	public function prepare($tableNames, $tableTerms, $valueTerms){
 
             return self::initPrepare(self::generateQuery($tableNames, $tableTerms, $valueTerms));
+
     	}
 
     	//Função que executará o prepare
@@ -70,6 +81,7 @@
     	public function execute($valueTerms){
 
             return self::runPrepare($valueTerms);
+
     	}
 
 

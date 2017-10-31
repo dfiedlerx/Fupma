@@ -1,4 +1,5 @@
 <?php
+
 /*
 * Classe com o único intuito de atualizar dados já existentes na DATABASE.
 * Usará como parâmetros: "tableTerms", "tableNames", "conditionTerms".
@@ -7,7 +8,8 @@
 *
 */
 
-class DATABASE_UPDATE extends DATABASE_TOOLS{
+class DATABASE_UPDATE extends DATABASE_TOOLS
+{
 
     /*
     * Os atributos da classe DATABASE_UPDATE
@@ -22,9 +24,10 @@ class DATABASE_UPDATE extends DATABASE_TOOLS{
     *
     */
 
-    private function generateQuery ($tableNames, $tableTerms, $valueTerms,$conditionTerms){
+    private function generateQuery ($tableNames, $tableTerms, $valueTerms,$conditionTerms) {
 
-        return 'UPDATE '.self::generateTerms($tableNames).' SET ('.self::generateTerms($tableTerms).') = ('.self::generateTerms($valueTerms).')'.self::additionalTerms($conditionTerms);
+        return 'UPDATE '.self::generateTerms ($tableNames).' SET ('.self::generateTerms ($tableTerms).') = ('.self::generateTerms ($valueTerms).')'.self::additionalTerms ($conditionTerms);
+
     }
 
     /*
@@ -33,10 +36,15 @@ class DATABASE_UPDATE extends DATABASE_TOOLS{
     */
 
     public function query($tableNames, $tableTerms, $valueTerms,$conditionTerms){
-        if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
+
+        if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
+
             return self::runQuery(self::generateQuery($tableNames, $tableTerms, $valueTerms,$conditionTerms));
+
         }
-        return FALSE;   
+
+        return FALSE;
+
     }
 
     /*
@@ -48,9 +56,12 @@ class DATABASE_UPDATE extends DATABASE_TOOLS{
 
     public function prepare($tableNames, $tableTerms, $valueTerms,$conditionTerms){
 
-        if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
-            return self::initPrepare(self::generateQuery($tableNames, $tableTerms, $valueTerms,$conditionTerms));
+        if (!$this->isConditionEmptyOrInvalid ($conditionTerms)) {
+
+            return self::initPrepare(self::generateQuery ($tableNames, $tableTerms, $valueTerms,$conditionTerms));
+
         }
+
         return FALSE;   
     }
 
@@ -58,9 +69,12 @@ class DATABASE_UPDATE extends DATABASE_TOOLS{
 
     public function execute($valueTerms, $conditionTerms){
 
-        if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
-            return self::runPrepare(array_merge($valueTerms,$conditionTerms));
+        if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
+
+            return self::runPrepare (array_merge($valueTerms,$conditionTerms));
+
         }   
+
         return FALSE;
     }
 

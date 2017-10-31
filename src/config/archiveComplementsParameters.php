@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * MAKROUP - ARQUITETURE PLATFORM
+ * Fupma - Mini Framework
  * Arquivo que determinará complementos de nomes de arquivos para o autoload.
  * 
  */
