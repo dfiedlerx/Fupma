@@ -95,7 +95,7 @@
         	$conditionTerms == '' || 
         	$conditionTerms == array() || 
         	empty($conditionTerms) || 
-        	!is_array($conditionTerms));
+        	!is_array($conditionTerms);
 
     	}    
 
