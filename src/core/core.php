@@ -23,6 +23,8 @@ class core
 
         );
 
+        echo $this->urlParameters;
+
         $this->makeParametersArray ();
         $this->setControllerAndAction ();
         $this->setAditionalParameters ();
