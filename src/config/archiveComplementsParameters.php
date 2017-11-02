@@ -21,10 +21,11 @@ define ('CORE_DIRECTORY', 'core/');
 
 //Complemento de Nome dos Arquivos
 
-define('CONTROLLERS_COMPLEMENT', 'Controller');
-define('MODELS_COMPLEMENT', '.Class');
-define('VIEWS_COMPLEMENT', 'View');
-define('CORE_COMPLEMENT', '');
+define ('CONTROLLERS_COMPLEMENT', 'Controller');
+define ('MODELS_COMPLEMENT', '.Class');
+define ('VIEWS_COMPLEMENT', 'View');
+define ('CORE_COMPLEMENT', '');
+define ('ACTION_COMPLEMENT', '');
 
 //Diretorio Raiz do sistema. Deve incluir index.php
  

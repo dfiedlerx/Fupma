@@ -24,7 +24,7 @@ class core
         );
 
         $this->makeParametersArray ();
-        $this->setController ();
+        $this->setControllerAndAction ();
         $this->setAditionalParameters ();
         $this->callControllerAndAction ();       
 
@@ -38,6 +38,7 @@ class core
 
         $this->urlParameters = explode('/', $this->urlParameters);
 
+        //Caso o link padrão seja o diretório raiz do sistema
         if (empty($this->urlParameters[0]) && count($this->urlParameters) == 1) {
 
             $this->removeFirstParameter ();
@@ -52,11 +53,11 @@ class core
      * 
      */
 
-    private function setController () {
+    private function setControllerAndAction () {
 
-        if (isset($this->urlParameters[0])) {
+        if (!empty ($this->urlParameters[0])) {
 
-            $this->currentController = $this->urlParameters[0].CONTROLLERS_COMPLEMENT;
+            $this->currentController = $this->urlParameters[0] . CONTROLLERS_COMPLEMENT;
             $this->removeFirstParameter ();
             $this->setAction ();
 
@@ -66,6 +67,7 @@ class core
             $this->defaultAction ();
 
         }
+
     }
 
     /*
@@ -74,15 +76,16 @@ class core
 
     private function setAction () {
 
-        if (isset($this->urlParameters[0])) {
+        if (!empty($this->urlParameters[0])) {
 
-            $this->personAction ();
+            $this->personalizedAction ();
 
         } else {
 
             $this->defaultAction ();
 
         }
+
     }
 
     /*
@@ -91,7 +94,9 @@ class core
      */
 
     private function removeFirstParameter () {
+
         array_shift($this->urlParameters);
+
     }
 
     /*
@@ -106,7 +111,7 @@ class core
     }
 
     //Atribui o valor personalziado de um parâmetro para a action;
-    private function personAction () {
+    private function personalizedAction () {
 
         $this->currentAction = $this->urlParameters[0];
         $this->removeFirstParameter ();
@@ -123,11 +128,18 @@ class core
 
         $aditionalParametersQuantity = count($this->urlParameters);
 
-        if (empty($this->urlParameters[0])) {
+        if (isset ($this->urlParameters[0]) && empty($this->urlParameters[0])) {
 
             $this->removeFirstParameter ();
 
-        } else if (empty($this->urlParameters[$aditionalParametersQuantity - 1])) {
+        } else if 
+            (
+
+            isset ($this->urlParameters[$aditionalParametersQuantity - 1]) 
+            && 
+            empty($this->urlParameters[$aditionalParametersQuantity - 1])
+
+            ) {
 
             $this->removeLastParameter ();
 
@@ -142,7 +154,7 @@ class core
 
     private function defaultController() {
 
-        $this->currentController = DEFAULT_CONTROLLER.CONTROLLERS_COMPLEMENT;
+        $this->currentController = DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
 
     }
 
@@ -153,7 +165,7 @@ class core
 
     private function defaultAction() {
 
-        $this->currentAction = DEFAULT_ACTION;
+        $this->currentAction = DEFAULT_ACTION . ACTION_COMPLEMENT;
 
     }
     
@@ -173,8 +185,10 @@ class core
                 $this->notFoundPage ();
 
             }
+
         }
-        //Caso o Controller ou a Action não exista.
+
+        //Caso o Controller ou a Action não forem encontrados.
         else {
 
             $this->notFoundPage ();
@@ -192,7 +206,11 @@ class core
 
         $methodArguments = new ReflectionMethod ($this->currentController, $this->currentAction);
         $numberOfUrlParameters = count($this->urlParameters);
-        return $numberOfUrlParameters >= $methodArguments->getNumberOfRequiredParameters () && $numberOfUrlParameters <= $methodArguments->getNumberOfParameters ();
+
+        //Caso o numero de parametros seja >= ao numero de parametros obrigatorios e <= ao numero de parametros no total
+        return $numberOfUrlParameters >= $methodArguments->getNumberOfRequiredParameters ()     
+               && 
+               $numberOfUrlParameters <= $methodArguments->getNumberOfParameters ();
 
     }
 
@@ -204,7 +222,7 @@ class core
 
     private function notFoundPage() {
 
-        $controllerConstant = 'pageNotFound'.CONTROLLERS_COMPLEMENT;
+        $controllerConstant = 'pageNotFound' . CONTROLLERS_COMPLEMENT;
         return (new $controllerConstant())->index();
     
     }
