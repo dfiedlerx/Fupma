@@ -23,8 +23,6 @@ class core
 
         );
 
-        echo $this->urlParameters;
-
         $this->makeParametersArray ();
         $this->setControllerAndAction ();
         $this->setAditionalParameters ();
@@ -175,7 +173,7 @@ class core
      * Faz a chamada das classes correspondetes de controller e view.
      */
 
-    private function callControllerAndAction() {
+    private function callControllerAndAction () {
 
         //Caso o Controller e a Action existam.
         if (method_exists($this->currentController, $this->currentAction) && $this->validateNumberOfParams()) {
@@ -222,7 +220,7 @@ class core
      * 
      */
 
-    private function notFoundPage() {
+    private function notFoundPage () {
 
         $controllerConstant = 'pageNotFound' . CONTROLLERS_COMPLEMENT;
         return (new $controllerConstant())->index();

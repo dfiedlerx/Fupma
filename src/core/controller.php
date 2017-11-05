@@ -61,19 +61,20 @@ class controller
         //Carrega os scripts particulares de uma página caso existam
         if (!empty ($viewName)) {
 
-            if (file_exists(JS_DIRECTORY.$viewName.'.js')){
+            if (file_exists(JS_DIRECTORY.$viewName.'/'.$viewName.'.js')){
 
-                echo '<script src="',JS_DIRECTORY,$viewName,'.js"></script>';
+                echo '<script src="',JS_DIRECTORY,$viewName,'/',$viewName,'.js"></script>';
 
             }
 
-            if (file_exists(CSS_DIRECTORY.$viewName.'.css')) {
+            if (file_exists(CSS_DIRECTORY.$viewName.'/'.$viewName.'.css')) {
 
-                echo '<link rel="stylesheet" type="text/css" href="',CSS_DIRECTORY,$viewName,'.css">';
+                echo '<link rel="stylesheet" type="text/css" href="',CSS_DIRECTORY,$viewName,'/',$viewName,'.css">';
 
             }
 
         }
 
-	}	
+	}
+
 }
