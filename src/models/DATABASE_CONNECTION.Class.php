@@ -58,4 +58,5 @@ abstract class DATABASE_CONNECTION
 
 }
         
-/* O único objetivo desta classe é conectar ao banco. As demais ações serão obrigatoriamente subjulgadas à outras classes. Esta a "Great Mother" das classes DATABASE */
+/* O único objetivo desta classe é conectar ao banco. As demais ações serão obrigatoriamente
+        subjulgadas à outras classes. Esta a "Great Mother" das classes DATABASE */

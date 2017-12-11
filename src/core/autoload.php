@@ -29,4 +29,5 @@ spl_autoload_register(function ($className) {
         require CORE_DIRECTORY.$className.CORE_COMPLEMENT.'.php';
         
     }
+
 });

@@ -22,6 +22,7 @@ class model
 
     }
 
+    //Essa verificação previne que seja criada mais de uma instancia de cada tipo de conexão.
     private static function call_DATABASE_CRUD () {
 
     	if (!self::$DATABASE_INSERT && !self::$DATABASE_DELETE && !self::$DATABASE_SELECT && !self::$DATABASE_UPDATE) {

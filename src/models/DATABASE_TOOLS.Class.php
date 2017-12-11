@@ -50,7 +50,7 @@
 
 		/*
 		* Verifica se a query retornou ou não ao menos um resultado.
-		* Retorn TRUE ou FALSE;
+		* Retorna TRUE ou FALSE;
 		*
 		*/
 
