@@ -79,7 +79,8 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 
        		}
 
-        }  
+        }
+
         return $preString;
 
     }

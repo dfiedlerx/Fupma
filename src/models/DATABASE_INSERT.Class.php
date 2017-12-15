@@ -59,7 +59,18 @@
 
     	public function query($tableNames, $tableTerms, $valueTerms){
         
-            return self::runQuery(self::generateQuery($tableNames, $tableTerms, $valueTerms));
+            return
+	            self::runQuery(
+
+                    self::generateQuery(
+
+                        $tableNames,
+                        $tableTerms,
+                        $valueTerms
+
+                    )
+
+                );
 
     	}
 

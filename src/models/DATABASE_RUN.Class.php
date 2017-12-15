@@ -49,7 +49,7 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 
 		}
 
-		return FALSE;
+		return false;
 
 	}
 

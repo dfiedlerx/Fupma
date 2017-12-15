@@ -20,7 +20,10 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
     */
     private function generateQuery ($tableNames, $conditionTerms) {
 
-    	return 'DELETE FROM '.self::generateTerms ($tableNames).self::additionalTerms ($conditionTerms);
+    	return
+            'DELETE FROM '
+            .self::generateTerms ($tableNames)
+            .self::additionalTerms ($conditionTerms);
 
     }
 

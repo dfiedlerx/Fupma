@@ -28,7 +28,12 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
         $orderTerms = array(), 
         $limitTerms = array()) {
 
-    	return 'SELECT '.self::generateTerms($tableTerms).' FROM '.self::generateTerms($tableNames).self::additionalTerms($conditionTerms,$orderTerms,$limitTerms);
+    	return
+            'SELECT '
+            . self::generateTerms ($tableTerms)
+            . ' FROM '
+            . self::generateTerms ($tableNames)
+            . self::additionalTerms ($conditionTerms,$orderTerms,$limitTerms);
 
     }
 
@@ -39,7 +44,20 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     public function query($tableTerms, $tableNames, $conditionTerms = array(),$orderTerms=array(),$limitTerms=array()){
 
-    	return self::runQuery(self::generateQuery($tableTerms, $tableNames, $conditionTerms,$orderTerms,$limitTerms));
+    	return
+            self::runQuery(
+                self::generateQuery
+                (
+
+                    $tableTerms,
+                    $tableNames,
+                    $conditionTerms,
+                    $orderTerms,
+                    $limitTerms
+
+                )
+
+            );
 
     }
 
@@ -52,7 +70,20 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     public function prepare($tableTerms, $tableNames, $conditionTerms = array(),$orderTerms=array(),$limitTerms=array()){
 
-    	return self::initPrepare(self::generateQuery($tableTerms, $tableNames, $conditionTerms,$orderTerms,$limitTerms));
+    	return
+            self::initPrepare(
+                self::generateQuery
+                (
+
+                    $tableTerms,
+                    $tableNames,
+                    $conditionTerms,
+                    $orderTerms,
+                    $limitTerms
+
+                )
+
+            );
 
     }
 

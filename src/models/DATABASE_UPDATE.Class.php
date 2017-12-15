@@ -26,7 +26,13 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
     private function generateQuery ($tableNames, $tableTerms, $valueTerms,$conditionTerms) {
 
-        return 'UPDATE '.self::generateTerms ($tableNames).' SET ('.self::generateTerms ($tableTerms).') = ('.self::generateTerms ($valueTerms).')'.self::additionalTerms ($conditionTerms);
+        return
+            'UPDATE '
+            .self::generateTerms ($tableNames)
+            .' SET ('
+            .self::generateTerms ($tableTerms)
+            .') = ('.self::generateTerms ($valueTerms).')'
+            .self::additionalTerms ($conditionTerms);
 
     }
 
