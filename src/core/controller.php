@@ -46,7 +46,7 @@ class controller
 	* Traz as depenências primordias do sistema automaticamente.
 	*/
 	
-	protected function s ($viewName = '') {
+	protected function loadDefaultFrontDependences ($viewName = '') {
 
         //Javascript Dependences
 
@@ -78,5 +78,16 @@ class controller
         }
 
 	}
+
+	//Traz uma dependência de view independente
+	protected function loadSingularDependence ($dependeceDirectory, $fileName, $typeDependence) {
+
+	    if (file_exists($dependeceDirectory.'/'.$fileName.$typeDependence)) {
+
+            echo '<script src="',$dependeceDirectory,'/',$fileName,$typeDependence,'"></script>';
+
+        }
+
+    }
 
 }
