@@ -29,9 +29,9 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
         return
             'UPDATE '
             .self::generateTerms ($tableNames)
-            .' SET ('
-            .self::generateTerms ($tableTerms)
-            .') = ('.self::generateTerms ($valueTerms).')'
+            .' SET ('.self::generateTerms ($tableTerms)
+            .') = ('
+            .self::generateTerms ($valueTerms).')'
             .self::additionalTerms ($conditionTerms);
 
     }
@@ -45,11 +45,16 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
 
-            return self::runQuery(self::generateQuery($tableNames, $tableTerms, $valueTerms,$conditionTerms));
+            return
+                self::runQuery(
+
+                    self::generateQuery($tableNames, $tableTerms, $valueTerms,$conditionTerms)
+
+                );
 
         }
 
-        return FALSE;
+        return false;
 
     }
 
@@ -64,11 +69,16 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
         if (!$this->isConditionEmptyOrInvalid ($conditionTerms)) {
 
-            return self::initPrepare(self::generateQuery ($tableNames, $tableTerms, $valueTerms,$conditionTerms));
+            return self::initPrepare(
+
+                self::generateQuery ($tableNames, $tableTerms, $valueTerms,$conditionTerms)
+
+            );
 
         }
 
-        return FALSE;   
+        return false;
+
     }
 
     //Função que executará o prepare
@@ -77,11 +87,16 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
 
-            return self::runPrepare (array_merge($valueTerms,$conditionTerms));
+            return self::runPrepare (
+
+                array_merge($valueTerms,$conditionTerms)
+
+            );
 
         }   
 
-        return FALSE;
+        return false;
+
     }
 
 

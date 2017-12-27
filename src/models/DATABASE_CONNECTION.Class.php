@@ -32,11 +32,20 @@ abstract class DATABASE_CONNECTION
 
              try{
 
-                 self::$DB_CONNECTION = new PDO (self::$DB_PARAMETERS, self::$DB_USER, self::$DB_PASS);
+                 self::$DB_CONNECTION =
+                     new PDO (
+
+                         self::$DB_PARAMETERS,
+                         self::$DB_USER,
+                         self::$DB_PASS
+
+                     );
 
             } catch (PDOException $e) {
 
-                echo "Houve uma falha na conexão com o banco de dados: ".$e->getMessage();
+                echo
+                    "Houve uma falha na conexão com o banco de dados: "
+                    .$e->getMessage();
 
             } 
 
@@ -54,10 +63,8 @@ abstract class DATABASE_CONNECTION
             self::$DB_PASS = DB_PASS; 
 
         }
-
     }    
 
 }
         
-/* O único objetivo desta classe é conectar ao banco. As demais ações serão obrigatoriamente
-        subjulgadas à outras classes. Esta a "Great Mother" das classes DATABASE */
+/* O único objetivo desta classe é conectar ao banco. As demais ações serão obrigatoriamente subjulgadas à outras classes. Esta a "Great Mother" das classes DATABASE */

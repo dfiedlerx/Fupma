@@ -1,0 +1,45 @@
+body {
+
+    padding: 0;
+    margin: 0;
+    background-color: #FFF;
+    background-image: url("../../imgs/ford_gt_back.jpg");
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+nav {
+
+    border-bottom: solid 1px dimgray;
+    height: 50px;
+    background-color: #000;
+    opacity: 0.7;
+    line-height: 50px;
+
+}
+
+nav ul {
+
+    height: 50px;
+    
+}
+
+nav li{
+
+   list-style-type: none;
+   height: 100%;
+   color: #FFF;
+   display: inline;
+   margin: 10px;
+   font-size: 17px;
+   cursor: pointer;
+   margin-top: 0;
+   margin-bottom: 0;
+
+}
+
+nav li:hover {
+
+    color: #FF6608;
+
+}

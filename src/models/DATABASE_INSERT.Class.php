@@ -26,7 +26,13 @@
 
     	private function generateQuery ($tableNames, $tableTerms, $valueTerms){
 
-    		return 'INSERT INTO '.self::generateTerms($tableNames)." (".self::generateTerms($tableTerms).") VALUES".self::generateValuesString($valueTerms);
+    		return
+                'INSERT INTO '
+                .self::generateTerms($tableNames)
+                ." (".self::generateTerms($tableTerms)
+                .") VALUES "
+                .self::generateValuesString($valueTerms);
+
     	}
 
     	//Função que gera os valores a serem inseridos. Podendo ser de um a indefinido.
@@ -60,15 +66,9 @@
     	public function query($tableNames, $tableTerms, $valueTerms){
         
             return
-	            self::runQuery(
+                self::runQuery(
 
-                    self::generateQuery(
-
-                        $tableNames,
-                        $tableTerms,
-                        $valueTerms
-
-                    )
+                    self::generateQuery($tableNames, $tableTerms, $valueTerms)
 
                 );
 
@@ -83,7 +83,12 @@
 
     	public function prepare($tableNames, $tableTerms, $valueTerms){
 
-            return self::initPrepare(self::generateQuery($tableNames, $tableTerms, $valueTerms));
+            return
+                self::initPrepare(
+
+                    self::generateQuery($tableNames, $tableTerms, $valueTerms)
+
+                );
 
     	}
 

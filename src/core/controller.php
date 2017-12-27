@@ -36,7 +36,9 @@ class controller
         $parameter = $number;
         settype($parameter, "integer");  
         $parameter .= '';
-        return $parameter === $number;
+        return
+            $parameter === $number &&
+            !strpos($number, array (',','.',';'));
 		
     }
 
@@ -44,7 +46,7 @@ class controller
 	* Traz as depenências primordias do sistema automaticamente.
 	*/
 	
-	protected function loadFrontDependences ($viewName = '') {
+	protected function s ($viewName = '') {
 
         //Javascript Dependences
 

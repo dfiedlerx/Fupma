@@ -148,7 +148,7 @@ class core
     }
 
     /*
-     * Seta o Controller Padrão;
+     * Seta o COntroller Padrão;
      * 
      */
 

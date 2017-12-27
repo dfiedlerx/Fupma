@@ -16,5 +16,5 @@
     require 'dependences.php';
 
 //Arquivos de Configuração Complementares.    
-    require 'DBConnectionParameters.php';
+    require 'DBConectionParameters.php';
 

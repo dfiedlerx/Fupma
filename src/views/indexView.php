@@ -12,7 +12,26 @@
 	
 	<body>
 
-		Voce está na index
+		<header class = 'top-navbar'>
+
+			<header>
+
+				<nav class="row col-xs-12">
+
+					<ul class="push-right">
+
+						<li>Home</li>
+						<li>Opção 1</li>
+						<li>Opção 2</li>
+						<li>Opção 3</li>
+
+					</ul>
+
+				</nav>
+
+			</header>
+
+		</header>
 
 	</body>
 	
