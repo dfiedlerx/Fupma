@@ -6,6 +6,7 @@
 * Classe Filha da Classe DATABASE_RUN e mãe da Classe DATABASE_TOOLS.
 *
 */
+namespace \DATABASE;
 
 abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 

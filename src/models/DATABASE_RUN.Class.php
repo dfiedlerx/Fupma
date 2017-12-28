@@ -5,6 +5,7 @@
 * Nao há necessidade de comunicação com outras calsses do sistema.
 *
 */
+namespace \DATABASE;
 
 abstract class DATABASE_RUN extends DATABASE_CONNECTION
 {

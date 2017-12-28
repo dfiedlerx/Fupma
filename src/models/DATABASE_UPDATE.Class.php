@@ -1,5 +1,4 @@
 <?php
-
 /*
 * Classe com o único intuito de atualizar dados já existentes na DATABASE.
 * Usará como parâmetros: "tableTerms", "tableNames", "conditionTerms".
@@ -7,6 +6,7 @@
 * Esta classe é filha da Classe DATABASE_TOOLS
 *
 */
+namespace \DATABASE;
 
 class DATABASE_UPDATE extends DATABASE_TOOLS
 {

@@ -6,6 +6,7 @@
 * Classe escolhida PDO. Pdo pois com ela é possível usar outros tipos de banco de dados no futuro.
 * Esta classe nao possui comunicação com outras classes do sistema.
 */
+namespace \DATABASE;
 
 abstract class DATABASE_CONNECTION
 {

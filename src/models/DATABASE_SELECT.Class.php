@@ -5,6 +5,7 @@
 * No caso citado acima, a classe que deverá ser utilizada é a DATABASE_JOIN
 * Esta classe é filha da classe DATABASE_TOOLS
 */
+namespace \DATABASE;
 
 class DATABASE_SELECT extends DATABASE_TOOLS{
 

@@ -1,4 +1,5 @@
 <?php
+
 //Arquivo que carregará as configurações
 require 'config/config.php';
 

@@ -1,5 +1,4 @@
 <?php
-
 /* 
  * MAKROUP - ARQUITETURE PLATFORM
  * Classe que gerenciará as necessidades basicas do model.
@@ -26,10 +25,10 @@ class model
 
     	if (!self::$DATABASE_INSERT && !self::$DATABASE_DELETE && !self::$DATABASE_SELECT && !self::$DATABASE_UPDATE) {
 
-    		self::$DATABASE_INSERT = new DATABASE_INSERT ();
-        	self::$DATABASE_DELETE = new DATABASE_DELETE ();
-        	self::$DATABASE_SELECT = new DATABASE_SELECT ();
-        	self::$DATABASE_UPDATE = new DATABASE_UPDATE ();
+    		self::$DATABASE_INSERT = new DATABASE\DATABASE_INSERT ();
+        	self::$DATABASE_DELETE = new DATABASE\DATABASE_DELETE ();
+        	self::$DATABASE_SELECT = new DATABASE\DATABASE_SELECT ();
+        	self::$DATABASE_UPDATE = new DATABASE\DATABASE_UPDATE ();
 
         }	
 

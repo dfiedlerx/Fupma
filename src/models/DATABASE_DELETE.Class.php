@@ -6,6 +6,7 @@
 * Classe filha da classe DATABASE_TOOLS
 *
 */
+namespace \DATABASE;
 
 class DATABASE_DELETE extends DATABASE_TOOLS{
 	/*
