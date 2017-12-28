@@ -8,6 +8,8 @@
 
 spl_autoload_register(function ($className) {
 
+    $className = str_replace('\\', '/', $className);
+
     if (strpos($className, CONTROLLERS_COMPLEMENT)) {
 
         if (file_exists(CONTROLLERS_DIRECTORY . $className . '.php')) {
