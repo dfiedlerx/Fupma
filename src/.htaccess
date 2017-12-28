@@ -46,5 +46,5 @@
     RewriteRule ^(.*)$ /mvc/index.php/$1 [L]
 
 </IfModule>
-    ErrorDocument 404 /mvc/views/error404View.php
+    ErrorDocument 404 /mvc/wrongUrlFormatView
     
