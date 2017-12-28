@@ -39,7 +39,7 @@ class core
         $this->urlParameters = explode('/', $this->urlParameters);
 
         //Caso o link padrão seja o diretório raiz do sistema
-        if (empty($this->urlParameters[0]) && count($this->urlParameters) == 1) {
+        if (empty($this->urlParameters[0])) {
 
             $this->removeFirstParameter ();
 
@@ -180,7 +180,7 @@ class core
 
             $callController = new $this->currentController ();
 
-            if (!call_user_func_array(array($callController, $this->currentAction), $this->urlParameters)) {
+            if (!call_user_func_array (array($callController, $this->currentAction), $this->urlParameters)) {
 
                 $this->notFoundPage ();
 

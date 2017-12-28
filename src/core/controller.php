@@ -21,8 +21,15 @@ class controller
      */ 
     protected function loadView ($viewName, $viewData = array()) {
 
-        extract($viewData);
-        include VIEWS_DIRECTORY . $viewName . VIEWS_COMPLEMENT.'.php';
+        if (file_exists(VIEWS_DIRECTORY . $viewName . VIEWS_COMPLEMENT.'.php')) {
+
+            extract($viewData);
+            include VIEWS_DIRECTORY . $viewName . VIEWS_COMPLEMENT . '.php';
+            return true;
+
+        }
+
+        return false;
 
     }
     /*
