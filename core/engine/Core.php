@@ -21,7 +21,7 @@ class Core
 
             SYSTEM_DIRECTORY, 
             '',
-            filter_input(INPUT_SERVER, 'PHP_SELF', FILTER_SANITIZE_URL)
+            filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL)
 
         );
 
