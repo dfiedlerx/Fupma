@@ -5,7 +5,11 @@
  * 
  */
 
-class model
+namespace Engine;
+
+use DATABASE as DATABASE;
+
+class Model
 {
     
     //Cada uma Dessas variáveis fara uma ação diferente do banco de dados.
@@ -13,7 +17,7 @@ class model
     protected static $DATABASE_DELETE;
     protected static $DATABASE_SELECT;
     protected static $DATABASE_UPDATE;
-    
+
     //Construtor que irá evocar as classes automaticamente.
     public function __construct () {
 
@@ -33,5 +37,6 @@ class model
         }	
 
     }
+
 }
 

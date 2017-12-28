@@ -8,19 +8,22 @@
 
 //Caso seja ambiente de desenvolvimento
 if (ENVIRONMENT){
+
     //Tipo do Banco de dados.
-    define ('DB_TYPE', 'pgsql');
+    define ('DB_TYPE', '?');
     //Nome da Base de dados.
-    define ('DB_NAME', 'projectRepDBPlatform');
+    define ('DB_NAME', '?');
     //URL de acesso ao host da Base de Dados.
-    define ('DB_HOST', 'localhost');
+    define ('DB_HOST', '?');
     //Usuário de acesso a Base de Dados.
-    define ('DB_USER', 'postgres');
+    define ('DB_USER', '?');
     //Senha de acesso a Base de Dados.
-    define ('DB_PASS', 'admin');
+    define ('DB_PASS', '?');
+
 }
 //Caso seja ambiene de produção.
 else{
+
      define ('DB_TYPE', '?');
     //Nome da Base de dados.
     define ('DB_NAME', '?');
@@ -29,7 +32,8 @@ else{
     //Usuário de acesso a Base de Dados.
     define ('DB_USER', '?');
     //Senha de acesso a Base de Dados.
-    define ('DB_PASS', '?');  
+    define ('DB_PASS', '?');
+
 }
     
  

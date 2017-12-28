@@ -9,7 +9,9 @@
  *
  */
 
-class view {
+namespace Engine;
+
+class View {
 
     /*
         * Traz as depenências primordias Front-End do sistema automaticamente.

@@ -6,7 +6,9 @@
  * 
  */
 
-class core 
+namespace Engine;
+
+class Core
 {
 
     private $currentController;
@@ -204,7 +206,7 @@ class core
 
     private function validateNumberOfParams () {
 
-        $methodArguments = new ReflectionMethod ($this->currentController, $this->currentAction);
+        $methodArguments = new \ReflectionMethod ($this->currentController, $this->currentAction);
         $numberOfUrlParameters = count($this->urlParameters);
 
         //Caso o numero de parametros seja >= ao numero de parametros obrigatorios e <= ao numero de parametros no total

@@ -6,7 +6,7 @@
  * Time: 14:53
  */
 
-class wrongUrlFormatController extends \controller
+class wrongUrlFormatController extends Engine\Controller
 {
 
     public function index (){

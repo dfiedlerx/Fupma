@@ -6,7 +6,9 @@
  * 
  */
 
-class controller 
+namespace Engine;
+
+class Controller
 {
     protected $view;
 

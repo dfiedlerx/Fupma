@@ -69,7 +69,7 @@ public function verifIfExistsOneOrMoreElements ($queryResult) {
 
 public function getFetchArray ($queryResult) {
 
-    return $queryResult->fetch();
+    return $queryResult->fetch(\PDO::FETCH_ASSOC);
 
 }
 
@@ -82,7 +82,7 @@ public function getFetchArray ($queryResult) {
 
 public function getFetchAllArray ($queryResult) {
 
-    return $queryResult->fetchAll();
+    return $queryResult->fetchAll(\PDO::FETCH_ASSOC);
 
 }
 

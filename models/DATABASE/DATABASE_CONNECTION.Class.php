@@ -34,7 +34,7 @@ abstract class DATABASE_CONNECTION
              try{
 
                  self::$DB_CONNECTION =
-                     new PDO (
+                     new \PDO (
 
                          self::$DB_PARAMETERS,
                          self::$DB_USER,

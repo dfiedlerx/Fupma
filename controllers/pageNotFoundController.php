@@ -1,6 +1,6 @@
 <?php
 
-class pageNotFoundController extends controller
+class pageNotFoundController extends Engine\Controller
 {
     public function index () {
 

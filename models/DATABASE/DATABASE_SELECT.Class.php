@@ -78,7 +78,9 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     	return
             self::runPrepare(
 
-                array_merge($conditionValues,$orderValues,$limitValues)
+                $conditionValues
+                + $orderValues
+                + $limitValues
 
             );
 

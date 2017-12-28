@@ -9,12 +9,12 @@
 
 // Arquivos de Configuração Mestre.
 
-    require 'environment.php';
-    require 'archiveComplementsParameters.php';
-    require 'defaultPageParameters.php';
-    require 'tableSequencesParameters.php';
-    require 'dependences.php';
+    require 'config/environment.php';
+    require 'config/archiveComplementsParameters.php';
+    require 'config/defaultPageParameters.php';
+    require 'config/tableSequencesParameters.php';
+    require 'config/dependences.php';
 
 //Arquivos de Configuração Complementares.    
-    require 'DBConectionParameters.php';
+    require 'config/DBConnectionParameters.php';
 
