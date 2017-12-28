@@ -1,5 +1,9 @@
 <?php
 
+namespace home;
+
+use Engine;
+
 class homeController extends Engine\Controller
 {
     

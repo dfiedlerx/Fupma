@@ -6,6 +6,10 @@
  * Time: 14:53
  */
 
+namespace wrongUrlFormat;
+
+use Engine;
+
 class wrongUrlFormatController extends Engine\Controller
 {
 

@@ -9,4 +9,5 @@ require 'core/init/config.php';
 // Auto Loader que chamara as classes do sistema.
 require CORE_DIRECTORY . 'init/autoload.php';
 
-$core = (new Engine\Core())->run();
+//Inicia a engrenagem da arquitetura
+(new Engine\Core())->run();

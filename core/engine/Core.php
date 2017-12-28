@@ -28,7 +28,7 @@ class Core
         $this->makeParametersArray ();
         $this->setControllerAndAction ();
         $this->setAditionalParameters ();
-        $this->callControllerAndAction ();       
+        $this->callControllerAndAction ();
 
     }
 
@@ -59,7 +59,7 @@ class Core
 
         if (!empty ($this->urlParameters[0])) {
 
-            $this->currentController = $this->urlParameters[0] . CONTROLLERS_COMPLEMENT;
+            $this->currentController = $this->urlParameters['0'] . '\\' . $this->urlParameters['0'] . CONTROLLERS_COMPLEMENT;
             $this->removeFirstParameter ();
             $this->setAction ();
 
@@ -78,7 +78,7 @@ class Core
 
     private function setAction () {
 
-        if (!empty($this->urlParameters[0])) {
+        if (!empty($this->urlParameters['0'])) {
 
             $this->personalizedAction ();
 
@@ -130,7 +130,7 @@ class Core
 
         $aditionalParametersQuantity = count($this->urlParameters);
 
-        if (isset ($this->urlParameters[0]) && empty($this->urlParameters[0])) {
+        if (isset ($this->urlParameters['0']) && empty($this->urlParameters[0])) {
 
             $this->removeFirstParameter ();
 
@@ -150,13 +150,13 @@ class Core
     }
 
     /*
-     * Seta o COntroller Padrão;
+     * Seta o Controller Padrão;
      * 
      */
 
     private function defaultController() {
 
-        $this->currentController = DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
+        $this->currentController = DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
 
     }
 
@@ -224,7 +224,7 @@ class Core
 
     private function notFoundPage () {
 
-        $controllerConstant = 'pageNotFound' . CONTROLLERS_COMPLEMENT;
+        $controllerConstant = 'pageNotFound\pageNotFound' . CONTROLLERS_COMPLEMENT;
         return (new $controllerConstant())->index();
     
     }
