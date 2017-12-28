@@ -10,7 +10,7 @@
 
    #Caso haja repetição de Barras
     RewriteCond    %{THE_REQUEST} ^.*// [NC]
-    RewriteRule    ^(.*)$ /mvc/pageNotFound [R=301,L]
+    RewriteRule    ^(.*)$ /mvc/wrongUrlFormat [R=301,L]
 
     #redirect if exist end slash
     RewriteCond    %{HTTP_HOST} !^\. [NC]
@@ -46,5 +46,5 @@
     RewriteRule ^(.*)$ /mvc/index.php/$1 [L]
 
 </IfModule>
-    ErrorDocument 404 /mvc/wrongUrlFormatView
+    ErrorDocument 404 /mvc/pageNotFound
     

@@ -4,7 +4,7 @@ class pageNotFoundController extends controller
 {
     public function index () {
 
-        $this->loadView('error404');
+        return $this->loadView('error404');
         
     }  
 }
