@@ -28,5 +28,4 @@ define ('CORE_COMPLEMENT', '');
 define ('ACTION_COMPLEMENT', '');
 
 //Diretorio Raiz do sistema. Deve incluir /index.php e sem barra no final
- 
 define ('SYSTEM_DIRECTORY', '/mvc/index.php');
