@@ -14,6 +14,7 @@
     require 'config/defaultPageParameters.php';
     require 'config/tableSequencesParameters.php';
     require 'config/dependences.php';
+    require 'config/cookieParameters.php';
 
 //Arquivos de Configuração Complementares.    
     require 'config/DBConnectionParameters.php';

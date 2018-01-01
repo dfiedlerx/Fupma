@@ -64,6 +64,7 @@ abstract class DATABASE_CONNECTION
             self::$DB_PASS = DB_PASS; 
 
         }
+
     }    
 
 }
