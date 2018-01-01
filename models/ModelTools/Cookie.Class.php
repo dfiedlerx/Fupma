@@ -3,7 +3,7 @@
 * Classe destinada a manipulação de Cookies do sistema
 * Cria, edita, deleta, lê, verifica existência.
 * Foi usado um método que resolve o problema com o php nao reconhecer que cookies
-* ~foram deletados, editados ou adicionados sem recarregar a página. 
+* Foram deletados, editados ou adicionados sem recarregar a página.
 *
 */
 
