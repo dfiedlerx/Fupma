@@ -3,7 +3,15 @@
 * Classe com o intuito de filtrar variaveis com conteúdos externos
 */
 
-class ExternalFilter {
+class Filter {
+
+
+    //Método que apenas filtra uma variavel interna
+    public static function internalFilter (string $stringToFilter, int $typeOfFilter = FILTER_SANITIZE_STRING) {
+
+        return filter_var ($stringToFilter, $typeOfFilter);
+
+    }
 
 	/*
 
@@ -18,7 +26,7 @@ class ExternalFilter {
 	* 5 - ENV
 	*/
 
-	public static function filter (
+	public static function externalFilter (
 	    int $typeRequisition,
         string $nameVar,
         int $typeOfFilter = FILTER_SANITIZE_SPECIAL_CHARS

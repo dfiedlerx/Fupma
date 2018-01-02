@@ -38,10 +38,10 @@ class Crypto
 	public static function systemHashGenerator (){
 
 		return
-            md5(ExternalFilter::filter(
+            md5(Filter::externalFilter(
 
                 4,
-                'HTTP_USER_AGENT').ExternalFilter::filter(
+                'HTTP_USER_AGENT').Filter::externalFilter(
 
                     4,
                     'REMOTE_ADDR'

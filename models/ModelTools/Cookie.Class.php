@@ -40,7 +40,7 @@ class Cookie
 	public static function readCookie (string $cookieName){
 
 		return 
-			isset ($_COOKIE[$cookieName]) && !is_null ($_COOKIE[$cookieName]) ? $_COOKIE[$cookieName] : null;
+			isset ($_COOKIE[$cookieName]) && !is_null ($_COOKIE[$cookieName]) ? Filter::internalFilter($_COOKIE[$cookieName]) : null;
 
 	}
 
