@@ -20,7 +20,6 @@ use Engine;
             explode(',', Filter::externalFilter (4, 'HTTP_ACCEPT_LANGUAGE'), FILTER_SANITIZE_FULL_SPECIAL_CHARS)[0];
 
     } 
-    
-    
+
  }
 

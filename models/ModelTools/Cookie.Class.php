@@ -16,7 +16,7 @@ class Cookie
 
 	public static function searchCookie(string $cookieName){
 
-        return isset($_COOKIE[$cookieName]);
+        return isset($_COOKIE[$cookieName]) && self::readCookie($cookieName) != 'DELETED';
 
 	} 
 
@@ -28,7 +28,7 @@ class Cookie
 	public static function setCookie(string $cookieName, $cookieContent, int $cookieExpiration = DEFAULT_COOKIE_EXPIRATION, string $cookieDirectory = '/'){
 
 		$_COOKIE [$cookieName] = $cookieContent; 
-		return setcookie($cookieName, $cookieContent, $cookieExpiration, $cookieDirectory);
+		return setcookie ($cookieName, $cookieContent, $cookieExpiration, $cookieDirectory);
 
 	}
 
