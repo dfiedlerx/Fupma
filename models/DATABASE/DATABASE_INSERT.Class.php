@@ -1,5 +1,4 @@
-<?php
-
+<?php namespace DATABASE;
 /*
 * 
 * Classe que ficará encarregada de realizar Inserts no banco de Dados.
@@ -8,7 +7,7 @@
 *
 *
 */
-namespace DATABASE;
+
 
 class DATABASE_INSERT extends DATABASE_TOOLS{
 
@@ -25,7 +24,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
     *
     */
 
-    private function generateQuery ($tableNames, $tableTerms, $valueTerms){
+    private function generateQuery (array $tableNames,  array $tableTerms, array $valueTerms){
 
         return
             'INSERT INTO '
@@ -37,7 +36,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
     }
 
     //Função que gera os valores a serem inseridos. Podendo ser de um a indefinido.
-    private function generateValuesString ($valueTerms) {
+    private function generateValuesString (array $valueTerms) {
 
         $valuesString = '';
         $currentElement = 0;
@@ -64,7 +63,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
     *
     */
 
-    public function query($tableNames, $tableTerms, $valueTerms){
+    public function query(array $tableNames, array $tableTerms, array $valueTerms){
 
         return
             self::runQuery(
@@ -82,7 +81,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
 
     //Função que iniciará o prepare para UPDATE
 
-    public function prepare($tableNames, $tableTerms, $valueTerms){
+    public function prepare(array $tableNames, array $tableTerms, array $valueTerms){
 
         return
             self::initPrepare(
@@ -95,7 +94,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
 
     //Função que executará o prepare
 
-    public function execute($valueTerms){
+    public function execute(array $valueTerms){
 
         return self::runPrepare($valueTerms);
 

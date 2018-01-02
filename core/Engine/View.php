@@ -1,4 +1,4 @@
-<?php
+<?php namespace Engine;
 /**
  * Fupma
  *
@@ -9,7 +9,6 @@
  *
  */
 
-namespace Engine;
 
 class View {
 
@@ -17,7 +16,7 @@ class View {
         * Traz as depenências primordias Front-End do sistema automaticamente.
         */
 
-    public function loadDefaultFrontDependences ($viewName = '') {
+    public function loadDefaultFrontDependences (string $viewName = '') {
 
         //Javascript Dependences
 
@@ -51,7 +50,7 @@ class View {
     }
 
     //Traz uma dependência de view independente
-    public function loadSingularDependence ($dependeceDirectory, $fileName, $typeDependence) {
+    public function loadSingularDependence (string $dependeceDirectory, string $fileName, string $typeDependence) {
 
         if (file_exists($dependeceDirectory.'/'.$fileName.$typeDependence)) {
 

@@ -1,12 +1,11 @@
-<?php 
-
+<?php namespace DATABASE;
 /*
 * Essa classe é encarregada de gerar as strings que serão usadas
 * nas consultas ao Banco de Dados.
 * Classe Filha da Classe DATABASE_RUN e mãe da Classe DATABASE_TOOLS.
 *
 */
-namespace DATABASE;
+
 
 abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 
@@ -21,14 +20,15 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 	* O segundo parametro é o conector que ficará entre os termos. Nesse caso o padrão sera o ','
 	*
 	*/
-	protected function generateTerms($tableTerms, $intoTerms = ',') {
+	protected function generateTerms(array $tableTerms, string $intoTerms = ',') {
 
 		return implode ($intoTerms,$tableTerms);
 
 	}
 
     //Função que retorna possíveis itens adicionais que foram solicitados. Sendo eles: Order, Limit e WHERE
-    protected function additionalTerms ($conditionTerms = array(), $orderTerms = array(), $limitTerms = array()) {
+    protected function additionalTerms (array $conditionTerms = array(),
+                                        array $orderTerms = array(), array $limitTerms = array()) {
 
         $additionalTerms = "";
 
@@ -69,7 +69,7 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
     * O resultado sairá: chave1 = cavalo AND chave2 = Mula OR chave3 = Louco
     * Note que o último termo tem conectivo vazio já que não haverá mais com o que conectar.
     */
-    private function generateConditionTerms($terms) {
+    private function generateConditionTerms(array $terms) {
 
         $preString = '';
 

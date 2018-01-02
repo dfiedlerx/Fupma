@@ -1,11 +1,10 @@
-<?php
+<?php namespace Engine;
 /* 
  * MAKROUP - ARQUITETURE PLATFORM
  * Classe que gerenciará as necessidades basicas do model.
  * 
  */
 
-namespace Engine;
 
 use DATABASE as DATABASE;
 

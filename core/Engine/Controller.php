@@ -1,4 +1,4 @@
-<?php
+<?php namespace Engine;
 
 /* 
  * 
@@ -6,7 +6,6 @@
  * 
  */
 
-namespace Engine;
 
 class Controller
 {
@@ -21,7 +20,7 @@ class Controller
     /*
      * Chama página de visão para o sistema.
      */ 
-    protected function loadView ($viewName, $viewData = array()) {
+    protected function loadView (string $viewName, array $viewData = array()) {
 
         if (file_exists(VIEWS_DIRECTORY . $viewName . VIEWS_COMPLEMENT.'.php')) {
 

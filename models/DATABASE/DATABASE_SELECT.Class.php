@@ -1,11 +1,10 @@
-<?php
-
+<?php namespace DATABASE;
 /*Esta classe tem como objetivo trazer dados da DATABASE
 * Esta classe só poderá ser utilizada quando os dados retornados nao dependerem de alguma coorelação com outras tabelas.
 * No caso citado acima, a classe que deverá ser utilizada é a DATABASE_JOIN
 * Esta classe é filha da classe DATABASE_TOOLS
 */
-namespace DATABASE;
+
 
 class DATABASE_SELECT extends DATABASE_TOOLS{
 
@@ -24,10 +23,11 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     *
     */
 
-    private function generateQuery ($tableTerms, $tableNames, 
-        $conditionTerms = array(), 
-        $orderTerms = array(), 
-        $limitTerms = array()) {
+    private function generateQuery (array $tableTerms,
+                                    array $tableNames,
+                                    array $conditionTerms = array(),
+                                    array $orderTerms = array(),
+                                    array $limitTerms = array()) {
 
     	return
             'SELECT '
@@ -42,7 +42,11 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     *
     */
 
-    public function query($tableTerms, $tableNames, $conditionTerms = array(),$orderTerms=array(),$limitTerms=array()){
+    public function query(array $tableTerms,
+                          array $tableNames,
+                          array $conditionTerms = array(),
+                          array $orderTerms=array(),
+                          array $limitTerms=array()){
 
     	return
             self::runQuery(
@@ -60,7 +64,11 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     //Função que iniciará o prepare para SELECT
 
-    public function prepare($tableTerms, $tableNames, $conditionTerms = array(),$orderTerms=array(),$limitTerms=array()){
+    public function prepare(array $tableTerms,
+                            array $tableNames,
+                            array $conditionTerms = array(),
+                            array $orderTerms=array(),
+                            array $limitTerms=array()){
 
     	return
             self::initPrepare(
@@ -73,7 +81,9 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     //Função que executará o prepare
 
-    public function execute($conditionValues = array(), $orderValues = array(), $limitValues = array()){
+    public function execute(array $conditionValues = array(),
+                            array $orderValues = array(),
+                            array $limitValues = array()){
 
     	return
             self::runPrepare(

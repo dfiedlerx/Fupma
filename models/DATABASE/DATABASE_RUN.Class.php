@@ -1,11 +1,10 @@
-<?php
-
+<?php namespace DATABASE;
 /* Classe que é encarregada de encaminhar as querys para execução no banco.
 * Essa classe é filha da classe DATABASE_CONNECTION e mãe da Classe DATABASE_TOOLS.
 * Nao há necessidade de comunicação com outras calsses do sistema.
 *
 */
-namespace DATABASE;
+
 
 abstract class DATABASE_RUN extends DATABASE_CONNECTION
 {
@@ -19,7 +18,7 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 	*
 	*/
 
-	protected function runQuery ($queryString) {
+	protected function runQuery (string $queryString) {
 
 		return self::$DB_CONNECTION->query($queryString);
 
@@ -33,7 +32,7 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 	*/
 
 	//Função que inicia o prepare para ser usado;
-	protected function initPrepare ($prepareString) {
+	protected function initPrepare (string $prepareString) {
 
 		$this->DB_PREPARE = self::$DB_CONNECTION->prepare($prepareString);
 		return $this->DB_PREPARE;
@@ -41,7 +40,7 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 	}
 
 	//Função que executará algo no prepare. O parâmetro de ser um array.
-	protected function runPrepare ($execArrayParameters = array()) {
+	protected function runPrepare (array $execArrayParameters = array()) {
 
 		if (is_array($execArrayParameters)){
 

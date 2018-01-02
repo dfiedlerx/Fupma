@@ -1,12 +1,11 @@
-<?php 
-
+<?php namespace DATABASE;
 /*
 * Esta classe tem como objetivo deletar dados na DATABASE
 * É uma classe que exige cuidados acima do normal. Em detrimento disso, as verificações são maiores.
 * Classe filha da classe DATABASE_TOOLS
 *
 */
-namespace DATABASE;
+
 
 class DATABASE_DELETE extends DATABASE_TOOLS{
 	/*
@@ -19,7 +18,7 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
     * Função que irá gerar os valores para o tipo DELETE
     *
     */
-    private function generateQuery ($tableNames, $conditionTerms) {
+    private function generateQuery (array $tableNames, array  $conditionTerms) {
 
     	return
             'DELETE FROM '
@@ -33,7 +32,7 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
     *
     */
 
-    public function query ($tableNames, $conditionTerms) {
+    public function query (array $tableNames,  array $conditionTerms) {
 
         if (!$this->isConditionEmptyOrInvalid ($conditionTerms)){
 
@@ -56,7 +55,7 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
 
     //Função que iniciará o prepare para DELETE
 
-    public function prepare($tableNames, $conditionTerms){
+    public function prepare(array $tableNames,  array $conditionTerms){
 
         if (!$this->isConditionEmptyOrInvalid ($conditionTerms)){
 
@@ -74,7 +73,7 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
 
     //Função que executará o prepare
 
-    public function execute ($conditionTerms) {
+    public function execute (array $conditionTerms) {
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
 

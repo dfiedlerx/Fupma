@@ -1,4 +1,4 @@
-<?php 
+<?php namespace DATABASE;
 
 /*
 * Classe criada para se conectar ao banco de Dados.
@@ -6,7 +6,8 @@
 * Classe escolhida PDO. Pdo pois com ela é possível usar outros tipos de banco de dados no futuro.
 * Esta classe nao possui comunicação com outras classes do sistema.
 */
-namespace DATABASE;
+
+use PDO;
 
 abstract class DATABASE_CONNECTION
 {
@@ -34,7 +35,7 @@ abstract class DATABASE_CONNECTION
              try{
 
                  self::$DB_CONNECTION =
-                     new \PDO (
+                     new PDO (
 
                          self::$DB_PARAMETERS,
                          self::$DB_USER,

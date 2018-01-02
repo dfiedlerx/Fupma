@@ -1,12 +1,10 @@
-<?php
+<?php namespace Engine;
 
 /* 
  * 
  * Classe que gerenciará as necessidades basicas do model.
  * 
  */
-
-namespace Engine;
 
 class Core
 {

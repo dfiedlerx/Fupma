@@ -1,4 +1,4 @@
-<?php
+<?php namespace DATABASE;
 /* Classe: DATABASE_TOOLS
 *
 * Classe que terá como intuito a contenção dos métodos úteis a qualquer classe de INSERT, DELETE, UPDATE, JOIN, etc;
@@ -7,7 +7,8 @@
 * Esta classe nao possui comunicação com outras classes do sistema.
 *
 */
-namespace DATABASE;
+
+use PDO;
 
 abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 {
@@ -24,7 +25,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 * sequencial da tabela para que o retorno do id funcione.
 *
 */
-public function getLastInsertId ($sequenceName) {
+public function getLastInsertId (string $sequenceName) {
 
     return self::$DB_CONNECTION->lastInsertId($sequenceName);
 
@@ -69,7 +70,13 @@ public function verifIfExistsOneOrMoreElements ($queryResult) {
 
 public function getFetchArray ($queryResult) {
 
-    return $queryResult->fetch(\PDO::FETCH_ASSOC);
+    if (!is_bool($queryResult)) {
+
+        return $queryResult->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+    return array();
 
 }
 
@@ -82,7 +89,7 @@ public function getFetchArray ($queryResult) {
 
 public function getFetchAllArray ($queryResult) {
 
-    return $queryResult->fetchAll(\PDO::FETCH_ASSOC);
+    return $queryResult->fetchAll(PDO::FETCH_ASSOC);
 
 }
 

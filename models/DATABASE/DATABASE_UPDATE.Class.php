@@ -1,4 +1,4 @@
-<?php
+<?php namespace DATABASE;
 /*
 * Classe com o único intuito de atualizar dados já existentes na DATABASE.
 * Usará como parâmetros: "tableTerms", "tableNames", "conditionTerms".
@@ -6,7 +6,7 @@
 * Esta classe é filha da Classe DATABASE_TOOLS
 *
 */
-namespace DATABASE;
+
 
 class DATABASE_UPDATE extends DATABASE_TOOLS
 {
@@ -24,7 +24,10 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
     *
     */
 
-    private function generateQuery ($tableNames, $tableTerms, $valueTerms,$conditionTerms) {
+    private function generateQuery (array $tableNames,
+                                    array $tableTerms,
+                                    array $valueTerms,
+                                    array $conditionTerms) {
 
         return
             'UPDATE '
@@ -41,7 +44,10 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
     *
     */
 
-    public function query($tableNames, $tableTerms, $valueTerms,$conditionTerms){
+    public function query(array $tableNames,
+                          array $tableTerms,
+                          array $valueTerms,
+                          array $conditionTerms){
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
 
@@ -65,7 +71,10 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
     //Função que iniciará o prepare para UPDATE
 
-    public function prepare($tableNames, $tableTerms, $valueTerms,$conditionTerms){
+    public function prepare(array $tableNames,
+                            array $tableTerms,
+                            array $valueTerms,
+                            array $conditionTerms){
 
         if (!$this->isConditionEmptyOrInvalid ($conditionTerms)) {
 
@@ -83,7 +92,8 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
     //Função que executará o prepare
 
-    public function execute($valueTerms, $conditionTerms){
+    public function execute(array $valueTerms,
+                            array $conditionTerms){
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
 
