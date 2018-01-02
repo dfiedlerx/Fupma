@@ -68,15 +68,17 @@ class VarContentValidator
 
     }
 
+    //Veirifica se o conteudo e do tipo Float
     public static function isAValidFloat (string $contentToValidate) {
 
         return filter_var ($contentToValidate, FILTER_VALIDATE_FLOAT);
 
     }
 
+    //Verifica se o conteudo é um Regex válido
     public static function isAValidRegexExp (string $contentToValidate) {
 
-        return filter_Vat ($contentToValidate, FILTER_VALIDATE_REGEXP);
+        return filter_var ($contentToValidate, FILTER_VALIDATE_REGEXP);
 
     }
 
