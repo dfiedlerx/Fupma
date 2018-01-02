@@ -46,10 +46,10 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
         foreach ($joinTerms as $currentJoinTerm) {
 
             $joinStringToReturn .=
-               self::generateTerms(
-                   $currentJoinTerm['0'],
-                   ' ').' ON ('.self::generateTerms($currentJoinTerm['1'],
-                   ' ').') ';
+                $currentJoinTerm['0']
+                .' ON ('
+                .self::generateConditionTerms($currentJoinTerm['1'])
+                .') ';
 
         }
 

@@ -69,7 +69,7 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
     * O resultado sairá: chave1 = cavalo AND chave2 = Mula OR chave3 = Louco
     * Note que o último termo tem conectivo vazio já que não haverá mais com o que conectar.
     */
-    private function generateConditionTerms(array $terms) {
+    protected function generateConditionTerms (array $terms) {
 
         $preString = '';
 
