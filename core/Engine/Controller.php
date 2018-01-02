@@ -20,12 +20,12 @@ class Controller
     /*
      * Chama página de visão para o sistema.
      */ 
-    protected function loadView (string $viewName, array $viewData = array()) {
-		
-        if (file_exists(VIEWS_DIRECTORY . $viewName . VIEWS_COMPLEMENT.'.php')) {
+    protected function loadView (string $controllerName, string $actionName, string $viewName, array $viewData = array()) {
 
-            extract($viewData);
-            include VIEWS_DIRECTORY . $viewName . VIEWS_COMPLEMENT . '.php';
+        if (file_exists(VIEWS_DIRECTORY . $controllerName . '/' . $actionName . '/' . $viewName . VIEWS_COMPLEMENT . '.php')) {
+
+            extract($viewData);;
+            include VIEWS_DIRECTORY . $controllerName . '/' . $actionName. '/' . $viewName . VIEWS_COMPLEMENT . '.php';
             return true;
 
         }
@@ -34,12 +34,16 @@ class Controller
 
     }
 
-    protected function loadTemplate (string $templateName, array  $viewsNames, array $viewData = array ()) {
+    protected function loadTemplate (string $templateName,
+                                     string $controllerName,
+                                     array $actionNames,
+                                     array  $viewsNames,
+                                     array $viewData = array ()) {
 
-        if (file_exists(VIEWS_DIRECTORY . TEMPLATES_DIRECTORY . $templateName . TEMPLATES_COMPLEMENT . '.php')) {
-			
+        if (file_exists(TEMPLATES_DIRECTORY . $templateName . TEMPLATES_COMPLEMENT . '.php')) {
+
 			extract($viewData);
-            include VIEWS_DIRECTORY . TEMPLATES_DIRECTORY . $templateName . TEMPLATES_COMPLEMENT . '.php';
+            include TEMPLATES_DIRECTORY  . $templateName . TEMPLATES_COMPLEMENT . '.php';
             return true;
 
         }

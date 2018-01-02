@@ -8,13 +8,13 @@ class homeController extends Engine\Controller
     
     public function index () {
 
-        return $this->loadView ('index');
+        return $this->loadView ('home','index','index');
 
     }
 	
 	public function template ($algo) {
 
-		return $this->loadTemplate ('teste', ['templateTeste'], array ('algo' => $algo));
+		return $this->loadTemplate ('teste', 'home', ['template'],['template'], array ('algo' => $algo));
 	
 	}	
 

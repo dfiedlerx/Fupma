@@ -8,7 +8,7 @@ class wrongUrlFormatController extends Engine\Controller
 
     public function index (){
 
-        return $this->loadView('wrongUrlFormat');
+        return $this->loadView('wrongUrlFormat', 'index','index');
 
     }
 

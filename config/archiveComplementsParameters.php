@@ -7,8 +7,8 @@
  */
 
 //Diretório dos Arquivos Front-End
-define ('VIEWS_DIRECTORY', 'views/');
-define ('TEMPLATES_DIRECTORY', 'templates/');
+define ('VIEWS_DIRECTORY', 'views/pages/');
+define ('TEMPLATES_DIRECTORY', 'views/templates/');
 define ('JS_DIRECTORY', 'views/assets/js/');
 define ('CSS_DIRECTORY', 'views/assets/css/');
 
