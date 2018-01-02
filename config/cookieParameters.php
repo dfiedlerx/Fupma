@@ -6,4 +6,5 @@
  * 
  */
 
+//Tempo Padrão de um cookie sem previsão de expiração
 define ('DEFAULT_COOKIE_EXPIRATION', 10000000000);
