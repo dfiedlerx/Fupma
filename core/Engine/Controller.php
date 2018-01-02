@@ -33,6 +33,20 @@ class Controller
         return false;
 
     }
+
+    protected function loadTemplate (string $templateName,string  $viewName, array $viewData = array ()) {
+
+        if (file_exists(VIEWS_DIRECTORY .'/templates/'. $templateName . '.template.php')) {
+
+            include VIEWS_DIRECTORY .'/templates/'. $templateName . '.template.php';
+            return true;
+
+        }
+
+        return false;
+
+    }
+
     /*
      * Verifica se determinado parâmetro passado em uma url é um número.
      */
