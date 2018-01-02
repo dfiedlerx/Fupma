@@ -30,12 +30,6 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
                                     array $orderTerms = array(),
                                     array $limitTerms = array()) {
 
-        echo 'SELECT '
-            .self::generateTerms($tableTerms)
-            .' FROM '.self::generateTerms($tableNames)
-            .self::generateJoinTerms ($joinTerms)
-            .self::additionalTerms($conditionTerms,$orderTerms,$limitTerms);
-
     	return
             'SELECT '
             .self::generateTerms($tableTerms)
@@ -48,8 +42,6 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     private function generateJoinTerms (array $joinTerms) {
 
         $joinStringToReturn = ' ';
-
-        var_dump($joinTerms);
 
         foreach ($joinTerms as $currentJoinTerm) {
 
