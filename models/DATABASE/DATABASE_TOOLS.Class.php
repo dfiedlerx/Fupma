@@ -13,99 +13,87 @@ use PDO;
 abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 {
 
-/*
-* Primeiro virão os métodos de tratamento de uma query.
-* Ex: Número de resultados, Ultimo ID, etc.
-*
------------------------------------------------------------------------------------------------ */
+    /*
+    * Primeiro virão os métodos de tratamento de uma query.
+    * Ex: Número de resultados, Ultimo ID, etc.
+    *
+    ----------------------------------------------------------------------------------------------- */
 
-/*
-* Método que retorna o ID do último item adicionado em uma determinada tabela.
-* Como o banco escolhido no momento foi o PostgreSQL, será nescessário informar o nome
-* sequencial da tabela para que o retorno do id funcione.
-*
-*/
-public function getLastInsertId (string $sequenceName) {
+    /*
+    * Método que retorna o ID do último item adicionado em uma determinada tabela.
+    * Como o banco escolhido no momento foi o PostgreSQL, será nescessário informar o nome
+    * sequencial da tabela para que o retorno do id funcione.
+    *
+    */
+    public function getLastInsertId (string $sequenceName) {
 
-    return self::$DB_CONNECTION->lastInsertId($sequenceName);
-
-}
-
-/*
-* Método que retornará o número de elementos que determinada query resultou.
-* Deve-se ser passado a variavel que contém o resultado da query;
-*
-*/
-
-public function getNumOfElements ($queryResult) {
-
-    if (!is_bool($queryResult)) {
-
-        return $queryResult->rowCount();
+        return self::$DB_CONNECTION->lastInsertId($sequenceName);
 
     }
 
-    return false;
+    /*
+    * Método que retornará o número de elementos que determinada query resultou.
+    * Deve-se ser passado a variavel que contém o resultado da query;
+    *
+    */
 
-}
+    public function getNumOfElements ($queryResult) {
 
-/*
-* Verifica se a query retornou ou não ao menos um resultado.
-* Retorn TRUE ou FALSE;
-*
-*/
-
-public function verifIfExistsOneOrMoreElements ($queryResult) {
-
-    return self::getNumOfElements($queryResult) > 0;
-
-}
-
-/*
-* Retorna um array com apenas um resultado.
-* A explicação do porque se usar esse metodo aqui e nao apenas lançar a fetch() diretamente é que
-* no futuro, caso a classe venha a ser trocada, a manutenção vai ser facilmente feita.
-*
-*/
-
-public function getFetchArray ($queryResult) {
-
-    if (!is_bool($queryResult)) {
-
-        return $queryResult->fetch(PDO::FETCH_ASSOC);
+        return !is_bool($queryResult) ? $queryResult->rowCount() : false;
 
     }
 
-    return array();
+    /*
+    * Verifica se a query retornou ou não ao menos um resultado.
+    * Retorn TRUE ou FALSE;
+    *
+    */
 
-}
+    public function verifIfExistsOneOrMoreElements ($queryResult) {
 
-/*
-* Retorna um array com todos os resultados.
-* A explicação do porque se usar esse metodo aqui e nao apenas lançar a fetchAll() diretamente é que
-* no futuro, caso a classe venha a ser trocada, a manutenção vai ser facilmente feita.
-*
-*/
+        return self::getNumOfElements($queryResult) > 0;
 
-public function getFetchAllArray ($queryResult) {
+    }
 
-    return $queryResult->fetchAll(PDO::FETCH_ASSOC);
+    /*
+    * Retorna um array com apenas um resultado.
+    * A explicação do porque se usar esse metodo aqui e nao apenas lançar a fetch() diretamente é que
+    * no futuro, caso a classe venha a ser trocada, a manutenção vai ser facilmente feita.
+    *
+    */
 
-}
+    public function getFetchArray ($queryResult) {
+
+        return !is_bool($queryResult) ? $queryResult->fetch(PDO::FETCH_ASSOC) : array();
+
+    }
+
+    /*
+    * Retorna um array com todos os resultados.
+    * A explicação do porque se usar esse metodo aqui e nao apenas lançar a fetchAll() diretamente é que
+    * no futuro, caso a classe venha a ser trocada, a manutenção vai ser facilmente feita.
+    *
+    */
+
+    public function getFetchAllArray ($queryResult) {
+
+        return $queryResult->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 
 
-//Método que verifica se o parametro pra se formar o Where foram
+    //Método que verifica se o parametro pra se formar o Where foram
 
-protected function isConditionEmptyOrInvalid ($conditionTerms) {
+    protected function isConditionEmptyOrInvalid ($conditionTerms) {
 
-    return
-        $conditionTerms == '' ||
-        $conditionTerms == array() ||
-        empty($conditionTerms) ||
-        !is_array($conditionTerms) ||
-        is_null ($conditionTerms);
+        return
+            $conditionTerms == '' ||
+            $conditionTerms == array() ||
+            empty($conditionTerms) ||
+            !is_array($conditionTerms) ||
+            is_null ($conditionTerms);
 
-}
+    }
 
 }
 

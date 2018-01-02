@@ -34,18 +34,11 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
 
     public function query (array $tableNames,  array $conditionTerms) {
 
-        if (!$this->isConditionEmptyOrInvalid ($conditionTerms)){
+        return
+            !$this->isConditionEmptyOrInvalid ($conditionTerms)
+                ? self::runQuery(self::generateQuery($tableNames, $conditionTerms))
+                : false;
 
-            return
-                self::runQuery(
-
-                    self::generateQuery($tableNames, $conditionTerms)
-
-                );
-
-        }
-
-        return false;
     }
 
     /*
@@ -57,17 +50,11 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
 
     public function prepare(array $tableNames,  array $conditionTerms){
 
-        if (!$this->isConditionEmptyOrInvalid ($conditionTerms)){
+        return
+            !$this->isConditionEmptyOrInvalid ($conditionTerms)
+                ? self::initPrepare(self::generateQuery($tableNames, $conditionTerms))
+                : false;
 
-            return self::initPrepare(
-
-                self::generateQuery($tableNames, $conditionTerms)
-
-            );
-
-        }
-
-        return false;
     }
 
 
@@ -75,13 +62,11 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
 
     public function execute (array $conditionTerms) {
 
-        if (!$this->isConditionEmptyOrInvalid($conditionTerms)){
+        return
+            !$this->isConditionEmptyOrInvalid($conditionTerms)
+                ? self::runPrepare($conditionTerms)
+                : false;
 
-            return self::runPrepare($conditionTerms);
-
-        }   
-
-        return false;
     }
 
 }    
