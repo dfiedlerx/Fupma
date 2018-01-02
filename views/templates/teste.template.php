@@ -1,5 +1,5 @@
-<body><h1 style = 'color:#FFF'>Parte de cima do template</h1>
+<body><div style='height: 50px; background-color: #0F5632;'></div>
 
-    <?php $this->loadView ($viewName); ?>
+    <?php $this->loadView ($viewName, $viewData); ?>
 
-<h1 style = 'color:#FFF'>Parte de baixo do template</body</h1></body>
+<div style='height: 50px; background-color: #0F5632;'></div></body>

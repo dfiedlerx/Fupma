@@ -21,7 +21,7 @@ class Controller
      * Chama página de visão para o sistema.
      */ 
     protected function loadView (string $viewName, array $viewData = array()) {
-
+		
         if (file_exists(VIEWS_DIRECTORY . $viewName . VIEWS_COMPLEMENT.'.php')) {
 
             extract($viewData);
@@ -37,7 +37,8 @@ class Controller
     protected function loadTemplate (string $templateName,string  $viewName, array $viewData = array ()) {
 
         if (file_exists(VIEWS_DIRECTORY .'/templates/'. $templateName . '.template.php')) {
-
+			
+			extract($viewData);
             include VIEWS_DIRECTORY .'/templates/'. $templateName . '.template.php';
             return true;
 
