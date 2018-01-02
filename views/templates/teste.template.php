@@ -1,5 +1,5 @@
-<body><div style='height: 50px; background-color: #0F5632;'></div>
+<body style='margin: 0; padding: 0;'><div style='height: 1px; background-color: #0F5632;'></div>
 
-    <?php $this->loadView ($viewName, $viewData); ?>
+    <div style='padding: 8px;'><?php $this->loadView ($viewsNames['0'], $viewData); ?></div>
 
-<div style='height: 50px; background-color: #0F5632;'></div></body>
+<div style='height: 1px; background-color: #0F5632;'></div></body>

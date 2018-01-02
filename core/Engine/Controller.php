@@ -34,12 +34,12 @@ class Controller
 
     }
 
-    protected function loadTemplate (string $templateName,string  $viewName, array $viewData = array ()) {
+    protected function loadTemplate (string $templateName, array  $viewsNames, array $viewData = array ()) {
 
-        if (file_exists(VIEWS_DIRECTORY .'/templates/'. $templateName . '.template.php')) {
+        if (file_exists(VIEWS_DIRECTORY . TEMPLATES_DIRECTORY . $templateName . TEMPLATES_COMPLEMENT . '.php')) {
 			
 			extract($viewData);
-            include VIEWS_DIRECTORY .'/templates/'. $templateName . '.template.php';
+            include VIEWS_DIRECTORY . TEMPLATES_DIRECTORY . $templateName . TEMPLATES_COMPLEMENT . '.php';
             return true;
 
         }

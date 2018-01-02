@@ -8,7 +8,7 @@
 
 //Diretório dos Arquivos Front-End
 define ('VIEWS_DIRECTORY', 'views/');
-
+define ('TEMPLATES_DIRECTORY', 'templates/');
 define ('JS_DIRECTORY', 'views/assets/js/');
 define ('CSS_DIRECTORY', 'views/assets/css/');
 
@@ -20,13 +20,12 @@ define ('CORE_DIRECTORY', 'core/');
 
 
 //Complemento de Nome dos Arquivos
-
 define ('CONTROLLERS_COMPLEMENT', 'Controller');
 define ('MODELS_COMPLEMENT', '.Class');
 define ('VIEWS_COMPLEMENT', 'View');
+define ('TEMPLATES_COMPLEMENT', '.template');
 define ('CORE_COMPLEMENT', '');
 define ('ACTION_COMPLEMENT', '');
 
-//Diretorio Raiz do sistema. Deve incluir /index.php e sem barra no final
- 
+//Diretorio Raiz do sistema.
 define ('SYSTEM_DIRECTORY', '/mvc/');

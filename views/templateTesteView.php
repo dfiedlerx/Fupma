@@ -4,6 +4,6 @@
 	<title>Teste template</title>
 </head>
 <body>
-	<?php echo 'dflsdkfjsldk fjsldkfjsl'; return false;?>
+	<?php echo $algo; ?>
 </body>
 </html>

@@ -12,9 +12,9 @@ class homeController extends Engine\Controller
 
     }
 	
-	public function template ($algo = null) {
+	public function template ($algo) {
 
-		return $this->loadTemplate ('teste', 'templateTeste', array ('algo' => $algo, 'text' => 'Texto de exemplo dentro do template'));
+		return $this->loadTemplate ('teste', ['templateTeste'], array ('algo' => $algo));
 	
 	}	
 
