@@ -16,7 +16,7 @@ class View {
         * Traz as depenências primordias Front-End do sistema automaticamente.
         */
 
-    public function loadDefaultFrontDependences (string $controllerName, string $viewName = '') {
+    public function loadDefaultFrontDependences (string $controllerName = '', string $viewName = '') {
 
         //Javascript Dependences
 

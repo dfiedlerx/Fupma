@@ -24,7 +24,7 @@ class Controller
 
         if (file_exists(VIEWS_DIRECTORY . $controllerName . '/' . $actionName . '/' . $viewName . VIEWS_COMPLEMENT . '.php')) {
 
-            extract($viewData);;
+            extract($viewData);
             include VIEWS_DIRECTORY . $controllerName . '/' . $actionName. '/' . $viewName . VIEWS_COMPLEMENT . '.php';
             return true;
 
