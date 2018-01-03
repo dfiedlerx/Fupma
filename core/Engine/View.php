@@ -31,7 +31,7 @@ class View {
         echo '<link rel="stylesheet" type="text/css" href="',CSS_DIRECTORY,BOOTSTRAP_CSS,'">';
 
         //Carrega os scripts particulares de uma página caso existam
-        if (!empty ($viewName)) {
+        if (!empty($controllerName) && !empty ($viewName)) {
 
             if (file_exists(JS_DIRECTORY.$controllerName.'/'.$viewName.'/'.$viewName.'.js')){
 
