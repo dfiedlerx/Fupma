@@ -76,15 +76,10 @@ class Core
 
     private function setAction () {
 
-        if (!empty($this->urlParameters['0'])) {
-
-            $this->personalizedAction ();
-
-        } else {
-
-            $this->defaultAction ();
-
-        }
+        return
+            !empty($this->urlParameters['0'])
+                ? $this->personalizedAction ()
+                : $this->defaultAction ();
 
     }
 

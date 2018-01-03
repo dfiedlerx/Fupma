@@ -39,7 +39,10 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 
     public function getNumOfElements ($queryResult) {
 
-        return !is_bool($queryResult) ? $queryResult->rowCount() : false;
+        return
+            !is_bool($queryResult)
+                ? $queryResult->rowCount()
+                : false;
 
     }
 
@@ -64,7 +67,10 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 
     public function getFetchArray ($queryResult) {
 
-        return !is_bool($queryResult) ? $queryResult->fetch(PDO::FETCH_ASSOC) : array();
+        return
+            !is_bool($queryResult)
+                ? $queryResult->fetch(PDO::FETCH_ASSOC)
+                : array();
 
     }
 

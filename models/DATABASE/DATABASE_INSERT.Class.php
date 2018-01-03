@@ -52,6 +52,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
                 $valuesString.= ' ,';
 
             }
+
         }
 
         return $valuesString;
