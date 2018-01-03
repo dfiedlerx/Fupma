@@ -40,7 +40,7 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 	}
 
 	//Função que executará algo no prepare. O parâmetro de ser um array.
-	protected function runPrepare (array $execArrayParameters = array()) {
+	protected function runPrepare (array $execArrayParameters = []) {
 
 		if (is_array($execArrayParameters)){
 

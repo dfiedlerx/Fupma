@@ -21,7 +21,7 @@ class homeController extends Engine\Controller
                 'home',
                 ['template'],
                 ['template'],
-                array ('algo' => $algo)
+                ['algo' => $algo]
 
             );
 	

@@ -87,10 +87,10 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     public function prepare(array $tableTerms,
                             array $tableNames,
-                            array $joinTerms = array(),
-                            array $conditionTerms = array(),
-                            array $orderTerms=array(),
-                            array $limitTerms=array()){
+                            array $joinTerms = [],
+                            array $conditionTerms = [],
+                            array $orderTerms = [],
+                            array $limitTerms = []){
 
     	return
             self::initPrepare(
@@ -103,9 +103,9 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     //Função que executará o prepare
 
-    public function execute(array $conditionValues = array(),
-                            array $orderValues = array(),
-                            array $limitValues = array()){
+    public function execute(array $conditionValues = [],
+                            array $orderValues = [],
+                            array $limitValues = []){
 
     	return
             self::runPrepare(

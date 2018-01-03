@@ -27,9 +27,9 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 	}
 
     //Função que retorna possíveis itens adicionais que foram solicitados. Sendo eles: Order, Limit e WHERE
-    protected function additionalTerms (array $conditionTerms = array(),
-                                        array $orderTerms = array(),
-                                        array $limitTerms = array()) {
+    protected function additionalTerms (array $conditionTerms = [],
+                                        array $orderTerms = [],
+                                        array $limitTerms = []) {
 
         $additionalTerms = "";
 

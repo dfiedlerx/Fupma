@@ -147,7 +147,7 @@ class Core
      * 
      */
 
-    private function defaultController() {
+    private function defaultController () {
 
         $this->currentController = DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
 
@@ -158,7 +158,7 @@ class Core
      *
      *      */
 
-    private function defaultAction() {
+    private function defaultAction () {
 
         $this->currentAction = DEFAULT_ACTION . ACTION_COMPLEMENT;
 

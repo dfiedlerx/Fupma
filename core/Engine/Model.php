@@ -6,7 +6,7 @@
  */
 
 
-use DATABASE as DATABASE;
+use DATABASE;
 
 class Model
 {
