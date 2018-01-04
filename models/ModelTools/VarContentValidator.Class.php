@@ -13,72 +13,72 @@ class VarContentValidator
 {
 
     //Método que apenas filtra uma variavel com um filtro fixo ou personalizado
-    public static function internalFilter (string $stringToFilter, int $typeOfFilter = FILTER_SANITIZE_STRING) :boll {
+    public static function internalFilter (string $suspect, int $typeOfFilter = FILTER_SANITIZE_STRING) :boll {
 
-        return filter_var ($stringToFilter, $typeOfFilter);
+        return filter_var ($suspect, $typeOfFilter);
 
     }
 
     //Método responsável por retornar se determinado conteudo e do tipo email
-    public static function isAValidEmail (string $contentToValidate) :boll {
+    public static function isAValidEmail (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_EMAIL);
+        return filter_var ($suspect, FILTER_VALIDATE_EMAIL);
 
     }
 
     //Verifica se o conteudo e do tipo inteiro
-    public static function isAValidInt (string $contentToValidate) :boll {
+    public static function isAValidInt (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_INT);
+        return filter_var ($suspect, FILTER_VALIDATE_INT);
 
     }
 
     //Verifica se o conteudo é uma url
-    public static function isAValidURL (string $contentToValidate) :boll {
+    public static function isAValidURL (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_URL);
+        return filter_var ($suspect, FILTER_VALIDATE_URL);
 
     }
 
     //Verifica se o conteudo é um endereço IP
-    public static function isAValidIPAddress (string $contentToValidate) :boll {
+    public static function isAValidIPAddress (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_IP);
+        return filter_var ($suspect, FILTER_VALIDATE_IP);
 
     }
 
     //Verifica se o conteúdo é do tipo max
-    public static function isAValidMacAddress (string $contentToValidate) :boll {
+    public static function isAValidMacAddress (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_MAC);
+        return filter_var ($suspect, FILTER_VALIDATE_MAC);
 
     }
 
     //Verifica se o conteudo e um dominio
-    public static function isAValidDomain (string $contentToValidate) :boll {
+    public static function isAValidDomain (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_DOMAIN);
+        return filter_var ($suspect, FILTER_VALIDATE_DOMAIN);
 
     }
 
     //Verifica se o conteudo e do tipo boolean
-    public static function isAValidBoolean (string $contentToValidate) :boll {
+    public static function isAValidBoolean (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_BOOLEAN);
+        return filter_var ($suspect, FILTER_VALIDATE_BOOLEAN);
 
     }
 
     //Veirifica se o conteudo e do tipo Float
-    public static function isAValidFloat (string $contentToValidate) :boll {
+    public static function isAValidFloat (string $suspect) :boll {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_FLOAT);
+        return filter_var ($suspect, FILTER_VALIDATE_FLOAT);
 
     }
 
     //Verifica se o conteudo é um Regex válido
-    public static function isAValidRegexExp (string $contentToValidate) :bool {
+    public static function isAValidRegexExp (string $suspect) :bool {
 
-        return filter_var ($contentToValidate, FILTER_VALIDATE_REGEXP);
+        return filter_var ($suspect, FILTER_VALIDATE_REGEXP);
 
     }
 
@@ -89,6 +89,19 @@ class VarContentValidator
 
     }
 
+    //Verifica se determinada string é um json
+    public static function isAJson (string $suspect) :bool {
 
+        json_decode($suspect);
+        return (json_last_error() == JSON_ERROR_NONE);
+
+    }
+
+    //Verifica se variável é um array
+    public static function isAArray ($suspect) :bool {
+
+        return is_array($suspect);
+
+    }
 
 }
