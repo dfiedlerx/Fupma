@@ -6,7 +6,10 @@
 *
 */
 
-
+/**
+ * Class DATABASE_QUERY_GENERATE
+ * @package DATABASE
+ */
 abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 
 	/*
@@ -20,13 +23,25 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 	* O segundo parametro é o conector que ficará entre os termos. Nesse caso o padrão sera o ','
 	*
 	*/
+    /**
+     * Gera os termos separados por algo. Virgula por DEFAULT
+     * @param array $tableTerms
+     * @param string $intoTerms
+     * @return string
+     */
 	protected function generateTerms(array $tableTerms, string $intoTerms = ',') {
 
 		return implode ($intoTerms,$tableTerms);
 
 	}
 
-    //Função que retorna possíveis itens adicionais que foram solicitados. Sendo eles: Order, Limit e WHERE
+    /**
+     * Função que retorna possíveis itens adicionais que foram solicitados. Sendo eles: Order, Limit e WHERE
+     * @param array $conditionTerms
+     * @param array $orderTerms
+     * @param array $limitTerms
+     * @return string
+     */
     protected function additionalTerms (array $conditionTerms = [],
                                         array $orderTerms = [],
                                         array $limitTerms = []) {
@@ -55,21 +70,24 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 
     }
 
-
-    /* Função que irá gerar os termos de um where.
-    * Será passada uma matriz em que:
-    * A chave dessa matriz fará referência ao Nome do primeiro termo.
-    * O conteúdo desta chave será dois valores no qual o primeiro diz referência à condição de igualdade com o primeiro termo e
-    * o segundo é o conectivo com o próximo sendo ele 'AND', 'OR', etc.
-    * EX:
-    * array (
-    *  array ('chave1','=','cavalo', 'AND'),
-    *  array ('chave2,'=','Mula', 'OR'),
-    *  array ('chave3','=','Louco', '')
-    * );
-    * O resultado sairá: chave1 = cavalo AND chave2 = Mula OR chave3 = Louco
-    * Note que o último termo tem conectivo vazio já que não haverá mais com o que conectar.
-    */
+    /**
+     * Função que irá gerar os termos de um where.
+     * Será passada uma matriz em que:
+     * A chave dessa matriz fará referência ao Nome do primeiro termo.
+     * O conteúdo desta chave será dois valores no qual o primeiro diz referência à condição de igualdade com o primeiro termo e
+     * o segundo é o conectivo com o próximo sendo ele 'AND', 'OR', etc.
+     * EX:
+     * array (
+     *  array ('chave1','=','cavalo', 'AND'),
+     *  array ('chave2,'=','Mula', 'OR'),
+     *  array ('chave3','=','Louco', '')
+     * );
+     * O resultado sairá: chave1 = cavalo AND chave2 = Mula OR chave3 = Louco
+     * Note que o último termo tem conectivo vazio já que não haverá mais com o que conectar.
+     *
+     * @param array $terms
+     * @return string
+     */
     protected function generateConditionTerms (array $terms) {
 
         $preString = '';

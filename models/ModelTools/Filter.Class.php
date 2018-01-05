@@ -3,11 +3,14 @@
 * Classe com o intuito de filtrar variaveis com conteúdos externos
 */
 
+/**
+ * Class Filter
+ * @package ModelTools
+ */
 class Filter {
 
     /**
      * Método que apenas filtra uma variavel interna
-     *
      * @param string $stringToFilter
      * @param int $typeOfFilter
      * @return mixed
@@ -44,7 +47,6 @@ class Filter {
 
     /**
      * Função privada que retorna qual o tipo de reuisição o sistema está enviando.
-     *
      * @param int $typeRequisition
      * @return int
      */

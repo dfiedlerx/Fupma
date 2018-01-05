@@ -6,7 +6,10 @@
  * 
  */
 
-
+/**
+ * Class Controller
+ * @package Engine
+ */
 class Controller
 {
 
@@ -18,9 +21,14 @@ class Controller
 
     }
 
-    /*
+    /**
      * Chama página de visão para o sistema.
-     */ 
+     * @param string $controllerName
+     * @param string $actionName
+     * @param string $viewName
+     * @param array $viewData
+     * @return bool
+     */
     protected function loadView (string $controllerName, string $actionName, string $viewName, array $viewData = []) {
 
         if (file_exists(VIEWS_DIRECTORY . $controllerName . '/' . $actionName . '/' . $viewName . VIEWS_COMPLEMENT . '.php')) {
@@ -35,6 +43,14 @@ class Controller
 
     }
 
+    /**
+     * @param string $templateName
+     * @param string $controllerName
+     * @param array $actionNames
+     * @param array $viewsNames
+     * @param array $viewData
+     * @return bool
+     */
     protected function loadTemplate (string $templateName,
                                      string $controllerName,
                                      array $actionNames,
@@ -53,8 +69,10 @@ class Controller
 
     }
 
-    /*
+    /**
      * Verifica se determinado parâmetro passado em uma url é um número.
+     * @param $number
+     * @return bool
      */
     protected function verifIfIsNumericParameter ($number) {
 
@@ -63,9 +81,12 @@ class Controller
         return $parameter === $number;
 
     }
-    /*
+
+    /**
      * Verifica se determinado parâmetro passado em uma url é um número inteiro.
-     */   
+     * @param $number
+     * @return bool
+     */
     protected  function verifIfIsIntParameter ($number) {
 		
         $parameter = $number;

@@ -8,6 +8,10 @@
 
 use DATABASE;
 
+/**
+ * Class Model
+ * @package Engine
+ */
 class Model
 {
     

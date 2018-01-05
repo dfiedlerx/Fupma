@@ -5,15 +5,18 @@
  * 
  */
 
-use Engine; 
+use Engine;
 
-
+/**
+ * Class Language
+ * @package ModelTools
+ */
  class Language extends Engine\model{
-     
-    /*
-     * Método que descobre a linguagem do usuário através do navegador.
-     * 
-     */ 
+
+     /**
+      * Método que descobre a linguagem do usuário através do navegador.
+      * @return mixed
+      */
     public static function getBrowserLanguage(){
 
         return

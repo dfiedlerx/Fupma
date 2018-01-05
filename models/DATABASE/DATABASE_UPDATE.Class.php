@@ -7,7 +7,10 @@
 *
 */
 
-
+/**
+ * Class DATABASE_UPDATE
+ * @package DATABASE
+ */
 class DATABASE_UPDATE extends DATABASE_TOOLS
 {
 
@@ -19,11 +22,14 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
     * O atributo "conditionTerms" faz referência às condições da atualização. 
     */
 
-    /*
-    * Função que irá gerar os valores para o tipo UPDATE
-    *
-    */
-
+    /**
+     * Função que irá gerar os valores para o tipo UPDATE
+     * @param array $tableNames
+     * @param array $tableTerms
+     * @param array $valueTerms
+     * @param array $conditionTerms
+     * @return string
+     */
     private function generateQuery (array $tableNames,
                                     array $tableTerms,
                                     array $valueTerms,
@@ -39,11 +45,14 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
     }
 
-    /*
-    * Aqui a chamada da query normal da classe UPDATE
-    *
-    */
-
+    /**
+     * Aqui a chamada da query normal da classe UPDATE
+     * @param array $tableNames
+     * @param array $tableTerms
+     * @param array $valueTerms
+     * @param array $conditionTerms
+     * @return bool|mixed
+     */
     public function query(array $tableNames,
                           array $tableTerms,
                           array $valueTerms,
@@ -69,8 +78,14 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
     *
     */
 
-    //Função que iniciará o prepare para UPDATE
-
+    /**
+     * Função que iniciará o prepare para UPDATE
+     * @param array $tableNames
+     * @param array $tableTerms
+     * @param array $valueTerms
+     * @param array $conditionTerms
+     * @return bool|mixed
+     */
     public function prepare(array $tableNames,
                             array $tableTerms,
                             array $valueTerms,
@@ -90,8 +105,12 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
 
     }
 
-    //Função que executará o prepare
-
+    /**
+     * Função que executará o prepare
+     * @param array $valueTerms
+     * @param array $conditionTerms
+     * @return bool
+     */
     public function execute(array $valueTerms,
                             array $conditionTerms){
 

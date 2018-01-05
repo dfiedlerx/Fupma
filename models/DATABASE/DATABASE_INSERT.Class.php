@@ -8,7 +8,10 @@
 *
 */
 
-
+/**
+ * Class DATABASE_INSERT
+ * @package DATABASE
+ */
 class DATABASE_INSERT extends DATABASE_TOOLS{
 
     /*
@@ -19,11 +22,13 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
     *
     */
 
-    /*
-    * Função que irá gerar a query do tipo INSERT
-    *
-    */
-
+    /**
+     * Função que irá gerar a query do tipo INSERT
+     * @param array $tableNames
+     * @param array $tableTerms
+     * @param array $valueTerms
+     * @return string
+     */
     private function generateQuery (array $tableNames,  array $tableTerms, array $valueTerms){
 
         return
@@ -35,7 +40,11 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
 
     }
 
-    //Função que gera os valores a serem inseridos. Podendo ser de um a indefinido.
+    /**
+     * Função que gera os valores a serem inseridos. Podendo ser de um a indefinido.
+     * @param array $valueTerms
+     * @return string
+     */
     private function generateValuesString (array $valueTerms) {
 
         $valuesString = '';
@@ -59,11 +68,13 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
 
     }
 
-     /*
-    * Aqui a chamada da query normal da classe UPDATE
-    *
-    */
-
+    /**
+     * Aqui a chamada da query normal da classe UPDATE
+     * @param array $tableNames
+     * @param array $tableTerms
+     * @param array $valueTerms
+     * @return mixed
+     */
     public function query(array $tableNames, array $tableTerms, array $valueTerms){
 
         return
@@ -80,8 +91,13 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
     *
     */
 
-    //Função que iniciará o prepare para UPDATE
-
+    /**
+     * Função que iniciará o prepare para UPDATE
+     * @param array $tableNames
+     * @param array $tableTerms
+     * @param array $valueTerms
+     * @return mixed
+     */
     public function prepare(array $tableNames, array $tableTerms, array $valueTerms){
 
         return
@@ -93,8 +109,11 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
 
     }
 
-    //Função que executará o prepare
-
+    /**
+     * Função que executará o prepare
+     * @param array $valueTerms
+     * @return bool
+     */
     public function execute(array $valueTerms){
 
         return self::runPrepare($valueTerms);

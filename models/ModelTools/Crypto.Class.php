@@ -4,6 +4,10 @@
 *Também fará comparações de criptografia.
 */
 
+/**
+ * Class Crypto
+ * @package ModelTools
+ */
 class Crypto
 {
 
@@ -63,7 +67,6 @@ class Crypto
      * @param string $targetString
      * @param string $hashKey
      * @return bool
-     *
      */
 	public static function hashComparer (string $targetString, string $hashKey){
             

@@ -5,19 +5,22 @@
 *
 */
 
-
+/**
+ * Class DATABASE_RUN
+ * @package DATABASE
+ */
 abstract class DATABASE_RUN extends DATABASE_CONNECTION
 {
 
 	//Atributo que comportará uma determinada prepare.
 	protected $DB_PREPARE;
 
-	/*
-	* Método de uso da propriedade query.
-	* Esse método exige filtragem prévia dos dados e é melhor utilizada quando não for preciso multiplas consultas.
-	*
-	*/
-
+    /**
+     * Método de uso da propriedade query.
+     * Esse método exige filtragem prévia dos dados e é melhor utilizada quando não for preciso multiplas consultas.
+     * @param string $queryString
+     * @return mixed
+     */
 	protected function runQuery (string $queryString) {
 
 		return self::$DB_CONNECTION->query($queryString);
@@ -31,7 +34,11 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 	*
 	*/
 
-	//Função que inicia o prepare para ser usado;
+    /**
+     * Função que inicia o prepare para ser usado;
+     * @param string $prepareString
+     * @return mixed
+     */
 	protected function initPrepare (string $prepareString) {
 
 		$this->DB_PREPARE = self::$DB_CONNECTION->prepare($prepareString);
@@ -39,7 +46,11 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 
 	}
 
-	//Função que executará algo no prepare. O parâmetro de ser um array.
+    /**
+     * Função que executará algo no prepare. O parâmetro de ser um array.
+     * @param array $execArrayParameters
+     * @return bool
+     */
 	protected function runPrepare (array $execArrayParameters = []) {
 
 		if (is_array($execArrayParameters)){

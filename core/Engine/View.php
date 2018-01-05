@@ -9,13 +9,17 @@
  *
  */
 
-
+/**
+ * Class View
+ * @package Engine
+ */
 class View {
 
-    /*
-        * Traz as depenências primordias Front-End do sistema automaticamente.
-        */
-
+    /**
+     * Traz as depenências primordias Front-End do sistema automaticamente.
+     * @param string $controllerName
+     * @param string $viewName
+     */
     public function loadDefaultFrontDependences (string $controllerName = '', string $viewName = '') {
 
         //Javascript Dependences
@@ -49,7 +53,13 @@ class View {
 
     }
 
-    //Traz uma dependência de view independente
+    /**
+     * Traz uma dependência de view independente
+     * @param string $dependeceDirectory
+     * @param string $controllerName
+     * @param string $fileName
+     * @param string $typeDependence
+     */
     public function loadSingularDependence (string $dependeceDirectory, string $controllerName , string $fileName, string $typeDependence) {
 
         if (file_exists($dependeceDirectory.'/'.$fileName.$controllerName.'/'.$typeDependence)) {

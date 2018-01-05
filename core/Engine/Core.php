@@ -6,6 +6,10 @@
  * 
  */
 
+/**
+ * Class Core
+ * @package Engine
+ */
 class Core
 {
 
@@ -33,7 +37,6 @@ class Core
     /*
      * Método que irá destrinchar a urlParameters e obtera o Controller e a action em um array.
      */
-
     private function makeParametersArray () {
 
         $this->urlParameters = explode('/', $this->urlParameters);
@@ -52,7 +55,6 @@ class Core
      * $currentAction;
      * 
      */
-
     private function setControllerAndAction () {
 
         if (!empty ($this->urlParameters[0])) {
@@ -73,7 +75,6 @@ class Core
     /*
      * Função que ira gerenciar qual action será chamada.
      */
-
     private function setAction () {
 
         return
@@ -87,7 +88,6 @@ class Core
      * Remove o primeiro parametro do array.
      *
      */
-
     private function removeFirstParameter () {
 
         array_shift($this->urlParameters);
@@ -98,7 +98,6 @@ class Core
      *  Remove o ultimo parâmetro do array
      * 
      */
-
     private function removeLastParameter () {
 
         array_pop($this->urlParameters);
@@ -118,7 +117,6 @@ class Core
      * na url como por exemplo. Makroup.com//////home/index////////
      * 
      */
-
     private function setAditionalParameters () {
 
         $aditionalParametersQuantity = count($this->urlParameters);
@@ -146,7 +144,6 @@ class Core
      * Seta o Controller Padrão;
      * 
      */
-
     private function defaultController () {
 
         $this->currentController = DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
@@ -156,8 +153,7 @@ class Core
     /*
      * Seta a action como padrão;
      *
-     *      */
-
+     */
     private function defaultAction () {
 
         $this->currentAction = DEFAULT_ACTION . ACTION_COMPLEMENT;
@@ -167,7 +163,6 @@ class Core
     /*
      * Faz a chamada das classes correspondetes de controller e view.
      */
-
     private function callControllerAndAction () {
 
         //Caso o Controller e a Action existam.
@@ -196,7 +191,6 @@ class Core
      * Função que valida se o numero de argumentos passados é igual ao da action em questão.
      * É uma função totalmente maleavel e se adapta a qualquer actopn.
      */
-
     private function validateNumberOfParams () {
 
         $methodArguments = new \ReflectionMethod ($this->currentController, $this->currentAction);
@@ -214,7 +208,6 @@ class Core
      * Chama uma página informando que o conteudo não foi encontrado.
      * 
      */
-
     private function notFoundPage () {
 
         $controllerConstant = 'pageNotFound\pageNotFound' . CONTROLLERS_COMPLEMENT;

@@ -9,6 +9,10 @@
 
 use PDO;
 
+/**
+ * Class DATABASE_CONNECTION
+ * @package DATABASE
+ */
 abstract class DATABASE_CONNECTION
 {
 	
@@ -17,17 +21,17 @@ abstract class DATABASE_CONNECTION
     private static $DB_USER;
     private static $DB_PASS;
 
-    //Construtor que realizará a conexão com o banco de dados.
-    
+    /**
+     * DATABASE_CONNECTION constructor.
+     */
     public function __construct () {
 
         $this->PDOParameters ();
         $this->PDOCaller (); 
 
     }
-    
-    
-    //Método Que pegára os dados do construtor e realizará a Conexão. 
+
+    //Método Que pegára os dados do construtor e realizará a Conexão.
     private  function PDOCaller () {
 
         if(!self::$DB_CONNECTION){

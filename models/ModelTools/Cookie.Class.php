@@ -7,6 +7,10 @@
 *
 */
 
+/**
+ * Class Cookie
+ * @package ModelTools
+ */
 class Cookie
 {
 
@@ -60,7 +64,6 @@ class Cookie
      * @param string $cookieDirectory
      * @return bool
      */
-
  	public static function deleteCookie (string $cookieName, string $cookieDirectory = '/'){
 
  		unset ($_COOKIE [$cookieName]); return setcookie($cookieName, 'DELETED', 1, $cookieDirectory);

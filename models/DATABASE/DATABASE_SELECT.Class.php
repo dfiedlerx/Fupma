@@ -5,7 +5,10 @@
 * Esta classe é filha da classe DATABASE_TOOLS
 */
 
-
+/**
+ * Class DATABASE_SELECT
+ * @package DATABASE
+ */
 class DATABASE_SELECT extends DATABASE_TOOLS{
 
     /*
@@ -17,12 +20,16 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     * O atributo "orderTerms" faz referência à alguma possível necessidade de ORDER.
     */
 
-    
-    /*
-    * Função que irá gerar os valores para o tipo SELECT
-    *
-    */
-
+    /**
+     *  Função que irá gerar os valores para o tipo SELECT
+     * @param array $tableTerms
+     * @param array $tableNames
+     * @param array $joinTerms
+     * @param array $conditionTerms
+     * @param array $orderTerms
+     * @param array $limitTerms
+     * @return string
+     */
     private function generateQuery (array $tableTerms,
                                     array $tableNames,
                                     array $joinTerms = array(),
@@ -39,6 +46,10 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     }
 
+    /**
+     * @param array $joinTerms
+     * @return string
+     */
     private function generateJoinTerms (array $joinTerms) {
 
         $joinStringToReturn = ' ';
@@ -57,11 +68,16 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     }
 
-    /*
-    * Aqui a chamada da query normal da classe SELECT
-    *
-    */
-
+    /**
+     * Aqui a chamada da query normal da classe SELECT
+     * @param array $tableTerms
+     * @param array $tableNames
+     * @param array $joinTerms
+     * @param array $conditionTerms
+     * @param array $orderTerms
+     * @param array $limitTerms
+     * @return mixed
+     */
     public function query(array $tableTerms,
                           array $tableNames,
                           array $joinTerms = array(),
@@ -83,8 +99,16 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
     *
     */
 
-    //Função que iniciará o prepare para SELECT
-
+    /**
+     * Função que iniciará o prepare para SELECT
+     * @param array $tableTerms
+     * @param array $tableNames
+     * @param array $joinTerms
+     * @param array $conditionTerms
+     * @param array $orderTerms
+     * @param array $limitTerms
+     * @return mixed
+     */
     public function prepare(array $tableTerms,
                             array $tableNames,
                             array $joinTerms = [],
@@ -101,8 +125,13 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
 
     }
 
-    //Função que executará o prepare
-
+    /**
+     * Função que executará o prepare
+     * @param array $conditionValues
+     * @param array $orderValues
+     * @param array $limitValues
+     * @return bool
+     */
     public function execute(array $conditionValues = [],
                             array $orderValues = [],
                             array $limitValues = []){
