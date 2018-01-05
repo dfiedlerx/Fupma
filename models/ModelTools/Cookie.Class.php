@@ -10,21 +10,27 @@
 class Cookie
 {
 
- 	/*
- 	* Método que Verifica se o Cookie existe e nao está vazio
- 	*/
-
+    /**
+     * Método que Verifica se o Cookie existe e nao está vazio
+     *
+     * @param string $cookieName
+     * @return bool
+     */
 	public static function searchCookie(string $cookieName){
 
         return isset($_COOKIE[$cookieName]) && self::readCookie($cookieName) != 'DELETED';
 
 	} 
 
-
- 	/*
- 	* Método que cria ou edita Cookies
- 	*/
-
+    /**
+     * Método que cria ou edita Cookies
+     *
+     * @param string $cookieName
+     * @param $cookieContent
+     * @param int $cookieExpiration
+     * @param string $cookieDirectory
+     * @return bool
+     */
 	public static function setCookie(string $cookieName, $cookieContent, int $cookieExpiration = DEFAULT_COOKIE_EXPIRATION, string $cookieDirectory = '/'){
 
 		$_COOKIE [$cookieName] = $cookieContent; 
@@ -33,10 +39,12 @@ class Cookie
 	}
 
 
- 	/*
- 	* Método que lê Cookies
- 	*/
-
+    /**
+     * Método que lê Cookies
+     *
+     * @param string $cookieName
+     * @return mixed|null
+     */
 	public static function readCookie (string $cookieName){
 
 		return 
@@ -45,9 +53,13 @@ class Cookie
 	}
 
 
-	/*
- 	* Método que Deleta Cookies
- 	*/
+    /**
+     * Método que Deleta Cookies
+     *
+     * @param string $cookieName
+     * @param string $cookieDirectory
+     * @return bool
+     */
 
  	public static function deleteCookie (string $cookieName, string $cookieDirectory = '/'){
 

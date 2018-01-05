@@ -89,7 +89,13 @@ class VarContentValidator
 
     }
 
-    //Verifica se determinada string é um json
+    /**
+     * Verifica se determinada string é um json
+     *
+     * @param string $suspect
+     * @return bool
+     */
+
     public static function isAJson (string $suspect) :bool {
 
         json_decode($suspect);

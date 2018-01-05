@@ -5,27 +5,33 @@
 
 class Filter {
 
-
-    //Método que apenas filtra uma variavel interna
+    /**
+     * Método que apenas filtra uma variavel interna
+     *
+     * @param string $stringToFilter
+     * @param int $typeOfFilter
+     * @return mixed
+     */
     public static function internalFilter (string $stringToFilter, int $typeOfFilter = FILTER_SANITIZE_STRING) {
 
         return filter_var ($stringToFilter, $typeOfFilter);
 
     }
 
-	/*
-
-	Função publica que retorna Conteudo já filtrado
-
-	* Atributos necessários
-	* Valor para $typeRequisition:
-	* 1 - GET
-	* 2 - POST
-	* 3 - COOKIE
-	* 4 - SERVER
-	* 5 - ENV
-	*/
-
+    /**
+     * Atributos necessários
+     * Valor para $typeRequisition:
+     * 1 - GET
+     * 2 - POST
+     * 3 - COOKIE
+     * 4 - SERVER
+     * 5 - ENV
+     *
+     * @param int $typeRequisition
+     * @param string $nameVar
+     * @param int $typeOfFilter
+     * @return mixed
+     */
 	public static function externalFilter (
 	    int $typeRequisition,
         string $nameVar,
@@ -36,9 +42,12 @@ class Filter {
 
 	}
 
-	/*
-	* Função privada que retorna qual o tipo de reuisição o sistema está enviando.
-	*/
+    /**
+     * Função privada que retorna qual o tipo de reuisição o sistema está enviando.
+     *
+     * @param int $typeRequisition
+     * @return int
+     */
 	private static function getTypeRequisition (int $typeRequisition) {
 
 		if ($typeRequisition == 1){
