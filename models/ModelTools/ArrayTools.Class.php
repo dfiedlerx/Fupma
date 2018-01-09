@@ -1,12 +1,9 @@
-<?php
+<?php namespace ModelTools;
 /**
- * Created by PhpStorm.
- * User: Developer5
- * Date: 04/01/2018
- * Time: 16:02
+ * Possui alguma das funções mais comuns que se pode precisar fazer
+ * com arrays durante o funcionamento do sistema.
+ *
  */
-
-namespace ModelTools;
 
 /**
  * Class ArrayTools
@@ -22,11 +19,11 @@ class ArrayTools
      * @param array $termsToLook
      * @return bool
      */
-    public static function isAExistsKeys (array $suspect, array $termsToLook):bool {
+    public static function isAExistsKeys (array $suspect, array $keysToLook) :bool {
 
-        foreach ($termsToLook as $currentTerm) {
+        foreach ($keysToLook as $currentKey) {
 
-            if (!isset ($suspect[$currentTerm])) {
+            if (!array_key_exists ($currentKey, $suspect)) {
 
                 return false;
 
@@ -35,6 +32,52 @@ class ArrayTools
         }
 
         return true;
+
+    }
+
+    /**
+     * Verifica se determinado termo existe no array e não e nulo
+     * @param array $suspect
+     * @param array $termsToLook
+     * @return bool
+     */
+    public static function isAExistsKeysAndNotNull (array $suspect, array $keysToLook) :bool {
+
+        foreach ($keysToLook as $currentKey) {
+
+            if (!isset ($currentKey, $suspect)) {
+
+                return false;
+
+            }
+
+        }
+
+        return true;
+
+    }
+
+    /**
+     * Conta a quantidade de elementos de um array
+     * @param array $array
+     * @return int
+     */
+    public static function countArray (array $array) : int {
+
+        return count ($array);
+
+    }
+
+    /**
+     * Verifica se um ou mais termos existem em um array
+     * @param array $suspect
+     * @param array $termsToLook
+     * @param bool $caseSensitive
+     * @return bool
+     */
+    public static function isAExistsTerm (array $suspect, array $termsToLook, bool $caseSensitive = false) : bool {
+
+        return in_array ($termsToLook, $suspect, $caseSensitive);
 
     }
 
