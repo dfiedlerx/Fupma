@@ -33,7 +33,6 @@ class Controller
 
         if (file_exists(VIEWS_DIRECTORY . $controllerName . '/' . $actionName . '/' . $viewName . VIEWS_COMPLEMENT . '.php')) {
 
-            extract($viewData);
             include VIEWS_DIRECTORY . $controllerName . '/' . $actionName. '/' . $viewName . VIEWS_COMPLEMENT . '.php';
             return true;
 
@@ -59,7 +58,6 @@ class Controller
 
         if (file_exists(TEMPLATES_DIRECTORY . $templateName . TEMPLATES_COMPLEMENT . '.php')) {
 
-			extract($viewData);
             include TEMPLATES_DIRECTORY  . $templateName . TEMPLATES_COMPLEMENT . '.php';
             return true;
 

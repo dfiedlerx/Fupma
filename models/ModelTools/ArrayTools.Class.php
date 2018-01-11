@@ -81,4 +81,15 @@ class ArrayTools
 
     }
 
+    /**
+     * Reorganiza valores de um array
+     * @param array $arrayToTrate
+     * @return array
+     */
+    public static function organizeValuesWithNumbers (array $arrayToTrate) {
+
+        return array_values ($arrayToTrate);
+
+    }
+
 }
