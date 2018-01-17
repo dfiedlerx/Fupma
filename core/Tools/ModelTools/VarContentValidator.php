@@ -1,4 +1,4 @@
-<?php namespace ModelTools;
+<?php namespace Tools\ModelTools;
 /**
  * Fupma
  *

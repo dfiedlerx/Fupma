@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 /* Classe: DATABASE_TOOLS
 *
 * Classe que terá como intuito a contenção dos métodos úteis a qualquer classe de INSERT, DELETE, UPDATE, JOIN, etc;

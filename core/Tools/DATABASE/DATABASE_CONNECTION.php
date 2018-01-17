@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 
 /*
 * Classe criada para se conectar ao banco de Dados.

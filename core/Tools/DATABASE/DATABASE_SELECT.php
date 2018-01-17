@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 /*Esta classe tem como objetivo trazer dados da DATABASE
 * Esta classe só poderá ser utilizada quando os dados retornados nao dependerem de alguma coorelação com outras tabelas.
 * No caso citado acima, a classe que deverá ser utilizada é a DATABASE_JOIN

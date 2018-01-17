@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 /*
 * 
 * Classe que ficará encarregada de realizar Inserts no banco de Dados.

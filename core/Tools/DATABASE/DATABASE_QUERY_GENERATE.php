@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 /*
 * Essa classe é encarregada de gerar as strings que serão usadas
 * nas consultas ao Banco de Dados.

@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 /*
 * Esta classe tem como objetivo deletar dados na DATABASE
 * É uma classe que exige cuidados acima do normal. Em detrimento disso, as verificações são maiores.

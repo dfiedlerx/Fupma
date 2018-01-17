@@ -1,4 +1,4 @@
-<?php namespace ModelTools;
+<?php namespace Tools\ModelTools;
 /*
 * Classe com o intuito de filtrar variaveis com conteúdos externos
 */

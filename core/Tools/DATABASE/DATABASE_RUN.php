@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 /* Classe que é encarregada de encaminhar as querys para execução no banco.
 * Essa classe é filha da classe DATABASE_CONNECTION e mãe da Classe DATABASE_TOOLS.
 * Nao há necessidade de comunicação com outras calsses do sistema.

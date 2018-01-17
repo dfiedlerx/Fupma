@@ -1,4 +1,4 @@
-<?php namespace ModelTools;
+<?php namespace Tools\ModelTools;
 /*
 * Classe destinada a manipulação de Cookies do sistema
 * Cria, edita, deleta, lê, verifica existência.

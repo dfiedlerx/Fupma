@@ -1,4 +1,4 @@
-<?php namespace ModelTools;
+<?php namespace Tools\ModelTools;
 /**
  * Possui alguma das funções mais comuns que se pode precisar fazer
  * com arrays durante o funcionamento do sistema.

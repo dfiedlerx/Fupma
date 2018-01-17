@@ -1,4 +1,4 @@
-<?php namespace DATABASE;
+<?php namespace Tools\DATABASE;
 /*
 * Classe com o único intuito de atualizar dados já existentes na DATABASE.
 * Usará como parâmetros: "tableTerms", "tableNames", "conditionTerms".

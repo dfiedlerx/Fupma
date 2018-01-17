@@ -1,4 +1,4 @@
-<?php namespace ModelTools;
+<?php namespace Tools\ModelTools;
 
 /* 
  * Classe encarregada de gerenciar a linguagem do sistema.

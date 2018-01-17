@@ -6,7 +6,7 @@
  */
 
 
-use DATABASE;
+use Tools\DATABASE as DATABASE;
 
 /**
  * Class Model
