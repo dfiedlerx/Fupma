@@ -1,13 +1,15 @@
-================ FUPMA - Full PHP MVC Architecture ================
+﻿================ FUPMA - Full PHP MVC Architecture ================
 
 :::::Novas Functionalidades:::::
 
  - Ajax.
+ - Uso de Cache
  - Gerenciamento de FTP.
  - Gerenciamento de arquivo.
  - Upload.
  - Manipulação de imagens.
  - Emails.
+ - Manipulação de strings.
  - Logs.
  - DATABASE com suporte a commit(), begginTransation(), rollBack(), Verificação se a query executou com sucesso e suporte a bindValue().
  - Exceptions e Handle Exceptions.
