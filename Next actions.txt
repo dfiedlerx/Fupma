@@ -6,17 +6,17 @@
  - Gerenciamento de FTP.
  - Gerenciamento de arquivo.
  - Upload.
- - ManipulaÁ„o de imagens.
+ - Manipula√ß√£o de imagens.
  - Emails.
  - Logs.
- - DATABASE com suporte a commit(), begginTransation(), rollBack(), VerificaÁ„o se a query executou com sucesso e suporte a bindValue().
+ - DATABASE com suporte a commit(), begginTransation(), rollBack(), Verifica√ß√£o se a query executou com sucesso e suporte a bindValue().
  - Exceptions e Handle Exceptions.
 
 :::::Ajustes:::::
 
- - OrganizaÁ„o das Views
- - Avaliar uma possivel separaÁ„o por modulos.
- - Avaliar se as rotas realmente ser„o por criaÁ„o direta de controller/action/pat‚metros ou ser· por definiÁ„o em um arquivo de rotas.
+ - Organiza√ß√£o das Views
+ - Avaliar uma possivel separa√ß√£o por modulos.
+ - Avaliar se as rotas realmente ser√£o por cria√ß√£o direta de controller/action/patr√¢metros ou ser√£o por defini√ß√£o em um arquivo de rotas.
  - Retirar da Model as classes Tools do framework.
  - Avaliar melhora de gerenciamento de templates e views.
  
