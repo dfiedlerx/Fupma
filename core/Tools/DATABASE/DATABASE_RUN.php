@@ -64,4 +64,24 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
 
 	}
 
+    /**
+     * Inicia um modo seguro em que todas as querys seguintes deverão executar com sucesso para serem validadas.
+     * @return mixed
+     */
+	protected function beginTransaction () {
+
+	    return self::$DB_CONNECTION->beginTransaction();
+
+    }
+
+    /**
+     * Complemento da função beginTransaction que salva as querys.
+     * @return mixed
+     */
+    protected function commit () {
+
+	    return self::$DB_CONNECTION->commit ();
+
+    }
+
 }

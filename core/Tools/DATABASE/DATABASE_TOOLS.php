@@ -31,9 +31,12 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * @param string $sequenceName
      * @return mixed
      */
-    public function getLastInsertId (string $sequenceName) {
+    public function getLastInsertId (string $sequenceName = '') {
 
-        return self::$DB_CONNECTION->lastInsertId($sequenceName);
+        return
+            $sequenceName === ''
+                ? self::$DB_CONNECTION->lastInsertId ()
+                : self::$DB_CONNECTION->lastInsertId($sequenceName);
 
     }
 
@@ -91,12 +94,15 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      */
     public function getFetchAllArray ($queryResult) {
 
-        return $queryResult->fetchAll(PDO::FETCH_ASSOC);
+        return
+            !is_bool ($queryResult)
+                ? $queryResult->fetchAll(PDO::FETCH_ASSOC)
+                : array();
 
     }
 
     /**
-     * Método que verifica se o parametro pra se formar o Where foram
+     * Método que verifica se o parametro pra se formar o Where foram realmente preenchidos e existem.
      * @param $conditionTerms
      * @return bool
      */
