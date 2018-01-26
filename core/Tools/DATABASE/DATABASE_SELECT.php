@@ -9,7 +9,8 @@
  * Class DATABASE_SELECT
  * @package DATABASE
  */
-class DATABASE_SELECT extends DATABASE_TOOLS{
+class DATABASE_SELECT extends DATABASE_TOOLS
+{
 
     /*
     * Os atributos da classe DATABASE_SELECT
@@ -35,7 +36,7 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
                                     array $joinTerms = array(),
                                     array $conditionTerms = array(),
                                     array $orderTerms = array(),
-                                    array $limitTerms = array()) {
+                                    array $limitTerms = array()) : string {
 
     	return
             'SELECT '
@@ -50,7 +51,7 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
      * @param array $joinTerms
      * @return string
      */
-    private function generateJoinTerms (array $joinTerms) {
+    private function generateJoinTerms (array $joinTerms) : string {
 
         $joinStringToReturn = ' ';
 
@@ -83,7 +84,7 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
                           array $joinTerms = array(),
                           array $conditionTerms = array(),
                           array $orderTerms=array(),
-                          array $limitTerms=array()){
+                          array $limitTerms=array()) {
 
     	return
             self::runQuery(
@@ -134,7 +135,7 @@ class DATABASE_SELECT extends DATABASE_TOOLS{
      */
     public function execute(array $conditionValues = [],
                             array $orderValues = [],
-                            array $limitValues = []){
+                            array $limitValues = []) : bool {
 
     	return
             self::runPrepare(

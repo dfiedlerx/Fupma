@@ -12,7 +12,8 @@
  * Class DATABASE_INSERT
  * @package DATABASE
  */
-class DATABASE_INSERT extends DATABASE_TOOLS{
+class DATABASE_INSERT extends DATABASE_TOOLS
+{
 
     /*
     * Os atributos da classe DATABASE_INSERT
@@ -29,7 +30,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
      * @param array $valueTerms
      * @return string
      */
-    private function generateQuery (array $tableNames,  array $tableTerms, array $valueTerms){
+    private function generateQuery (array $tableNames,  array $tableTerms, array $valueTerms) :string {
 
         return
             'INSERT INTO '
@@ -45,7 +46,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
      * @param array $valueTerms
      * @return string
      */
-    private function generateValuesString (array $valueTerms) {
+    private function generateValuesString (array $valueTerms) :string {
 
         $valuesString = '';
         $currentElement = 0;
@@ -75,7 +76,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
      * @param array $valueTerms
      * @return mixed
      */
-    public function query(array $tableNames, array $tableTerms, array $valueTerms){
+    public function query (array $tableNames, array $tableTerms, array $valueTerms) {
 
         return
             self::runQuery(
@@ -98,7 +99,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
      * @param array $valueTerms
      * @return mixed
      */
-    public function prepare(array $tableNames, array $tableTerms, array $valueTerms){
+    public function prepare (array $tableNames, array $tableTerms, array $valueTerms) {
 
         return
             self::initPrepare(
@@ -114,7 +115,7 @@ class DATABASE_INSERT extends DATABASE_TOOLS{
      * @param array $valueTerms
      * @return bool
      */
-    public function execute(array $valueTerms){
+    public function execute (array $valueTerms) :bool {
 
         return self::runPrepare($valueTerms);
 

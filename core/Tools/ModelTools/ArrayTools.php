@@ -86,7 +86,7 @@ class ArrayTools
      * @param array $arrayToTrate
      * @return array
      */
-    public static function organizeValuesWithNumbers (array $arrayToTrate) {
+    public static function organizeValuesWithNumbers (array $arrayToTrate) :array {
 
         return array_values ($arrayToTrate);
 

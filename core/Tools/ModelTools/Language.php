@@ -11,7 +11,8 @@ use Engine;
  * Class Language
  * @package ModelTools
  */
- class Language extends Engine\model{
+ class Language extends Engine\model
+ {
 
      /**
       * Método que descobre a linguagem do usuário através do navegador.

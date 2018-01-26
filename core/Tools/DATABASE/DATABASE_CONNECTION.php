@@ -34,7 +34,7 @@ abstract class DATABASE_CONNECTION
     //Método Que pegára os dados do construtor e realizará a Conexão.
     private  function PDOCaller () {
 
-        if(!self::$DB_CONNECTION){
+        if(!self::$DB_CONNECTION) {
 
              try{
 

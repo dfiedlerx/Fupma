@@ -29,7 +29,7 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
      * @param string $intoTerms
      * @return string
      */
-	protected function generateTerms(array $tableTerms, string $intoTerms = ',') {
+	protected function generateTerms(array $tableTerms, string $intoTerms = ',') :string {
 
 		return implode ($intoTerms,$tableTerms);
 
@@ -44,7 +44,7 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
      */
     protected function additionalTerms (array $conditionTerms = [],
                                         array $orderTerms = [],
-                                        array $limitTerms = []) {
+                                        array $limitTerms = []) :string {
 
         $additionalTerms = "";
 
@@ -88,7 +88,7 @@ abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
      * @param array $terms
      * @return string
      */
-    protected function generateConditionTerms (array $terms) {
+    protected function generateConditionTerms (array $terms) :string {
 
         $preString = '';
 

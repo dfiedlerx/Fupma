@@ -20,7 +20,7 @@ class Cookie
      * @param string $cookieName
      * @return bool
      */
-	public static function searchCookie(string $cookieName){
+	public static function searchCookie(string $cookieName) :bool {
 
         return isset($_COOKIE[$cookieName]) && self::readCookie($cookieName) != 'DELETED';
 
@@ -35,7 +35,14 @@ class Cookie
      * @param string $cookieDirectory
      * @return bool
      */
-	public static function setCookie(string $cookieName, $cookieContent, int $cookieExpiration = DEFAULT_COOKIE_EXPIRATION, string $cookieDirectory = '/'){
+	public static function setCookie
+    (
+        string $cookieName,
+        $cookieContent,
+        int $cookieExpiration = DEFAULT_COOKIE_EXPIRATION,
+        string $cookieDirectory = '/'
+
+    ) : bool {
 
 		$_COOKIE [$cookieName] = $cookieContent; 
 		return setcookie ($cookieName, $cookieContent, $cookieExpiration, $cookieDirectory);
@@ -64,7 +71,7 @@ class Cookie
      * @param string $cookieDirectory
      * @return bool
      */
- 	public static function deleteCookie (string $cookieName, string $cookieDirectory = '/'){
+ 	public static function deleteCookie (string $cookieName, string $cookieDirectory = '/') :bool {
 
  		unset ($_COOKIE [$cookieName]); return setcookie($cookieName, 'DELETED', 1, $cookieDirectory);
 

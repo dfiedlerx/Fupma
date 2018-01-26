@@ -51,7 +51,7 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
      * @param array $execArrayParameters
      * @return bool
      */
-	protected function runPrepare (array $execArrayParameters = []) {
+	protected function runPrepare (array $execArrayParameters = []) :bool {
 
 		if (is_array($execArrayParameters)){
 
@@ -81,6 +81,16 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
     protected function commit () {
 
 	    return self::$DB_CONNECTION->commit ();
+
+    }
+
+    /**
+     * Complemento da função beginTransaction que reverte as querys
+     * @return mixed
+     */
+    protected function rollBack () {
+
+        return self::$DB_CONNECTION->rollBack ();
 
     }
 

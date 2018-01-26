@@ -46,7 +46,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * @param $queryResult
      * @return bool
      */
-    public function getNumOfElements ($queryResult) {
+    public function getNumOfElements ($queryResult) : bool {
 
         return
             !is_bool($queryResult)
@@ -61,7 +61,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * @param $queryResult
      * @return bool
      */
-    public function verifIfExistsOneOrMoreElements ($queryResult) {
+    public function verifIfExistsOneOrMoreElements ($queryResult) : bool {
 
         return self::getNumOfElements($queryResult) > 0;
 
@@ -75,12 +75,12 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * @param $queryResult
      * @return array
      */
-    public function getFetchArray ($queryResult) {
+    public function getFetchArray ($queryResult) : array {
 
         return
             !is_bool($queryResult)
                 ? $queryResult->fetch(PDO::FETCH_ASSOC)
-                : array();
+                : [];
 
     }
 
@@ -92,12 +92,12 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * @param $queryResult
      * @return mixed
      */
-    public function getFetchAllArray ($queryResult) {
+    public function getFetchAllArray ($queryResult) : array {
 
         return
             !is_bool ($queryResult)
                 ? $queryResult->fetchAll(PDO::FETCH_ASSOC)
-                : array();
+                : [];
 
     }
 
@@ -106,7 +106,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * @param $conditionTerms
      * @return bool
      */
-    protected function isConditionEmptyOrInvalid ($conditionTerms) {
+    protected function isConditionEmptyOrInvalid ($conditionTerms) : bool {
 
         return
             $conditionTerms == '' ||

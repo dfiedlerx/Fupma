@@ -10,7 +10,8 @@
  * Class DATABASE_DELETE
  * @package DATABASE
  */
-class DATABASE_DELETE extends DATABASE_TOOLS{
+class DATABASE_DELETE extends DATABASE_TOOLS
+{
 
 	/*
     * Os atributos da classe DATABASE_DELETE
@@ -24,7 +25,7 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
      * @param array $conditionTerms
      * @return string
      */
-    private function generateQuery (array $tableNames, array  $conditionTerms) {
+    private function generateQuery (array $tableNames, array  $conditionTerms) :string {
 
     	return
             'DELETE FROM '
@@ -59,7 +60,7 @@ class DATABASE_DELETE extends DATABASE_TOOLS{
      * @param array $conditionTerms
      * @return mixed
      */
-    public function prepare(array $tableNames,  array $conditionTerms){
+    public function prepare (array $tableNames,  array $conditionTerms) {
 
         return
             !$this->isConditionEmptyOrInvalid ($conditionTerms)

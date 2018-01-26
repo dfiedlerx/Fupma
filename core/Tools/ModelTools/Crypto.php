@@ -13,13 +13,13 @@ class Crypto
 
     /**
      * Função privada que irá gerar uma chave aleatória para senhas de usuários.
-     * Utiliza-se um Md5 sobre o tempo em milesegundos concatenado com um random de 10000 a 99999
-     *
+     * Utiliza-se um Md5 sobre o tempo em milesegundos concatenado com um random de 100000 a 999999
+     *php
      * @return string
      */
 	private static function hashKeyGenerator (){
 
-		return md5 (microtime().rand(10000,99999));
+		return md5 (microtime().mt_rand(100000,999999));
 
 	}
 
@@ -30,7 +30,7 @@ class Crypto
      * @param string $contentToConvert
      * @return string
      */
-	public static function passwordHashGenerator (string $contentToConvert){
+	public static function passwordHashGenerator (string $contentToConvert) :string {
 
 		return crypt($contentToConvert,'$2a$'.'08'.'$'.self::hashKeyGenerator().'$');
 
@@ -43,7 +43,7 @@ class Crypto
      *
      * @return string
      */
-	public static function systemHashGenerator (){
+	public static function systemHashGenerator () :string {
 
 		return
             md5(Filter::externalFilter(
@@ -68,7 +68,7 @@ class Crypto
      * @param string $hashKey
      * @return bool
      */
-	public static function hashComparer (string $targetString, string $hashKey){
+	public static function hashComparer (string $targetString, string $hashKey) :bool {
             
             return crypt($targetString, $hashKey) == $hashKey;
 

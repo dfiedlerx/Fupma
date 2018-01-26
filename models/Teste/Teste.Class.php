@@ -9,7 +9,6 @@ use Engine as Engine;
 class Teste extends Engine\model
 {
 
-
 	public function callTeste () {
 
 		return $this->gettDatabaseInfo()->fetchAll();
@@ -18,8 +17,7 @@ class Teste extends Engine\model
 
 	private function gettDatabaseInfo () {
 
-
-		return self::$DATABASE_SELECT->query (['*'], ['produto_imp_arquivo']);
+		return self::$DATABASE_SELECT->query (['*'], ['produto_imp_arquivo'], [], ['id', '>', 125]);
 
 	}
 

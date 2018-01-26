@@ -50,7 +50,7 @@ class Filter {
      * @param int $typeRequisition
      * @return int
      */
-	private static function getTypeRequisition (int $typeRequisition) {
+	private static function getTypeRequisition (int $typeRequisition) :int {
 
 		if ($typeRequisition == 1){
 

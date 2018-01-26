@@ -33,7 +33,7 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
     private function generateQuery (array $tableNames,
                                     array $tableTerms,
                                     array $valueTerms,
-                                    array $conditionTerms) {
+                                    array $conditionTerms) : string {
 
         return
             'UPDATE '
@@ -53,10 +53,10 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
      * @param array $conditionTerms
      * @return bool|mixed
      */
-    public function query(array $tableNames,
+    public function query (array $tableNames,
                           array $tableTerms,
                           array $valueTerms,
-                          array $conditionTerms){
+                          array $conditionTerms) {
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
 
@@ -86,10 +86,10 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
      * @param array $conditionTerms
      * @return bool|mixed
      */
-    public function prepare(array $tableNames,
+    public function prepare (array $tableNames,
                             array $tableTerms,
                             array $valueTerms,
-                            array $conditionTerms){
+                            array $conditionTerms) {
 
         if (!$this->isConditionEmptyOrInvalid ($conditionTerms)) {
 
@@ -111,8 +111,7 @@ class DATABASE_UPDATE extends DATABASE_TOOLS
      * @param array $conditionTerms
      * @return bool
      */
-    public function execute(array $valueTerms,
-                            array $conditionTerms){
+    public function execute (array $valueTerms, array $conditionTerms) : bool {
 
         if (!$this->isConditionEmptyOrInvalid($conditionTerms)) {
 
