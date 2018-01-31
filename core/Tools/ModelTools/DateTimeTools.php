@@ -35,4 +35,11 @@ class DateTimeTools
 
     }
 
+    public function getIntervalBetweenDatesInSeconds (string $smallerDate, string $greaterDate) : int {
+
+        return strtotime($smallerDate) - strtotime($greaterDate);
+
+    }
+
+
 }
