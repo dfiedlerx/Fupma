@@ -5,6 +5,8 @@
 *
 */
 
+use PDOStatement;
+
 /**
  * Class DATABASE_RUN
  * @package DATABASE
@@ -13,7 +15,11 @@
 abstract class DATABASE_RUN extends DATABASE_CONNECTION
 {
 
-	//Atributo que comportará uma determinada prepare.
+
+    /**
+     * Atributo que comportará uma determinada prepare.
+     * @var PDOStatement
+     */
 	protected $DB_PREPARE;
 
     /**
@@ -50,9 +56,9 @@ abstract class DATABASE_RUN extends DATABASE_CONNECTION
     /**
      * Função que executará algo no prepare. O parâmetro de ser um array.
      * @param array $execArrayParameters
-     * @return bool
+     * @return bool|PDOStatement
      */
-	protected function runPrepare (array $execArrayParameters = []) :bool {
+	protected function runPrepare (array $execArrayParameters = []) {
 
 		if (is_array($execArrayParameters)){
 

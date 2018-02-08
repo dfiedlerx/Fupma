@@ -17,8 +17,9 @@ use PDOException;
  */
 abstract class DATABASE_CONNECTION
 {
-	
+    /** @var PDO */
     protected static $DB_CONNECTION;
+
     private static $DB_PARAMETERS;
     private static $DB_USER;
     private static $DB_PASS;
