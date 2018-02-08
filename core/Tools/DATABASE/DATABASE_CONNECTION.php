@@ -8,6 +8,7 @@
 */
 
 use PDO;
+use PDOException;
 
 /**
  * Class DATABASE_CONNECTION

@@ -2,9 +2,7 @@ body {
 
     padding: 0;
     margin: 0;
-    background-color: #FFF;
-    background-image: url("../../../imgs/ford_gt_back.jpg");
-    background-repeat: no-repeat;
+    background: #FFF url("../../../imgs/ford_gt_back.jpg") no-repeat;
     overflow-x: hidden;
 }
 
@@ -30,11 +28,9 @@ nav li{
    height: 100%;
    color: #FFF;
    display: inline;
-   margin: 10px;
-   font-size: 17px;
+    font-size: 17px;
    cursor: pointer;
-   margin-top: 0;
-   margin-bottom: 0;
+    margin: 0 10px;
 
 }
 

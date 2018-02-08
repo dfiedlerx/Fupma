@@ -6,6 +6,8 @@
  * 
  */
 
+use Tools\ModelTools as Tools;
+
 /**
  * Class Core
  * @package Engine
@@ -23,7 +25,7 @@ class Core
 
             SYSTEM_DIRECTORY, 
             '',
-            filter_var ($_SERVER ['REQUEST_URI'], FILTER_SANITIZE_URL)
+            Tools\Filter::internalFilter($_SERVER ['REQUEST_URI'], FILTER_SANITIZE_URL)
 
         );
 
@@ -90,7 +92,7 @@ class Core
      */
     private function removeFirstParameter () {
 
-        array_shift($this->urlParameters);
+        return array_shift($this->urlParameters);
 
     }
 
@@ -100,7 +102,7 @@ class Core
      */
     private function removeLastParameter () {
 
-        array_pop($this->urlParameters);
+        return array_pop($this->urlParameters);
 
     }
 
@@ -108,7 +110,7 @@ class Core
     private function personalizedAction () {
 
         $this->currentAction = $this->urlParameters[0];
-        $this->removeFirstParameter ();
+        return $this->removeFirstParameter ();
 
     }
 
@@ -156,7 +158,7 @@ class Core
      */
     private function defaultAction () {
 
-        $this->currentAction = DEFAULT_ACTION . ACTION_COMPLEMENT;
+        return $this->currentAction = DEFAULT_ACTION . ACTION_COMPLEMENT;
 
     }
     
@@ -211,6 +213,8 @@ class Core
     private function notFoundPage () {
 
         $controllerConstant = 'pageNotFound\pageNotFound' . CONTROLLERS_COMPLEMENT;
+
+        /** @noinspection PhpUndefinedMethodInspection */
         return (new $controllerConstant())->index();
     
     }

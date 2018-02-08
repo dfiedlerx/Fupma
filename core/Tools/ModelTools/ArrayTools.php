@@ -16,7 +16,7 @@ class ArrayTools
      * Verifica se existem determinadas chaves em um json
      *
      * @param array $suspect
-     * @param array $termsToLook
+     * @param array $keysToLook
      * @return bool
      */
     public static function isAExistsKeys (array $suspect, array $keysToLook) :bool {
@@ -38,7 +38,7 @@ class ArrayTools
     /**
      * Verifica se determinado termo existe no array e não e nulo
      * @param array $suspect
-     * @param array $termsToLook
+     * @param array $keysToLook
      * @return bool
      */
     public static function isAExistsKeysAndNotNull (array $suspect, array $keysToLook) :bool {
