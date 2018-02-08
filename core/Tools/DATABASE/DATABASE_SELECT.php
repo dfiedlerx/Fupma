@@ -8,6 +8,7 @@
 /**
  * Class DATABASE_SELECT
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 class DATABASE_SELECT extends DATABASE_TOOLS
 {

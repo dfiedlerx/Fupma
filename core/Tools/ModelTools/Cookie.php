@@ -10,6 +10,7 @@
 /**
  * Class Cookie
  * @package ModelTools
+ * @author Daniel Fiedler
  */
 class Cookie
 {

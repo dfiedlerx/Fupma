@@ -10,6 +10,7 @@ use Engine;
 /**
  * Class Language
  * @package ModelTools
+ * @author Daniel Fiedler
  */
  class Language extends Engine\model
  {

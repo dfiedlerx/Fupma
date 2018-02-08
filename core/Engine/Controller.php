@@ -9,6 +9,7 @@
 /**
  * Class Controller
  * @package Engine
+ * @author Daniel Fiedler
  */
 class Controller
 {

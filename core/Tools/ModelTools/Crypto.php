@@ -7,6 +7,7 @@
 /**
  * Class Crypto
  * @package ModelTools
+ * @author Daniel Fiedler
  */
 class Crypto
 {

@@ -11,6 +11,7 @@
 /**
  * Class VarContentValidator
  * @package ModelTools
+ * @author Daniel Fiedler
  */
 class VarContentValidator
 {

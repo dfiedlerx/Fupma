@@ -6,6 +6,7 @@
 /**
  * Class Filter
  * @package ModelTools
+ * @author Daniel Fiedler
  */
 class Filter {
 

@@ -13,6 +13,7 @@ use PDO;
 /**
  * Class DATABASE_TOOLS
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 {

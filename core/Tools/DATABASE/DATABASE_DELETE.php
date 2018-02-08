@@ -9,6 +9,7 @@
 /**
  * Class DATABASE_DELETE
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 class DATABASE_DELETE extends DATABASE_TOOLS
 {

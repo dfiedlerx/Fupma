@@ -12,6 +12,7 @@
 /**
  * Class View
  * @package Engine
+ * @author Daniel Fiedler
  */
 class View {
 

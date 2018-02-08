@@ -8,6 +8,7 @@
 /**
  * Class ArrayTools
  * @package ModelTools
+ * @author Daniel Fiedler
  */
 class ArrayTools
 {

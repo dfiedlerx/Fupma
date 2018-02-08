@@ -13,6 +13,7 @@ use PDOException;
 /**
  * Class DATABASE_CONNECTION
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 abstract class DATABASE_CONNECTION
 {

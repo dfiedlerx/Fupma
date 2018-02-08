@@ -9,6 +9,7 @@
 /**
  * Class DATABASE_QUERY_GENERATE
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{
 

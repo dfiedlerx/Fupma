@@ -10,6 +10,7 @@
 /**
  * Class DATABASE_UPDATE
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 class DATABASE_UPDATE extends DATABASE_TOOLS
 {

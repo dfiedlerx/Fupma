@@ -11,6 +11,7 @@
 /**
  * Class DATABASE_INSERT
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 class DATABASE_INSERT extends DATABASE_TOOLS
 {

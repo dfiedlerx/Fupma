@@ -5,7 +5,11 @@
  * Classe responsável por fazer algumas das funções mais comuns de tratamento de data/hora
  * para as funções do sistema.
  */
-
+/**
+ * Class DateTimeTools
+ * @package Tools\ModelTools
+ * @author Daniel Fiedler
+ */
 class DateTimeTools
 {
 

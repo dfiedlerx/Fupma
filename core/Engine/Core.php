@@ -11,6 +11,7 @@ use Tools\ModelTools as Tools;
 /**
  * Class Core
  * @package Engine
+ * @author Daniel Fiedler
  */
 class Core
 {

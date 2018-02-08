@@ -11,6 +11,7 @@ use Tools\DATABASE as DATABASE;
 /**
  * Class Model
  * @package Engine
+ * @author Daniel Fiedler
  */
 class Model
 {

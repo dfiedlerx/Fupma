@@ -8,6 +8,7 @@
 /**
  * Class DATABASE_RUN
  * @package DATABASE
+ * @author Daniel Fiedler
  */
 abstract class DATABASE_RUN extends DATABASE_CONNECTION
 {
