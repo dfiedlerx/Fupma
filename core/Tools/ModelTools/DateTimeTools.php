@@ -33,15 +33,18 @@ class DateTimeTools
         $hours = floor($seconds / 3600);
 
         return
-            str_pad($hours, 2, '0', STR_PAD_LEFT) . ':' .
-            str_pad(floor(($seconds - ($hours * 3600)) / 60), 2, '0', STR_PAD_LEFT) . ':' .
-            str_pad( floor($seconds % 60), 2, '0', STR_PAD_LEFT);
+            sprintf ('%02d:%02d:%02d', $hours, ($seconds - ($hours * 3600)) / 60,  floor($seconds % 60));
 
     }
 
+    /**
+     * @param string $smallerDate
+     * @param string $greaterDate
+     * @return int
+     */
     public function getIntervalBetweenDatesInSeconds (string $smallerDate, string $greaterDate) : int {
 
-        return strtotime($smallerDate) - strtotime($greaterDate);
+        return strtotime($greaterDate) - strtotime($smallerDate);
 
     }
 
