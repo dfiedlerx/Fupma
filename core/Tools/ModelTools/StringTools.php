@@ -76,25 +76,20 @@ class StringTools
     public static function changeStringToMask
         (string $stringToConvert, string $maskRule, string $maskBaseChar = '#') : string {
 
-        $maskaredString = '';
-        $k = 0;
-        $maskLenght = strlen ($maskRule);
+        $maskLenght = strlen($maskRule);
+        $baseStringPointer = 0;
 
-        for($i = 0; $i < $maskLenght; $i++) {
+        for ($i=0;$i<$maskLenght;$i++) {
 
-            if($maskRule[$i] == $maskBaseChar && isset ($stringToConvert [$k])) {
+            if ($maskRule [$i] == $maskBaseChar && isset ($stringToConvert[$baseStringPointer])) {
 
-                $maskaredString .= $stringToConvert[$k++];
-
-            } else if (isset($maskRule[$i])) {
-
-                $maskaredString .= $maskRule[$i];
+                $maskRule [$i] = $stringToConvert[$baseStringPointer++];
 
             }
 
         }
 
-        return $maskaredString;
+        return $maskRule;
 
     }
 
