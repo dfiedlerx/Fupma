@@ -9,6 +9,7 @@
 */
 
 use PDO;
+use PDOStatement;
 
 /**
  * Class DATABASE_TOOLS
@@ -26,7 +27,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 
     /**
      * Método que retorna o ID do último item adicionado em uma determinada tabela.
-     * Como o banco escolhido no momento foi o PostgreSQL, será nescessário informar o nome
+     * Caso o banco escolhido no momento seja o PostgreSQL, será nescessário informar o nome
      * sequencial da tabela para que o retorno do id funcione.
      *
      * @param string $sequenceName
@@ -44,7 +45,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
     /**
      *  Método que retornará o número de elementos que determinada query resultou.
      * Deve-se ser passado a variavel que contém o resultado da query;
-     * @param $queryResult
+     * @param $queryResult PDOStatement
      * @return bool
      */
     public function getNumOfElements ($queryResult) : bool {
@@ -58,7 +59,6 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
 
     /**
      * Verifica se a query retornou ou não ao menos um resultado.
-     * Retorn TRUE ou FALSE;
      * @param $queryResult
      * @return bool
      */
@@ -73,7 +73,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * A explicação do porque se usar esse metodo aqui e nao apenas lançar a fetch() diretamente é que
      * no futuro, caso a classe venha a ser trocada, a manutenção vai ser facilmente feita.
      *
-     * @param $queryResult
+     * @param $queryResult PDOStatement
      * @return array
      */
     public function getFetchArray ($queryResult) : array {
@@ -90,7 +90,7 @@ abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE
      * A explicação do porque se usar esse metodo aqui e nao apenas lançar a fetchAll() diretamente é que
      * no futuro, caso a classe venha a ser trocada, a manutenção vai ser facilmente feita.
      *
-     * @param $queryResult
+     * @param $queryResult PDOStatement
      * @return mixed
      */
     public function getFetchAllArray ($queryResult) : array {
