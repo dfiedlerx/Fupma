@@ -20,7 +20,7 @@ class ArrayTools
      * @param bool $allowNullValues
      * @return bool
      */
-    function isAExistsKeys (array $suspect, array $keysToLook, bool $allowNullValues = true) :bool {
+    public static function isAExistsKeys (array $suspect, array $keysToLook, bool $allowNullValues = true) :bool {
 
         foreach ($keysToLook as $currentKey) {
 
@@ -76,9 +76,9 @@ class ArrayTools
      * @param bool $caseSensitive
      * @return bool
      */
-    public static function arrayTermExists (array $suspect, array $termsToLook, bool $caseSensitive = false) : bool {
+    public static function arrayTermExists (array $suspect,  $termToLook, bool $caseSensitive = false) : bool {
 
-        return in_array ($termsToLook, $suspect, $caseSensitive);
+        return in_array ($termToLook, $suspect, $caseSensitive);
 
     }
 

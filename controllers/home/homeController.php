@@ -1,7 +1,6 @@
 <?php namespace home;
 
 use Engine;
-use Teste;
 
 class homeController extends Engine\Controller
 {
@@ -33,12 +32,4 @@ class homeController extends Engine\Controller
 	
 	}	
 
-
-    public function teste () {
-
-        $algo = (new Teste\Teste())->callTeste();
-
-        return $this->loadView ('home', 'teste', 'teste', ['algo' => $algo]);
-
-    }
 }

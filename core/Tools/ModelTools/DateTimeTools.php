@@ -42,9 +42,31 @@ class DateTimeTools
      * @param string $greaterDate
      * @return int
      */
-    public function getIntervalBetweenDatesInSeconds (string $smallerDate, string $greaterDate) : int {
+    public static function getIntervalBetweenDatesInSeconds (string $smallerDate, string $greaterDate) : int {
 
         return strtotime($greaterDate) - strtotime($smallerDate);
+
+    }
+
+    /**
+     * @param string $format
+     * @return string
+     */
+    public static function getNowTime (string $format = 'Y-m-d H:i:s') : string {
+
+        return date ($format);
+
+    }
+
+    /**
+     * @param string $dateToConvert
+     * @param string $dateFormat
+     * @param string $timeChange * Ex: -3 days
+     * @return string
+     */
+    public static function convertDateFormat (string $dateToConvert, string $dateFormat) : string {
+
+        return date ($dateFormat, strtotime($dateToConvert));
 
     }
 
