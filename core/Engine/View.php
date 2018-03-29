@@ -26,7 +26,9 @@ class View {
         //Javascript Dependences
 
         //Jquery
-        echo '<script src="',JS_DIRECTORY,JQUERY_VERSION,'"></script>';
+        echo '<script src="',JS_DIRECTORY,JQUERY_VERSION_JS,'"></script>';
+        //Tether
+        echo '<script src="',JS_DIRECTORY,TETHER_JS,'"></script>';
         //Bootstrap
         echo '<script src="',JS_DIRECTORY,BOOTSTRAP_JS,'"></script>';
 
