@@ -72,7 +72,7 @@ class ArrayTools
     /**
      * Verifica se um ou mais termos existem em um array
      * @param array $suspect
-     * @param array $termsToLook
+     * @param array $termToLook
      * @param bool $caseSensitive
      * @return bool
      */

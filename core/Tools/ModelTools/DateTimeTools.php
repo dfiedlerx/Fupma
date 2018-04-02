@@ -30,10 +30,7 @@ class DateTimeTools
      */
     public static function secondsToHours (int $seconds) : string {
 
-        $hours = floor($seconds / 3600);
-
-        return
-            sprintf ('%02d:%02d:%02d', $hours, ($seconds - ($hours * 3600)) / 60,  floor($seconds % 60));
+        return sprintf ('%02d:%02d:%02d', $seconds/3600, ($seconds%3600)/60, ($seconds%3600)%60);
 
     }
 
@@ -61,7 +58,6 @@ class DateTimeTools
     /**
      * @param string $dateToConvert
      * @param string $dateFormat
-     * @param string $timeChange * Ex: -3 days
      * @return string
      */
     public static function convertDateFormat (string $dateToConvert, string $dateFormat) : string {
@@ -70,5 +66,36 @@ class DateTimeTools
 
     }
 
+    /**
+     * @param string $date
+     * @param string $changeTime
+     * @param bool $getTimestamp
+     * @param string $dateFormat
+     * @return false|int|string
+     */
+    public static function getDateTimeStampOrDate(
+        string $date,
+        string $changeTime = '+ 0 days',
+        bool $getTimestamp = true,
+        $dateFormat = 'Y-m-d H:i:s') {
+
+        $dateTimestamp = strtotime ($date.' '.$changeTime);
+
+        return $getTimestamp
+            ? $dateTimestamp
+            : self::timestampToDateConvert($dateTimestamp, $dateFormat);
+
+    }
+
+    /**
+     * @param string $timestamp
+     * @param string $dateFormat
+     * @return string
+     */
+    public static function timestampToDateConvert (string $timestamp, string $dateFormat) : string {
+
+        return date ($dateFormat, $timestamp);
+
+    }
 
 }
