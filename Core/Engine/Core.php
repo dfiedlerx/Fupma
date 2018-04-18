@@ -149,7 +149,7 @@ class Core
      */
     private function defaultController () {
 
-        $this->currentController = DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
+        $this->currentController = CONTROLLERS_DIRECTORY . DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
 
     }
 
@@ -211,9 +211,9 @@ class Core
      * Chama uma página informando que o conteudo não foi encontrado.
      * 
      */
-    private function notFoundPage () {
+    private function notFoundPage () : bool {
 
-        $controllerConstant = 'pageNotFound\pageNotFound' . CONTROLLERS_COMPLEMENT;
+        $controllerConstant = CONTROLLERS_DIRECTORY . 'pageNotFound\pageNotFound' . CONTROLLERS_COMPLEMENT;
 
         /** @noinspection PhpUndefinedMethodInspection */
         return (new $controllerConstant())->index();
