@@ -4,10 +4,10 @@ ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
 
 //Arquivo que carregará as configurações
-require 'core/init/config.php';
+require CORE_DIRECTORY . 'init/config.php';
 
 // Auto Loader que chamara as classes do sistema.
 require CORE_DIRECTORY . 'init/autoload.php';
 
 //Inicia a engrenagem da arquitetura
-(new Engine\Core())->run();
+(new Core\Engine\Core())->run();

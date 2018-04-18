@@ -13,19 +13,19 @@ spl_autoload_register(function ($className) {
 
     if (file_exists($baseDirectory . $className . MODELS_COMPLEMENT . '.php')) {
 
-        require $baseDirectory . $className . MODELS_COMPLEMENT . '.php';
+        require_once $baseDirectory . $className . MODELS_COMPLEMENT . '.php';
 
     }
 
     if (file_exists($baseDirectory . $className . CORE_COMPLEMENT . '.php')) {
 
-        require  $baseDirectory . $className . CORE_COMPLEMENT . '.php';
+        require_once  $baseDirectory . $className . CORE_COMPLEMENT . '.php';
 
     }
 
     if (file_exists($baseDirectory . $className . '.php')) {
 
-        require ($baseDirectory . $className . '.php');
+        require_once ($baseDirectory . $className . '.php');
 
     }
 
