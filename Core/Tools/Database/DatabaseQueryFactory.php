@@ -158,4 +158,13 @@ class DatabaseQueryFactory
 
     }
 
+    public static function makeDelete (string $tableName, array $whereTerms) : string {
+
+        return
+            'DELETE FROM '
+            . $tableName
+            . self::whereTerms($whereTerms);
+
+    }
+
 }
