@@ -10,4 +10,4 @@ require 'core/init/config.php';
 require CORE_DIRECTORY . 'init/autoload.php';
 
 //Inicia a engrenagem da arquitetura
-(new Engine\Core())->run();
+(new Core\Engine\Core())->run();

@@ -14,9 +14,9 @@ define ('CSS_DIRECTORY', 'Views/assets/css/');
 
 
 //Diretório dos Arquivos Back-End
-define ('CONTROLLERS_DIRECTORY', 'Controllers/');
-define ('MODELS_DIRECTORY', 'Models/');
-define ('CORE_DIRECTORY', 'Core/');
+define ('CONTROLLERS_DIRECTORY', 'Controllers\\');
+define ('MODELS_DIRECTORY', 'Models\\');
+define ('CORE_DIRECTORY', 'Core\\');
 
 
 //Complemento de Nome dos Arquivos
