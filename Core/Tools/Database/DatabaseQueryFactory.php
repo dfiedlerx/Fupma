@@ -92,6 +92,10 @@ class DatabaseQueryFactory
 
     }
 
+    /**
+     * @param array $whereTerms
+     * @return string
+     */
     private static function whereTerms (array $whereTerms) : string {
 
         if ($whereTerms == []) {
@@ -125,6 +129,20 @@ class DatabaseQueryFactory
     }
 
     /**
+     * @param $query
+     * @param bool $isSubQuery
+     * @return string
+     */
+    private static function returnQuery ($query, $isSubQuery = false) : string {
+
+        return
+            !$isSubQuery
+                ? $query
+                : ' ('.$query.') ';
+
+    }
+
+    /**
      * @param array $tableTerms
      * @param array $fromTable
      * @param array $joinTerms
@@ -140,30 +158,78 @@ class DatabaseQueryFactory
         bool $isSubQuery = false
     ) : string {
 
-        $selectQuery =
-            'SELECT '
-            . self::iterableTerms($tableTerms, ' AS ', ',')
-            . ' FROM '
-            . self::sequenceElements($fromTable, ' AS ')
-            . self::joinTerms($joinTerms)
-            . self::whereTerms($whereTerms)
-            . self::orderByTerms($orderTerms)
-            . self::limitTerms($limitTerms)
-            ;
-
         return
-            !$isSubQuery
-                ? $selectQuery
-                : '('.$selectQuery.')';
+            self::returnQuery
+            (
+                'SELECT '
+                . self::iterableTerms($tableTerms, ' AS ', ',')
+                . ' FROM '
+                . self::sequenceElements($fromTable, ' AS ')
+                . self::joinTerms($joinTerms)
+                . self::whereTerms($whereTerms)
+                . self::orderByTerms($orderTerms)
+                . self::limitTerms($limitTerms)
+                , $isSubQuery
+            );
 
     }
 
-    public static function makeDelete (string $tableName, array $whereTerms) : string {
+    /**
+     * @param string $tableName
+     * @param array $whereTerms
+     * @param array $joinTerms
+     * @param bool $isSubQuery
+     * @return string
+     */
+    public static function makeDelete (string $tableName, array $whereTerms, array $joinTerms = [], bool $isSubQuery = false) : string {
 
         return
-            'DELETE FROM '
-            . $tableName
-            . self::whereTerms($whereTerms);
+            self::returnQuery (
+                'DELETE FROM '
+                . $tableName
+                . self::joinTerms($joinTerms)
+                . self::whereTerms($whereTerms)
+                , $isSubQuery
+            );
+
+    }
+
+    /**
+     * @param string $tableName
+     * @param array $valueTerms
+     * @param array $whereTerms
+     * @param array $joinTerms
+     * @param bool $isSubQuery
+     * @return string
+     */
+    public static function makeUpdate (string $tableName, array $valueTerms, array $whereTerms, array $joinTerms = [], bool $isSubQuery = false) : string {
+
+        return
+            self::returnQuery
+            (
+                'UPDATE '
+                . $tableName
+                . self::joinTerms($joinTerms)
+                . ' SET '
+                . self::iterableTerms($valueTerms, '=', ',')
+                . self::whereTerms($whereTerms)
+                , $isSubQuery
+            );
+
+    }
+
+    public static function makeInsert (string $tableName, array $tableColumns, array $insertValues, bool $isSubQuery = false) : string {
+
+        return
+            self::returnQuery
+            (
+                'INSERT INTO '
+                . $tableName
+                . self::returnQuery(self::sequenceElements($tableColumns), true)
+                . ' VALUES '
+                . self::returnQuery(self::iterableTerms($insertValues, ',', '') ,true)
+                , $isSubQuery
+            );
 
     }
 
