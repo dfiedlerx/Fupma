@@ -33,4 +33,19 @@ class DatabaseCore extends DatabaseCase
 
     }
 
+    /**
+     * @param string $runQuery
+     * @param array $bindParams
+     * @return PDOStatement
+     */
+    public function run (string $runQuery, array $bindParams) : PDOStatement {
+
+        $PDOStatement = $this->prepare($runQuery);
+        $this->bindValue($bindParams, $PDOStatement);
+        $this->execute($PDOStatement);
+
+        return $PDOStatement;
+
+    }
+
 }

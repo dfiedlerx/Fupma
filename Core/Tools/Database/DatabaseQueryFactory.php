@@ -218,6 +218,13 @@ class DatabaseQueryFactory
 
     }
 
+    /**
+     * @param string $tableName
+     * @param array $tableColumns
+     * @param array $insertValues
+     * @param bool $isSubQuery
+     * @return string
+     */
     public static function makeInsert (string $tableName, array $tableColumns, array $insertValues, bool $isSubQuery = false) : string {
 
         return
@@ -227,7 +234,7 @@ class DatabaseQueryFactory
                 . $tableName
                 . self::returnQuery(self::sequenceElements($tableColumns), true)
                 . ' VALUES '
-                . self::returnQuery(self::iterableTerms($insertValues, ',', '') ,true)
+                . self::returnQuery(self::iterableTerms($insertValues, ',', ' ') ,true)
                 , $isSubQuery
             );
 

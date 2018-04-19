@@ -1,6 +1,7 @@
 <?php namespace Core\Tools\Database;
 
 use PDO;
+use PDOStatement;
 
 /**
  * Class DatabaseCase
@@ -9,7 +10,7 @@ use PDO;
 class DatabaseCase
 {
 
-    private $databaseConnection;
+    protected $databaseConnection;
     private $inTransation;
 
     public function __construct(PDO $databaseConnection) {
@@ -55,7 +56,7 @@ class DatabaseCase
 
     }
 
-    protected function prepare (string $prepareString, array $prepareOptions = []) {
+    protected function prepare (string $prepareString, array $prepareOptions = []) : PDOStatement {
 
         return $this->databaseConnection->prepare($prepareString, $prepareOptions);
 
