@@ -62,7 +62,12 @@ class Core
 
         if (!empty ($this->urlParameters[0])) {
 
-            $this->currentController = $this->urlParameters['0'] . '\\' . $this->urlParameters['0'] . CONTROLLERS_COMPLEMENT;
+            $this->currentController =
+                CONTROLLERS_DIRECTORY
+                . $this->urlParameters['0']
+                . '\\'
+                . $this->urlParameters['0']
+                . CONTROLLERS_COMPLEMENT;
             $this->removeFirstParameter ();
             $this->setAction ();
 

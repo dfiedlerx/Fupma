@@ -3,6 +3,7 @@
 
 use Core\Engine\Controller;
 use Core\Tools\ModelTools as Tools;
+use Models\Example\Example;
 
 /**
  * Created by PhpStorm.
@@ -64,6 +65,16 @@ class testsController extends Controller
 
         var_dump(Tools\DateTimeTools::convertDateFormat('2017-01-05 05:05:05', 'd/m/Y H:i:s'));
         var_dump(Tools\DateTimeTools::dateAcress('2017-01-05 05:05:05', '+8 days'));
+        return true;
+
+    }
+
+    /**
+     * @return bool
+     */
+    public function example () {
+
+        (new Example());
         return true;
 
     }
