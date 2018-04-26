@@ -181,12 +181,14 @@ class DatabaseQueryFactory
      * @param bool $isSubQuery
      * @return string
      */
-    public static function makeDelete (string $tableName, array $whereTerms, array $joinTerms = [], bool $isSubQuery = false) : string {
+    public static function makeDelete (array $tableName, array $whereTerms, array $joinTerms = [], bool $isSubQuery = false) : string {
 
         return
             self::returnQuery (
-                'DELETE FROM '
-                . $tableName
+                ' DELETE '
+                . $tableName['0']
+                . ' FROM '
+                . self::sequenceElements($tableName, ' AS ')
                 . self::joinTerms($joinTerms)
                 . self::whereTerms($whereTerms)
                 , $isSubQuery
