@@ -27,16 +27,17 @@ class DatabaseQueryFactory
      * @param array $terms
      * @param string $innerImplode
      * @param string $outerImplode
+     * @param bool $insertSubQuery
      * @return string
      */
-    private static function iterableTerms (array $terms, string $innerImplode, string $outerImplode) : string {
+    private static function iterableTerms (array $terms, string $innerImplode, string $outerImplode, bool $insertSubQuery = false) : string {
 
         $processedTerms = [];
 
         foreach ($terms as $currentTerm) {
 
 
-            $processedTerms[] = self::sequenceElements($currentTerm, $innerImplode);
+            $processedTerms[] = self::returnQuery(self::sequenceElements($currentTerm, $innerImplode), $insertSubQuery);
 
         }
 
@@ -236,7 +237,7 @@ class DatabaseQueryFactory
                 . $tableName
                 . self::returnQuery(self::sequenceElements($tableColumns), true)
                 . ' VALUES '
-                . self::returnQuery(self::iterableTerms($insertValues, ',', ' ') ,true)
+                . self::iterableTerms($insertValues, ',', ',', true)
                 , $isSubQuery
             );
 
