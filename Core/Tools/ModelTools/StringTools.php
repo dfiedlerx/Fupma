@@ -42,7 +42,7 @@ class StringTools
      */
     public static function existsStrTerm ($suspect, $search) :bool {
 
-        return preg_match ('/'.$search.'/', $suspect);
+        return strpos ($suspect, $search) > -1;
 
     }
 

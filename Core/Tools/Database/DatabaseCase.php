@@ -13,6 +13,10 @@ class DatabaseCase
     protected $databaseConnection;
     private $inTransation;
 
+    /**
+     * DatabaseCase constructor.
+     * @param PDO $databaseConnection
+     */
     public function __construct(PDO $databaseConnection) {
 
         $this->databaseConnection = $databaseConnection;
@@ -56,6 +60,11 @@ class DatabaseCase
 
     }
 
+    /**
+     * @param string $prepareString
+     * @param array $prepareOptions
+     * @return PDOStatement
+     */
     protected function prepare (string $prepareString, array $prepareOptions = []) : PDOStatement {
 
         return $this->databaseConnection->prepare($prepareString, $prepareOptions);
