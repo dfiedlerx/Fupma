@@ -175,7 +175,7 @@ class DatabaseQueryFactory
     }
 
     /**
-     * @param string $tableName
+     * @param array $tableName
      * @param array $whereTerms
      * @param array $joinTerms
      * @param bool $isSubQuery
