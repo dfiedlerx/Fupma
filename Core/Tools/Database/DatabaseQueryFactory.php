@@ -1,14 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Desenvolvimento
- * Date: 18/04/2018
- * Time: 14:16
- */
 
 namespace Core\Tools\Database;
 
-
+/**
+ * Class DatabaseQueryFactory
+ * @package Core\Tools\Database
+ */
 class DatabaseQueryFactory
 {
 
@@ -162,7 +159,7 @@ class DatabaseQueryFactory
         return
             self::returnQuery
             (
-                'SELECT '
+                ' SELECT '
                 . self::iterableTerms($tableTerms, ' AS ', ',')
                 . ' FROM '
                 . self::sequenceElements($fromTable, ' AS ')
@@ -210,7 +207,7 @@ class DatabaseQueryFactory
         return
             self::returnQuery
             (
-                'UPDATE '
+                ' UPDATE '
                 . $tableName
                 . self::joinTerms($joinTerms)
                 . ' SET '
@@ -233,7 +230,7 @@ class DatabaseQueryFactory
         return
             self::returnQuery
             (
-                'INSERT INTO '
+                ' INSERT INTO '
                 . $tableName
                 . self::returnQuery(self::sequenceElements($tableColumns), true)
                 . ' VALUES '
