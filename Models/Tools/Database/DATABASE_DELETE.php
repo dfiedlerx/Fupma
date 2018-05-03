@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\DATABASE;
+<?php namespace Models\Tools\Database;
 /*
 * Esta classe tem como objetivo deletar dados na DATABASE
 * É uma classe que exige cuidados acima do normal. Em detrimento disso, as verificações são maiores.
@@ -8,7 +8,7 @@
 
 /**
  * Class DATABASE_DELETE
- * @package DATABASE
+ * @package Models\Tools\Database
  * @author Daniel Fiedler
  */
 class DATABASE_DELETE extends DATABASE_TOOLS

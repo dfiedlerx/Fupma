@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\DATABASE;
+<?php namespace Models\Tools\Database;
 /* Classe: DATABASE_TOOLS
 *
 * Classe que terá como intuito a contenção dos métodos úteis a qualquer classe de INSERT, DELETE, UPDATE, JOIN, etc;
@@ -13,7 +13,7 @@ use PDOStatement;
 
 /**
  * Class DATABASE_TOOLS
- * @package DATABASE
+ * @package Models\Tools\Database
  * @author Daniel Fiedler
  */
 abstract class DATABASE_TOOLS extends DATABASE_QUERY_GENERATE

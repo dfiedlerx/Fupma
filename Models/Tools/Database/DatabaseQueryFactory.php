@@ -1,10 +1,8 @@
-<?php
-
-namespace Core\Tools\Database;
+<?php namespace Models\Tools\Database;
 
 /**
  * Class DatabaseQueryFactory
- * @package Core\Tools\Database
+ * @package Models\Tools\Database
  */
 class DatabaseQueryFactory
 {

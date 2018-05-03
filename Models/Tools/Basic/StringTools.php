@@ -1,9 +1,9 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 
 
 /**
  * Class StringTools
- * @package Tools\ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class StringTools

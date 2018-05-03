@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\DATABASE;
+<?php namespace Models\Tools\Database;
 /*
 * 
 * Classe que ficará encarregada de realizar Inserts no banco de Dados.
@@ -10,7 +10,7 @@
 
 /**
  * Class DATABASE_INSERT
- * @package DATABASE
+ * @package Models\Tools\Database
  * @author Daniel Fiedler
  */
 class DATABASE_INSERT extends DATABASE_TOOLS

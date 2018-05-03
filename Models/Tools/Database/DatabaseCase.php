@@ -1,11 +1,11 @@
-<?php namespace Core\Tools\Database;
+<?php namespace Models\Tools\Database;
 
 use PDO;
 use PDOStatement;
 
 /**
  * Class DatabaseCase
- * @package Core\Tools\Database
+ * @package Models\Tools\Database
  */
 class DatabaseCase
 {

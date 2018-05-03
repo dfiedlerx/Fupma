@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 /**
  * Possui alguma das funções mais comuns que se pode precisar fazer
  * com arrays durante o funcionamento do sistema.
@@ -7,10 +7,10 @@
 
 /**
  * Class ArrayTools
- * @package ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
-class ArrayTools
+class ArrayC
 {
 
     /**
@@ -76,7 +76,7 @@ class ArrayTools
      * @param bool $caseSensitive
      * @return bool
      */
-    public static function arrayTermExists (array $suspect,  $termToLook, bool $caseSensitive = false) : bool {
+    public static function arrayTermExists (array $suspect, mixed $termToLook, bool $caseSensitive = false) : bool {
 
         return in_array ($termToLook, $suspect, $caseSensitive);
 

@@ -1,11 +1,11 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 /*
 * Classe com o intuito de filtrar variaveis com conteúdos externos
 */
 
 /**
  * Class Filter
- * @package ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class Filter {

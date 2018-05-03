@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 /*
 * Classe destinada a manipulação de Cookies do sistema
 * Cria, edita, deleta, lê, verifica existência.
@@ -9,7 +9,7 @@
 
 /**
  * Class Cookie
- * @package ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class Cookie

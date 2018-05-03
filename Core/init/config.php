@@ -7,15 +7,19 @@
  * 
  */
 
+$dirnameConfig = dirname(__FILE__).'/../../Config/';
+
 // Arquivos de Configuração Mestre.
 
-    require 'Config/environment.php';
-    require 'Config/archiveComplementsParameters.php';
-    require 'Config/defaultPageParameters.php';
-    require 'Config/tableSequencesParameters.php';
-    require 'Config/dependences.php';
-    require 'Config/cookieParameters.php';
+require $dirnameConfig.'environment.php';
+require $dirnameConfig.'archiveComplementsParameters.php';
+require $dirnameConfig.'defaultPageParameters.php';
+require $dirnameConfig.'tableSequencesParameters.php';
+require $dirnameConfig.'dependences.php';
+require $dirnameConfig.'systemParameters.php';
 
 //Arquivos de Configuração Complementares.    
-    require 'Config/DBConnectionParameters.php';
+require $dirnameConfig.'DBConnectionParameters.php';
 
+//Remove a variavel apos o uso
+unset($dirnameConfig);

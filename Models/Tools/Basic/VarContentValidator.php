@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 /**
  * Fupma
  *
@@ -10,7 +10,7 @@
 
 /**
  * Class VarContentValidator
- * @package ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class VarContentValidator

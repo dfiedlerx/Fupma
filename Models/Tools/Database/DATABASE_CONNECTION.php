@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\DATABASE;
+<?php namespace Models\Tools\Database;
 
 /*
 * Classe criada para se conectar ao banco de Dados.
@@ -12,7 +12,7 @@ use PDOException;
 
 /**
  * Class DATABASE_CONNECTION
- * @package DATABASE
+ * @package Models\Tools\Database
  * @author Daniel Fiedler
  */
 abstract class DATABASE_CONNECTION

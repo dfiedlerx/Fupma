@@ -6,7 +6,8 @@
  * 
  */
 
-use Core\Tools\ModelTools as Tools;
+use Models\Tools\Basic\Filter;
+
 
 /**
  * Class Core
@@ -26,7 +27,7 @@ class Core
 
             SYSTEM_DIRECTORY, 
             '',
-            Tools\Filter::internalFilter($_SERVER ['REQUEST_URI'], FILTER_SANITIZE_URL)
+            Filter::internalFilter($_SERVER ['REQUEST_URI'], FILTER_SANITIZE_URL)
 
         );
 

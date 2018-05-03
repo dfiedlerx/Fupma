@@ -1,12 +1,14 @@
 <?php namespace Controllers\wrongUrlFormat;
 
-use Core\Engine;
+
+use Core\Engine\Controller;
+
 
 /**
  * Class wrongUrlFormatController
  * @package wrongUrlFormat
  */
-class wrongUrlFormatController extends Engine\Controller
+class wrongUrlFormatController extends Controller
 {
     /**
      * @return bool

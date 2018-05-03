@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\DATABASE;
+<?php namespace Models\Tools\Database;
 /*
 * Classe com o único intuito de atualizar dados já existentes na DATABASE.
 * Usará como parâmetros: "tableTerms", "tableNames", "conditionTerms".
@@ -9,7 +9,7 @@
 
 /**
  * Class DATABASE_UPDATE
- * @package DATABASE
+ * @package Models\Tools\Database
  * @author Daniel Fiedler
  */
 class DATABASE_UPDATE extends DATABASE_TOOLS

@@ -1,8 +1,10 @@
 <?php namespace Controllers\home;
 
-use Core\Engine;
 
-class homeController extends Engine\Controller
+use Core\Engine\Controller;
+
+
+class homeController extends Controller
 {
     /**
      * @return bool
@@ -29,7 +31,7 @@ class homeController extends Engine\Controller
                 ['algo' => $algo]
 
             );
-	
-	}	
+
+	}
 
 }

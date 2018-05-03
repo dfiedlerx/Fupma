@@ -1,10 +1,10 @@
-<?php namespace Core\Tools\Database;
+<?php namespace Models\Tools\Database;
 
 use PDOStatement;
 
 /**
  * Class DatabaseCore
- * @package Core\Tools\Database
+ * @package Models\Tools\Database
  */
 class DatabaseCore extends DatabaseCase
 {

@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\DATABASE;
+<?php namespace Models\Tools\Database;
 /*
 * Essa classe é encarregada de gerar as strings que serão usadas
 * nas consultas ao Banco de Dados.
@@ -8,7 +8,7 @@
 
 /**
  * Class DATABASE_QUERY_GENERATE
- * @package DATABASE
+ * @package Models\Tools\Database
  * @author Daniel Fiedler
  */
 abstract class DATABASE_QUERY_GENERATE extends DATABASE_RUN{

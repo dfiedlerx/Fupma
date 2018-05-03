@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\DATABASE;
+<?php namespace Models\Tools\Database;
 /* Classe que é encarregada de encaminhar as querys para execução no banco.
 * Essa classe é filha da classe DATABASE_CONNECTION e mãe da Classe DATABASE_TOOLS.
 * Nao há necessidade de comunicação com outras calsses do sistema.
@@ -9,7 +9,7 @@ use PDOStatement;
 
 /**
  * Class DATABASE_RUN
- * @package DATABASE
+ * @package Models\Tools\Database
  * @author Daniel Fiedler
  */
 abstract class DATABASE_RUN extends DATABASE_CONNECTION
