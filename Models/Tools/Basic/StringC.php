@@ -15,9 +15,9 @@ class StringC
      * @param int $quantity
      * @return int
      */
-    public static function isTheStrLenght (string $suspect, int $quantity) : int {
+    public static function isTheStrLenght(string $suspect, int $quantity) : int {
 
-        return strlen ($suspect) == $quantity;
+        return strlen($suspect) == $quantity;
 
     }
 
@@ -28,9 +28,9 @@ class StringC
      * @param $payBack
      * @return string
      */
-    public static function subsStrTerm (string $indictee, $tax, $payBack) : string {
+    public static function subsStrTerm(string $indictee, $tax, $payBack) : string {
 
-        return str_replace ($tax, $payBack, $indictee);
+        return str_replace($tax, $payBack, $indictee);
 
     }
 
@@ -40,9 +40,9 @@ class StringC
      * @param $search
      * @return bool
      */
-    public static function existsStrTerm ($suspect, $search) :bool {
+    public static function existsStrTerm($suspect, $search) :bool {
 
-        return strpos ($suspect, $search) > -1;
+        return strpos($suspect, $search) > -1;
 
     }
 
@@ -52,7 +52,7 @@ class StringC
      * @param string $soughtTerm
      * @return int
      */
-    public static function termOcurrenceCount (string $suspect,string $soughtTerm) : int {
+    public static function termOcurrenceCount(string $suspect, string $soughtTerm) : int {
 
         return substr_count($suspect, $soughtTerm);
 
@@ -73,13 +73,12 @@ class StringC
      * @param string $maskBaseChar
      * @return string
      */
-    public static function changeStringToMask
-        (string $stringToConvert, string $maskRule, string $maskBaseChar = '#') : string {
+    public static function changeStringToMask(string $stringToConvert, string $maskRule, string $maskBaseChar = '#') : string {
 
         $maskLenght = strlen($maskRule);
         $baseStringPointer = 0;
 
-        for ($i=0;$i<$maskLenght;$i++) {
+        for ($i = 0; $i < $maskLenght; $i++) {
 
             if ($maskRule [$i] == $maskBaseChar && isset ($stringToConvert[$baseStringPointer])) {
 
@@ -131,7 +130,7 @@ class StringC
      * @param string $stringToDecode
      * @return string
      */
-    public static function utf8Decode (string $stringToDecode) : string {
+    public static function utf8Decode(string $stringToDecode) : string {
 
         return utf8_decode($stringToDecode);
 
@@ -142,7 +141,7 @@ class StringC
      * @param string $stringToEncode
      * @return string
      */
-    public static function utf8Encode (string $stringToEncode) : string {
+    public static function utf8Encode(string $stringToEncode) : string {
 
         return utf8_encode($stringToEncode);
 
@@ -164,7 +163,7 @@ class StringC
      * @param string $stringToConvert
      * @return string
      */
-    public static function revertjavascriptEntities (string $stringToConvert) : string {
+    public static function revertjavascriptEntities(string $stringToConvert) : string {
 
         return str_replace(self::javascriptEntitiesCharsArray(), self::allUFT8Chars(), $stringToConvert);
 
@@ -173,20 +172,20 @@ class StringC
     /**
      * @return array
      */
-    private static function javascriptEntitiesCharsArray () : array {
+    private static function javascriptEntitiesCharsArray() : array {
 
         return
             [
-                '\u00e1','\u00e0','\u00e2','\u00e3','\u00e4',
-                '\u00c1','\u00c0','\u00c2','\u00c3','\u00c4',
-                '\u00e9','\u00e8','\u00ea','\u00c9','\u00c8',
-                '\u00ca','\u00cb','\u00ed','\u00ec','\u00ee',
-                '\u00ef','\u00cd','\u00cc','\u00ce','\u00cf',
-                '\u00f3','\u00f2','\u00f4','\u00f5','\u00f6',
-                '\u00d3','\u00d2','\u00d4','\u00d5','\u00d6',
-                '\u00fa','\u00f9','\u00fb','\u00fc','\u00da',
-                '\u00d9','\u00db','\u00e7','\u00c7','\u00f1',
-                '\u00d1','\u0026','\u0027'
+                '\u00e1', '\u00e0', '\u00e2', '\u00e3', '\u00e4',
+                '\u00c1', '\u00c0', '\u00c2', '\u00c3', '\u00c4',
+                '\u00e9', '\u00e8', '\u00ea', '\u00c9', '\u00c8',
+                '\u00ca', '\u00cb', '\u00ed', '\u00ec', '\u00ee',
+                '\u00ef', '\u00cd', '\u00cc', '\u00ce', '\u00cf',
+                '\u00f3', '\u00f2', '\u00f4', '\u00f5', '\u00f6',
+                '\u00d3', '\u00d2', '\u00d4', '\u00d5', '\u00d6',
+                '\u00fa', '\u00f9', '\u00fb', '\u00fc', '\u00da',
+                '\u00d9', '\u00db', '\u00e7', '\u00c7', '\u00f1',
+                '\u00d1', '\u0026', '\u0027'
             ];
 
     }
@@ -194,16 +193,16 @@ class StringC
     /**
      * @return array
      */
-    private static function allUFT8Chars () : array {
+    private static function allUFT8Chars() : array {
 
         return
             [
-                'á','à','â','ã','ä','Á','À','Â',
-                'Ã','Ä','é','è','ê','É','È','Ê',
-                'Ë','í','ì','î','ï','Í','Ì','Î',
-                'Ï','ó','ò','ô','õ','ö','Ó','Ò',
-                'Ô','Õ','Ö','ú','ù','û','ü','Ú',
-                'Ù','Û','ç','Ç','ñ','Ñ','&',"="
+                'á', 'à', 'â', 'ã', 'ä', 'Á', 'À', 'Â',
+                'Ã', 'Ä', 'é', 'è', 'ê', 'É', 'È', 'Ê',
+                'Ë', 'í', 'ì', 'î', 'ï', 'Í', 'Ì', 'Î',
+                'Ï', 'ó', 'ò', 'ô', 'õ', 'ö', 'Ó', 'Ò',
+                'Ô', 'Õ', 'Ö', 'ú', 'ù', 'û', 'ü', 'Ú',
+                'Ù', 'Û', 'ç', 'Ç', 'ñ', 'Ñ', '&', "="
             ];
 
     }
@@ -213,7 +212,7 @@ class StringC
      * @param string $stringToConvert
      * @return string
      */
-    public static function htmlEntities (string $stringToConvert) :string {
+    public static function htmlEntities(string $stringToConvert) :string {
 
         return htmlentities($stringToConvert);
 
@@ -226,8 +225,7 @@ class StringC
      */
     public static function removeAccents(string $string) : string  {
 
-        return str_replace
-        (
+        return str_replace(
             [
                 "á", "à", "â", "ã", "ä", "é", "è", "ê", "ë", "í", "ì", "î", "ï", "ó", "ò", "ô", "õ", "ö", "ú", "ù",
                 "û", "ü", "ç", "Á", "À", "Â", "Ã", "Ä", "É", "È", "Ê", "Ë", "Í", "Ì", "Î", "Ï", "Ó", "Ò", "Ô", "Õ", "Ö",
