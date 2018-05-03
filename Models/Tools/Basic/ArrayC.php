@@ -76,7 +76,7 @@ class ArrayC
      * @param bool $caseSensitive
      * @return bool
      */
-    public static function arrayTermExists (array $suspect, mixed $termToLook, bool $caseSensitive = false) : bool {
+    public static function arrayTermExists (array $suspect, $termToLook, bool $caseSensitive = false) : bool {
 
         return in_array ($termToLook, $suspect, $caseSensitive);
 
