@@ -16,9 +16,9 @@ class Filter {
      * @param int $typeOfFilter
      * @return mixed
      */
-    public static function internalFilter (string $stringToFilter, int $typeOfFilter = FILTER_SANITIZE_STRING) {
+    public static function internalFilter(string $stringToFilter, int $typeOfFilter = FILTER_SANITIZE_STRING) {
 
-        return filter_var ($stringToFilter, $typeOfFilter);
+        return filter_var($stringToFilter, $typeOfFilter);
 
     }
 
@@ -36,14 +36,14 @@ class Filter {
      * @param int $typeOfFilter
      * @return mixed
      */
-	public static function externalFilter (
-	    int $typeRequisition,
+    public static function externalFilter (
+        int $typeRequisition,
         string $nameVar,
         int $typeOfFilter = FILTER_SANITIZE_SPECIAL_CHARS
     ){
 
-		return filter_input($typeRequisition, $nameVar, $typeOfFilter);
+        return filter_input($typeRequisition, $nameVar, $typeOfFilter);
 
-	}
+    }
 	
 }
