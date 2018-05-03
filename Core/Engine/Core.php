@@ -6,7 +6,8 @@
  * 
  */
 
-use Core\Tools\ModelTools as Tools;
+use Models\Tools\Basic\Filter;
+
 
 /**
  * Class Core
@@ -26,7 +27,7 @@ class Core
 
             SYSTEM_DIRECTORY, 
             '',
-            Tools\Filter::internalFilter($_SERVER ['REQUEST_URI'], FILTER_SANITIZE_URL)
+            Filter::internalFilter($_SERVER ['REQUEST_URI'], FILTER_SANITIZE_URL)
 
         );
 
@@ -62,7 +63,12 @@ class Core
 
         if (!empty ($this->urlParameters[0])) {
 
-            $this->currentController = $this->urlParameters['0'] . '\\' . $this->urlParameters['0'] . CONTROLLERS_COMPLEMENT;
+            $this->currentController =
+                CONTROLLERS_DIRECTORY
+                . $this->urlParameters['0']
+                . '\\'
+                . $this->urlParameters['0']
+                . CONTROLLERS_COMPLEMENT;
             $this->removeFirstParameter ();
             $this->setAction ();
 
@@ -213,7 +219,7 @@ class Core
      */
     private function notFoundPage () : bool {
 
-        $controllerConstant = CONTROLLERS_DIRECTORY . 'pageNotFound\pageNotFound' . CONTROLLERS_COMPLEMENT;
+        $controllerConstant = CONTROLLERS_DIRECTORY . 'PageNotFound\PageNotFound' . CONTROLLERS_COMPLEMENT;
 
         /** @noinspection PhpUndefinedMethodInspection */
         return (new $controllerConstant())->index();

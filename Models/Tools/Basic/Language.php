@@ -1,18 +1,16 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 
 /* 
  * Classe encarregada de gerenciar a linguagem do sistema.
  * 
  */
 
-use Core\Engine as Engine;
-
 /**
  * Class Language
- * @package ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
- class Language extends Engine\model
+ class Language
  {
 
      /**

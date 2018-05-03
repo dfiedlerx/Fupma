@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 /*
 *Classe com o intuito de gerar as criptografias do sistema. 
 *Também fará comparações de criptografia.
@@ -6,21 +6,34 @@
 
 /**
  * Class Crypto
- * @package ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class Crypto
 {
 
     /**
-     * Função privada que irá gerar uma chave aleatória para senhas de usuários.
+     * Função que irá gerar uma chave aleatória para senhas de usuários.
      * Utiliza-se um Md5 sobre o tempo em milesegundos concatenado com um random de 100000 a 999999
      *php
      * @return string
      */
-	private static function hashKeyGenerator (){
+	public static function hashKeyGenerator (){
 
-		return md5 (microtime().mt_rand(100000,999999));
+        $baseHash =
+            '0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ./'
+            .str_replace (' ', mt_rand (0, 9),microtime())
+            .rand(1000000,9999999);
+
+        $key = '';
+
+        for ($i=0; $i<102; $i++) {
+
+            $key .= $baseHash[mt_rand (0,101)];
+
+        }
+
+		return $key;
 
 	}
 
@@ -71,7 +84,7 @@ class Crypto
      */
 	public static function hashComparer (string $targetString, string $hashKey) :bool {
             
-            return crypt($targetString, $hashKey) == $hashKey;
+            return crypt($targetString, DEFAULT_CRYPTO_CICLE . $hashKey) == DEFAULT_CRYPTO_CICLE . $hashKey;
 
 	}
 
