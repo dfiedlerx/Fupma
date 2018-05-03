@@ -36,11 +36,11 @@ class Filter {
      * @param int $typeOfFilter
      * @return mixed
      */
-    public static function externalFilter (
+    public static function externalFilter(
         int $typeRequisition,
         string $nameVar,
         int $typeOfFilter = FILTER_SANITIZE_SPECIAL_CHARS
-    ){
+    ) {
 
         return filter_input($typeRequisition, $nameVar, $typeOfFilter);
 
