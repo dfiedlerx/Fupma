@@ -42,39 +42,8 @@ class Filter {
         int $typeOfFilter = FILTER_SANITIZE_SPECIAL_CHARS
     ){
 
-		return filter_input(self::getTypeRequisition($typeRequisition), $nameVar, $typeOfFilter);
+		return filter_input($typeRequisition, $nameVar, $typeOfFilter);
 
 	}
-
-    /**
-     * Função privada que retorna qual o tipo de reuisição o sistema está enviando.
-     * @param int $typeRequisition
-     * @return int
-     */
-	private static function getTypeRequisition (int $typeRequisition) :int {
-
-		if ($typeRequisition == 1){
-
-			return INPUT_GET;
-
-		} else if ($typeRequisition == 2){
-
-			return INPUT_POST;
-
-		} else if ($typeRequisition == 3){
-
-			return INPUT_COOKIE;
-
-		} else if ($typeRequisition == 4){
-
-			return INPUT_SERVER;
-
-		} else {
-
-			return INPUT_ENV;
-
-		}
-
-	}
-
+	
 }
