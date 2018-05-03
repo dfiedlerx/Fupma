@@ -1,9 +1,9 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 
 
 /**
  * Class StringTools
- * @package Tools\ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class StringTools
@@ -42,7 +42,7 @@ class StringTools
      */
     public static function existsStrTerm ($suspect, $search) :bool {
 
-        return preg_match ('/'.$search.'/', $suspect);
+        return strpos ($suspect, $search) > -1;
 
     }
 

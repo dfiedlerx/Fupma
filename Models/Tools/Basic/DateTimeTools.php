@@ -1,4 +1,4 @@
-<?php namespace Core\Tools\ModelTools;
+<?php namespace Models\Tools\Basic;
 /**
  * Class DateTimeTools
  *
@@ -7,7 +7,7 @@
  */
 /**
  * Class DateTimeTools
- * @package Tools\ModelTools
+ * @package Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class DateTimeTools

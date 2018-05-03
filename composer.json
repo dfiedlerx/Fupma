@@ -1,0 +1,15 @@
+{
+    "name": "projetocron",
+    "php": "7",
+    "require": {
+        "league/pipeline": "^0.3.0",
+        "monolog/monolog": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "Core",
+            "Controllers\\" : "Controllers",
+            "Models\\" : "Models"
+        }
+    }
+}
