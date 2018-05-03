@@ -5,6 +5,7 @@
 </head>
 <body>
     <?php $this->view->loadDefaultFrontDependences (); ?>
-	<?php echo $viewData ['algo'];  ?>
+    <?php /** @var array $viewData */
+    echo $viewData ['algo'];  ?>
 </body>
 </html>

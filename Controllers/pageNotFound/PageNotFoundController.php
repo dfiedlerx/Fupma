@@ -1,4 +1,4 @@
-<?php namespace Controllers\pageNotFound;
+<?php namespace Controllers\PageNotFound;
 
 
 use Core\Engine\Controller;
@@ -8,7 +8,7 @@ use Core\Engine\Controller;
  * Class pageNotFoundController
  * @package pageNotFound
  */
-class pageNotFoundController extends Controller
+class PageNotFoundController extends Controller
 {
     /**
      * @return bool

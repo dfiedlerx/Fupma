@@ -219,7 +219,7 @@ class Core
      */
     private function notFoundPage () : bool {
 
-        $controllerConstant = CONTROLLERS_DIRECTORY . 'pageNotFound\pageNotFound' . CONTROLLERS_COMPLEMENT;
+        $controllerConstant = CONTROLLERS_DIRECTORY . 'PageNotFound\PageNotFound' . CONTROLLERS_COMPLEMENT;
 
         /** @noinspection PhpUndefinedMethodInspection */
         return (new $controllerConstant())->index();

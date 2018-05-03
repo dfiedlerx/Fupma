@@ -1,4 +1,4 @@
-<?php namespace Controllers\wrongUrlFormat;
+<?php namespace Controllers\WrongUrlFormat;
 
 
 use Core\Engine\Controller;
@@ -8,7 +8,7 @@ use Core\Engine\Controller;
  * Class wrongUrlFormatController
  * @package wrongUrlFormat
  */
-class wrongUrlFormatController extends Controller
+class WrongUrlFormatController extends Controller
 {
     /**
      * @return bool

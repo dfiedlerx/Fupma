@@ -1,10 +1,10 @@
-<?php namespace Controllers\home;
+<?php namespace Controllers\Home;
 
 
 use Core\Engine\Controller;
 
 
-class homeController extends Controller
+class HomeController extends Controller
 {
     /**
      * @return bool
