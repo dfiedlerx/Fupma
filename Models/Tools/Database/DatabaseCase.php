@@ -71,4 +71,17 @@ class DatabaseCase
 
     }
 
+    /**
+     * @param string|null $sequence
+     * @return string
+     */
+    public function getLastInsertId (string $sequence = '') : string {
+
+        return
+            empty($sequence)
+                ? $this->databaseConnection->lastInsertId()
+                : $this->databaseConnection->lastInsertId($sequence);
+
+    }
+
 }

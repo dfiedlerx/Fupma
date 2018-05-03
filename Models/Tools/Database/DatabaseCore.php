@@ -48,4 +48,24 @@ class DatabaseCore extends DatabaseCase
 
     }
 
+    /**
+     * @param PDOStatement $PDOStatement
+     * @return bool
+     */
+    public function hasResult (PDOStatement $PDOStatement) : bool {
+
+        return self::amountOfResults($PDOStatement) > 0;
+
+    }
+
+    /**
+     * @param PDOStatement $PDOStatement
+     * @return int
+     */
+    public function amountOfResults (PDOStatement $PDOStatement) : int {
+
+        return $PDOStatement->rowCount();
+
+    }
+
 }
