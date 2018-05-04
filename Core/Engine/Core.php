@@ -45,10 +45,10 @@ class Core
 
         );
 
-        $this->makeParametersArray ();
-        $this->setControllerAndAction ();
-        $this->setAditionalParameters ();
-        $this->callControllerAndAction ();
+        $this->makeParametersArray();
+        $this->setControllerAndAction();
+        $this->filterAditionalParameters();
+        $this->callControllerAndAction();
 
     }
 
@@ -60,9 +60,9 @@ class Core
         $this->urlParameters = explode('/', $this->urlParameters);
 
         //Caso o link padrão seja o diretório raiz do sistema
-        if (empty($this->urlParameters[0])) {
+        if ($this->paramExistsAndIsEmpty(0)) {
 
-            $this->removeFirstParameter ();
+            $this->removeFirstParameter();
 
         }
 
@@ -78,18 +78,18 @@ class Core
         if (!empty ($this->urlParameters[0])) {
 
             $this->currentController =
-                CONTROLLERS_DIRECTORY
-                . $this->urlParameters['0']
-                . '\\'
-                . $this->urlParameters['0']
-                . CONTROLLERS_COMPLEMENT;
-            $this->removeFirstParameter ();
-            $this->setAction ();
+                  CONTROLLERS_DIRECTORY
+                  . $this->urlParameters['0']
+                  . '\\' . $this->urlParameters['0']
+                  . CONTROLLERS_COMPLEMENT;
+
+            $this->removeFirstParameter();
+            $this->setAction();
 
         } else {
 
-            $this->defaultController ();
-            $this->defaultAction ();
+            $this->defaultController();
+            $this->defaultAction();
 
         }
 
@@ -102,8 +102,8 @@ class Core
 
         return
             !empty($this->urlParameters['0'])
-                ? $this->personalizedAction ()
-                : $this->defaultAction ();
+                ? $this->personalizedAction()
+                : $this->defaultAction();
 
     }
 
@@ -131,103 +131,109 @@ class Core
     private function personalizedAction () {
 
         $this->currentAction = $this->urlParameters[0];
-        return $this->removeFirstParameter ();
+        return $this->removeFirstParameter();
 
     }
 
-    /*
+    /**
      * Função que removerá possíveis parametros vazios que poderão ser passados
      * na url como por exemplo. Makroup.com//////home/index////////
      * 
      */
-    private function setAditionalParameters () {
+    private function filterAditionalParameters () {
 
         $aditionalParametersQuantity = count($this->urlParameters);
 
-        if (isset ($this->urlParameters['0']) && empty($this->urlParameters[0])) {
+        if ($this->paramExistsAndIsEmpty(0)) {
 
-            $this->removeFirstParameter ();
+            $this->removeFirstParameter();
 
-        } else if 
-            (
+        } else if ($this->paramExistsAndIsEmpty($aditionalParametersQuantity - 1)) {
 
-            isset ($this->urlParameters[$aditionalParametersQuantity - 1]) 
-            && 
-            empty($this->urlParameters[$aditionalParametersQuantity - 1])
-
-            ) {
-
-            $this->removeLastParameter ();
+            $this->removeLastParameter();
 
         }
 
     }
 
-    /*
-     * Seta o Controller Padrão;
-     * 
+    /**
+     * Verifica se o elemento no indice passado existe e não é nulo ou uma string vazia
+     * @param int $paramIndex
+     * @return bool
      */
+    private function paramExistsAndIsEmpty (int $paramIndex) : bool {
+
+        return
+            isset ($this->urlParameters[$paramIndex]) &&
+            $this->urlParameters[$paramIndex] != '' &&
+            is_null($this->urlParameters[$paramIndex]);
+
+    }
+
+    //Seta o Controller Padrão
     private function defaultController () {
 
         $this->currentController = CONTROLLERS_DIRECTORY . DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
 
     }
 
-    /*
-     * Seta a action como padrão;
-     *
-     */
+    //Seta a action como padrão;
     private function defaultAction () {
 
         return $this->currentAction = DEFAULT_ACTION . ACTION_COMPLEMENT;
 
     }
     
-    /*
-     * Faz a chamada das classes correspondetes de controller e view.
-     */
+    //Faz a chamada das classes correspondetes de controller e view.
     private function callControllerAndAction () {
 
         //Caso o Controller e a Action existam.
-        if (method_exists($this->currentController, $this->currentAction) && $this->validateNumberOfParams()) {
+        if ($this->ClassAndMethodExistsAndParamsAreValid()) {
 
-            $callController = new $this->currentController ();
+            $callController = new $this->currentController();
 
             if (!call_user_func_array (array($callController, $this->currentAction), $this->urlParameters)) {
 
-                $this->notFoundPage ();
+                $this->notFoundPage();
 
             }
 
-        }
+        } else {
 
-        //Caso o Controller ou a Action não forem encontrados.
-        else {
-
-            $this->notFoundPage ();
+            $this->notFoundPage();
 
         }
 
     }
 
-    /*
+    /**
+     * Verifica se o controller e a action existem e se os parÂmetros adicionais condizem com a quantidade certa.
+     * @return bool
+     */
+    private function ClassAndMethodExistsAndParamsAreValid () : bool {
+
+        return method_exists($this->currentController, $this->currentAction) && $this->validateNumberOfParams();
+
+    }
+
+    /**
      * Função que valida se o numero de argumentos passados é igual ao da action em questão.
      * É uma função totalmente maleavel e se adapta a qualquer actopn.
      */
-    private function validateNumberOfParams () {
+    private function validateNumberOfParams () : bool {
 
         $methodArguments = new ReflectionMethod ($this->currentController, $this->currentAction);
         $numberOfUrlParameters = count($this->urlParameters);
 
         //Caso o numero de parametros seja >= ao numero de parametros obrigatorios e <= ao numero de parametros no total
-        return $numberOfUrlParameters >= $methodArguments->getNumberOfRequiredParameters ()     
+        return $numberOfUrlParameters >= $methodArguments->getNumberOfRequiredParameters()
                && 
-               $numberOfUrlParameters <= $methodArguments->getNumberOfParameters ();
+               $numberOfUrlParameters <= $methodArguments->getNumberOfParameters();
 
     }
 
 
-    /*
+    /**
      * Chama uma página informando que o conteudo não foi encontrado.
      * 
      */
