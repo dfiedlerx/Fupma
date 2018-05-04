@@ -2,11 +2,25 @@
 
 /* 
  * 
- * Classe que gerenciará as necessidades basicas do model.
+ * Classe que gerenciará o roteamento e leitura de URLs.
+ * Ela procura respectivamente uma classe do tipo Controller que possua o mesmo nome e metodo dos parâmetros passados.
+ * Também seta os valores adicionais caso sejam passadas.
+ * Ex:
+ *  www.site.com/user/new
+ *  - Será procurado um controller de nome UserController e dentro dele o método new()
+ *  www.site.com/user/new/param1/param2
+ *  - O mesmo acima porém serão passados os parametros param1 e param2 no método new()
+ *
+ * Esta classe retornará o controller NotFoundController caso:
+ *  - Não exista o controller ou action passados na url
+ *  - Caso a quantidade de parametros adicionais sejam diferentes dos requeridos;
+ *  - Caso os parametros passados sejam maiores que os parametros totais da action;
+ *  - Caso a action retorne false por algum motivo.
  * 
  */
 
 use Models\Tools\Basic\Filter;
+use ReflectionMethod;
 
 
 /**
@@ -202,7 +216,7 @@ class Core
      */
     private function validateNumberOfParams () {
 
-        $methodArguments = new \ReflectionMethod ($this->currentController, $this->currentAction);
+        $methodArguments = new ReflectionMethod ($this->currentController, $this->currentAction);
         $numberOfUrlParameters = count($this->urlParameters);
 
         //Caso o numero de parametros seja >= ao numero de parametros obrigatorios e <= ao numero de parametros no total
