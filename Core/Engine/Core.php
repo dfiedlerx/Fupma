@@ -19,7 +19,7 @@
  * 
  */
 
-use Models\Tools\Basic\Filter;
+use System\Models\Tools\Basic\Filter;
 use ReflectionMethod;
 
 
@@ -37,7 +37,8 @@ class Core
 
     public function run () {
 
-        $this->urlParameters = str_replace( 
+        $this->urlParameters = str_replace
+        (
 
             SYSTEM_DIRECTORY, 
             '',
@@ -78,7 +79,7 @@ class Core
         if (!empty ($this->urlParameters[0])) {
 
             $this->currentController =
-                  CONTROLLERS_DIRECTORY
+                  CONTROLLERS_ROUTE
                   . $this->urlParameters['0']
                   . '\\' . $this->urlParameters['0']
                   . CONTROLLERS_COMPLEMENT;
@@ -165,15 +166,14 @@ class Core
 
         return
             isset ($this->urlParameters[$paramIndex]) &&
-            $this->urlParameters[$paramIndex] != '' &&
-            is_null($this->urlParameters[$paramIndex]);
+            ($this->urlParameters[$paramIndex] == '' || is_null($this->urlParameters[$paramIndex]));
 
     }
 
     //Seta o Controller Padrão
     private function defaultController () {
 
-        $this->currentController = CONTROLLERS_DIRECTORY . DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
+        $this->currentController = CONTROLLERS_ROUTE . DEFAULT_CONTROLLER . '\\' .DEFAULT_CONTROLLER . CONTROLLERS_COMPLEMENT;
 
     }
 
@@ -239,7 +239,7 @@ class Core
      */
     private function notFoundPage () : bool {
 
-        $controllerConstant = CONTROLLERS_DIRECTORY . 'PageNotFound\PageNotFound' . CONTROLLERS_COMPLEMENT;
+        $controllerConstant = CONTROLLERS_ROUTE . 'PageNotFound\PageNotFound' . CONTROLLERS_COMPLEMENT;
 
         /** @noinspection PhpUndefinedMethodInspection */
         return (new $controllerConstant())->index();

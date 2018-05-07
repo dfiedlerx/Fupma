@@ -7,7 +7,7 @@
  * 
  */
 
-$dirnameConfig = dirname(__FILE__).'/../../Config/';
+$dirnameConfig = dirname(__FILE__).'/../config/';
 
 // Arquivos de Configuração Mestre.
 
@@ -23,3 +23,4 @@ require $dirnameConfig.'DBConnectionParameters.php';
 
 //Remove a variavel apos o uso
 unset($dirnameConfig);
+
