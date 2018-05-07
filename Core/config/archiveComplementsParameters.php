@@ -16,7 +16,7 @@ define ('CSS_DIRECTORY', 'css/');
 //Diretório dos Arquivos Back-End
 define ('CONTROLLERS_ROUTE', 'System\\Controllers\\');
 define ('MODELS_ROUTE', 'System\\Models\\');
-define ('CORE_ROUTE', 'System\\Core\\');
+define ('CORE_ROUTE', 'Core\\');
 
 
 //Complemento de Nome dos Arquivos

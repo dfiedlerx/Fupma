@@ -10,7 +10,6 @@
 $dirnameConfig = dirname(__FILE__).'/../config/';
 
 // Arquivos de Configuração Mestre.
-
 require $dirnameConfig.'environment.php';
 require $dirnameConfig.'archiveComplementsParameters.php';
 require $dirnameConfig.'defaultPageParameters.php';

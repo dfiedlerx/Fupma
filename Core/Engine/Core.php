@@ -99,7 +99,7 @@ class Core
     /*
      * Função que ira gerenciar qual action será chamada.
      */
-    private function setAction () {
+    private function setAction () : bool {
 
         return
             !empty($this->urlParameters['0'])
@@ -128,7 +128,7 @@ class Core
 
     }
 
-    //Atribui o valor personalziado de um parâmetro para a action;
+    //Atribui o valor personalizado de um parâmetro para a action;
     private function personalizedAction () {
 
         $this->currentAction = $this->urlParameters[0];
