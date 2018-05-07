@@ -70,14 +70,13 @@ class Controller
 
     /**
      * Verifica se determinado parâmetro passado em uma url é um número.
-     * @param $number
+     * @param string $number
+     * @param bool $allowDotInFinal
      * @return bool
      */
-    protected function verifIfIsNumericParameter ($number) {
+    protected function verifIfIsNumericParameter (string $number, bool $allowDotInFinal = false) : bool {
 
-        $parameter = $number + 0;
-        $parameter .= '';
-        return $parameter === $number;
+        return is_numeric($number) && ($allowDotInFinal || (!$allowDotInFinal && $number[strlen($number) - 1] != '.'));
 
     }
 
@@ -86,15 +85,21 @@ class Controller
      * @param $number
      * @return bool
      */
-    protected  function verifIfIsIntParameter ($number) {
-		
-        $parameter = $number;
-        settype($parameter, "integer");  
-        $parameter .= '';
-        return
-            $parameter === $number &&
-            !strpos($number, array (',','.',';'));
-		
+    protected function verifIfIsIntParameter (string $number) : bool {
+
+        return is_numeric($number) && !strpos($number, '.');
+
+    }
+
+    /**
+     * Verifica se determinado parametro é numerico e decimal
+     * @param string $number
+     * @return bool
+     */
+    protected function verifIfIsDecimalParameter (string $number) : bool {
+
+        return is_numeric ($number) && strpos($number, '.');
+
     }
 
 }
