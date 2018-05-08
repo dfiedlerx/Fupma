@@ -21,7 +21,7 @@
  *
  *  O uso das demais funções utiliza do mesmo método de chaves de array respectivamente.
  *
- * @package Models\Tools\Basic
+ * @package System\Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class GlobalValue

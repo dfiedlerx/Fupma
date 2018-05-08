@@ -4,7 +4,7 @@ use PDO;
 
 /**
  * Class DatabaseConnection
- * @package Models\Tools\Database
+ * @package System\Models\Tools\Database
  */
 class DatabaseConnection
 {

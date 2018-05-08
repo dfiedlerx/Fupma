@@ -4,7 +4,7 @@ use Core\Engine\Model;
 
 /**
  * Class Example
- * @package Models\Example
+ * @package System\Models\Example
  */
 class Example extends Model
 {

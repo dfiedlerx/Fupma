@@ -2,7 +2,7 @@
 
 /**
  * Class DatabaseQueryFactory
- * @package Models\Tools\Database
+ * @package System\Models\Tools\Database
  */
 class DatabaseQueryFactory
 {

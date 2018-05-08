@@ -5,8 +5,8 @@ use Core\Engine\Controller;
 
 
 /**
- * Class pageNotFoundController
- * @package pageNotFound
+ * Class PageNotFoundController
+ * @package System\Controllers\PageNotFound
  */
 class PageNotFoundController extends Controller
 {

@@ -5,7 +5,7 @@ use PDOStatement;
 
 /**
  * Class DatabaseCase
- * @package Models\Tools\Database
+ * @package System\Models\Tools\Database
  */
 class DatabaseCase
 {

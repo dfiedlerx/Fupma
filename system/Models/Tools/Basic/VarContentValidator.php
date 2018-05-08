@@ -10,7 +10,7 @@
 
 /**
  * Class VarContentValidator
- * @package Models\Tools\Basic
+ * @package System\Models\Tools\Basic
  * @author Daniel Fiedler
  */
 class VarContentValidator

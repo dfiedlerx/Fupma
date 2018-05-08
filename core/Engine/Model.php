@@ -7,7 +7,7 @@
 
 /**
  * Class Model
- * @package Engine
+ * @package Core\Engine
  * @author Daniel Fiedler
  */
 class Model

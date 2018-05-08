@@ -25,7 +25,7 @@ use ReflectionMethod;
 
 /**
  * Class Core
- * @package Engine
+ * @package Core\Engine
  * @author Daniel Fiedler
  */
 class Core

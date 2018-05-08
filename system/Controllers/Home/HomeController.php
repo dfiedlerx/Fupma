@@ -3,7 +3,10 @@
 
 use Core\Engine\Controller;
 
-
+/**
+ * Class HomeController
+ * @package System\Controllers\Home
+ */
 class HomeController extends Controller
 {
     /**

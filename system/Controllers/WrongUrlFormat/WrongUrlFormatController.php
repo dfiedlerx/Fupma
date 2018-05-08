@@ -5,8 +5,8 @@ use Core\Engine\Controller;
 
 
 /**
- * Class wrongUrlFormatController
- * @package wrongUrlFormat
+ * Class WrongUrlFormatController
+ * @package System\Controllers\WrongUrlFormat
  */
 class WrongUrlFormatController extends Controller
 {
