@@ -24,7 +24,7 @@ class ArrayC
 
         foreach ($keysToLook as $currentKey) {
 
-            if (!array_key_exists ($currentKey, $suspect) || (!$allowNullValues && is_null ($suspect [$currentKey]))) {
+            if (!array_key_exists ($currentKey, $suspect) || (!$allowNullValues && is_null($suspect [$currentKey]))) {
 
                 return false;
 
@@ -45,27 +45,33 @@ class ArrayC
      */
     public static function countArray (array $array, bool $ignoreNullValues = false) : int {
 
-        if (!$ignoreNullValues) {
+        return
+            !$ignoreNullValues
+                ? count($array)
+                : self::countNotNullValues($array);
 
-            return count($array);
+    }
 
-        } else {
+    /**
+     * Retorna o numero de valores principais de um array que não possuam valor nulo.
+     * @param array $array
+     * @return int
+     */
+    private static function countNotNullValues (array $array) : int {
 
-            $countTerms = 0;
+        $countTerms = 0;
 
-            foreach ($array as $currentValue) {
+        foreach ($array as $currentValue) {
 
-                if (!is_null($currentValue)) {
+            if (!is_null($currentValue)) {
 
-                    $countTerms++;
-
-                }
+                $countTerms++;
 
             }
 
-            return $countTerms;
-
         }
+
+        return $countTerms;
 
     }
 
@@ -73,12 +79,12 @@ class ArrayC
      * Verifica se um ou mais termos existem em um array
      * @param array $suspect
      * @param array $termToLook
-     * @param bool $caseSensitive
+     * @param bool $restrictType
      * @return bool
      */
-    public static function arrayTermExists (array $suspect, $termToLook, bool $caseSensitive = false) : bool {
+    public static function arrayTermExists (array $suspect, $termToLook, bool $restrictType = false) : bool {
 
-        return in_array ($termToLook, $suspect, $caseSensitive);
+        return in_array ($termToLook, $suspect, $restrictType);
 
     }
 

@@ -3,7 +3,8 @@
     "php": "7",
     "require": {
         "league/pipeline": "^0.3.0",
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+        "jenssegers/blade": "*"
     },
     "autoload": {
         "psr-4": {

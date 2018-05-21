@@ -16,61 +16,58 @@
  */
 class View {
 
-    /**
-     * Traz as depenências primordias Front-End do sistema automaticamente.
-     * @param string $controllerName
-     * @param string $viewName
-     */
-    public function loadDefaultFrontDependences (string $controllerName = '', string $viewName = '') {
+    //Traz as depenências primordias Front-End do sistema automaticamente.
+    public function loadDefaultFrontDependences () {
 
-        //Javascript Dependences
+        /// Javascript ///
 
         //Jquery
-        echo '<script src="',JS_DIRECTORY,JQUERY_VERSION_JS,'"></script>';
+        $this->loadJSDependence(JQUERY_VERSION_JS);
         //Tether
-        echo '<script src="',JS_DIRECTORY,TETHER_JS,'"></script>';
-        //Bootstrap
-        echo '<script src="',JS_DIRECTORY,BOOTSTRAP_JS,'"></script>';
+        $this->loadJSDependence(TETHER_JS);
+        //Bootstrap JS
+        $this->loadJSDependence(BOOTSTRAP_JS);
 
-        //CSS Dependences
+        /// CSS ///
 
-        //Bootstrap
-        echo '<link rel="stylesheet" type="text/css" href="',CSS_DIRECTORY,BOOTSTRAP_CSS,'">';
-
-        //Carrega os scripts particulares de uma página caso existam
-        if (!empty($controllerName) && !empty ($viewName)) {
-
-            if (file_exists(JS_DIRECTORY.$controllerName.'/'.$viewName.'/'.$viewName.'.js')){
-
-                echo '<script src="',JS_DIRECTORY,$controllerName,'/',$viewName,'/',$viewName,'.js"></script>';
-
-            }
-
-            if (file_exists(CSS_DIRECTORY.$controllerName.'/'.$viewName.'/'.$viewName.'.css')) {
-
-                echo '<link rel="stylesheet" type="text/css" href="',CSS_DIRECTORY,$controllerName,'/',$viewName,'/',$viewName,'.css">';
-
-            }
-
-        }
+        //Bootstrap CSS
+        $this->loadCSSDependence(BOOTSTRAP_CSS);
 
     }
 
     /**
-     * Traz uma dependência de view independente
-     * @param string $dependeceDirectory
-     * @param string $controllerName
-     * @param string $fileName
-     * @param string $typeDependence
+     * @param string $pathOfDependency
+     * @param bool $isExternal
      */
-    public function loadSingularDependence (string $dependeceDirectory, string $controllerName , string $fileName, string $typeDependence) {
+    public function loadJSDependence(string $pathOfDependency, bool $isExternal = false) {
 
-        if (file_exists($dependeceDirectory.'/'.$fileName.$controllerName.'/'.$typeDependence)) {
-
-            echo '<script src="',$dependeceDirectory.'/'.$fileName.$typeDependence,'"></script>';
-
-        }
+        echo
+            '<script src="',
+            (
+                !$isExternal
+                    ? JS_DIRECTORY.$pathOfDependency
+                    : $pathOfDependency
+            ),
+            '.js"></script>';
 
     }
+
+    /**
+     * @param string $pathOfDependency
+     * @param bool $isExternal
+     */
+    public function loadCSSDependence(string $pathOfDependency, bool $isExternal = false) {
+
+        echo
+            '<link rel="stylesheet" type="text/css" href="',
+            (
+                !$isExternal
+                    ? CSS_DIRECTORY.$pathOfDependency
+                    : $pathOfDependency
+            ),
+            '.css">';
+
+    }
+
 
 }

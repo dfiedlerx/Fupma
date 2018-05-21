@@ -43,7 +43,7 @@ class GlobalValue
     }
 
     /**
-     * Seta um valor a GlboalValue para ser acessado de outros locais do sitema.
+     * Seta um valor em $globalCase para ser acessado de outros locais do sitema.
      *
      * @param string $keyPath
      * @param $value
@@ -67,7 +67,7 @@ class GlobalValue
     }
 
     /**
-     * Gera o caminho de array comn base nos parametros passados.
+     * Gera uma string com um caminho de array com base nos parametros passados.
      *
      * @Example
      *
