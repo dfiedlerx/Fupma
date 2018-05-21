@@ -35,34 +35,24 @@ class GlobalValue
      * @param string $pathSeparator
      * @return mixed
      */
-    public static function get (string $keyPath, string $pathSeparator = '->') {
+    public static function get (string $keyPath = '', string $pathSeparator = '->') {
 
-        $keyPath = explode ($pathSeparator, $keyPath);
-
-        $rgResult = self::$globalCase[$keyPath['0']];
-        unset($keyPath['0']);
-
-        foreach ($keyPath as $keyName) {
-
-            $rgResult = $rgResult[$keyName];
-
-        }
-
-        return $rgResult;
+        eval('$keyPath = self::$globalCase'.self::concatKeyPath($keyPath, $pathSeparator).';');
+        return $keyPath;
 
     }
 
     /**
-     * TODO: A variavel $value está sendo usada dentro da função eval
+     * Seta um valor a GlboalValue para ser acessado de outros locais do sitema.
      *
      * @param string $keyPath
      * @param $value
      * @param string $pathSeparator
+     *
      */
-    public static function set (string $keyPath, $value, string $pathSeparator = '->') {
+    public static function set (string $keyPath = '', $value, string $pathSeparator = '->') {
 
-        $keyPath = self::concatKeyPath(explode ($pathSeparator, $keyPath));
-        eval('self::$globalCase'.$keyPath.' = $value;');
+        eval('self::$globalCase'.self::concatKeyPath($keyPath, $pathSeparator).' = $value;');
 
     }
 
@@ -70,22 +60,32 @@ class GlobalValue
      * @param string $keyPath
      * @param string $pathSeparator
      */
-    public static function unset (string $keyPath, string $pathSeparator = '->') {
+    public static function unset (string $keyPath = '', string $pathSeparator = '->') {
 
-        $keyPath = self::concatKeyPath(explode ($pathSeparator, $keyPath));
-        eval('unset(self::$globalCase'.$keyPath.');');
+        eval('unset(self::$globalCase'.self::concatKeyPath($keyPath, $pathSeparator).');');
 
     }
 
     /**
-     * @param array $keyArray
+     * Gera o caminho de array comn base nos parametros passados.
+     *
+     * @Example
+     *
+     *  'config->database->default->dbName'
+     *  se torna
+     *  ['config']['database']['dafault']['dbName']
+     *
+     * @param string $keysPath
+     * @param string $pathSeparator
      * @return string
      */
-    private static function concatKeyPath (array $keyArray) : string {
+    private static function concatKeyPath (string $keysPath, string $pathSeparator) : string {
+
+        if ($keysPath == '') return '';
 
         $convertedKeys = '';
 
-        foreach ($keyArray as $keyName) {
+        foreach (explode($pathSeparator, $keysPath) as $keyName) {
 
             $convertedKeys .= "['".$keyName."']";
 
@@ -96,42 +96,16 @@ class GlobalValue
     }
 
     /**
+     * Retorna um booleano informando se caminho global foi criado.
+     *
      * @param string $keyPath
      * @param string $pathSeparator
      * @return bool
      */
-    public static function exists (string $keyPath, string $pathSeparator = '->') {
+    public static function exists (string $keyPath = '', string $pathSeparator = '->') : bool {
 
-        $keyPath = explode ($pathSeparator, $keyPath);
-        $rgResult = [];
-
-        foreach ($keyPath as $number => $keyName) {
-
-            if ($number == 0) {
-
-                if (!isset(self::$globalCase[$keyName])) {
-
-                    return false;
-
-                }
-
-                $rgResult = self::$globalCase[$keyName];
-
-            } else {
-
-                if (!isset($rgResult[$keyName])) {
-
-                    return false;
-
-                }
-
-                $rgResult = $rgResult[$keyName];
-
-            }
-
-        }
-
-        return true;
+        eval('$keyPath = isset(self::$globalCase'.self::concatKeyPath($keyPath, $pathSeparator).');');
+        return $keyPath;
 
     }
 
