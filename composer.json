@@ -1,11 +1,13 @@
 {
     "name": "projetocron",
-    "php": "7",
+
     "require": {
+        "php": "^7.2",
         "league/pipeline": "^0.3.0",
         "monolog/monolog": "^1.23",
         "jenssegers/blade": "*"
     },
+
     "autoload": {
         "psr-4": {
             "Core\\" : "core",
