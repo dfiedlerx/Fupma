@@ -19,11 +19,13 @@
  * 
  */
 
+use ReflectionException;
 use System\Models\Tools\Basic\Filter;
 use ReflectionMethod;
 
 
 /**
+ *
  * Class Core
  * @package Core\Engine
  * @author Daniel Fiedler
@@ -35,6 +37,9 @@ class Core
     private $currentAction;
     private $urlParameters;
 
+    /**
+     * @throws ReflectionException
+     */
     public function run () {
 
         $this->urlParameters = str_replace
@@ -53,7 +58,7 @@ class Core
 
     }
 
-    /*
+    /**
      * Método que irá destrinchar a urlParameters e obtera o Controller e a action em um array.
      */
     private function makeParametersArray () {
@@ -69,10 +74,10 @@ class Core
 
     }
     
-    /*
+    /**
      * Método que irá atribuir os valores corretos para $currentController e  
      * $currentAction;
-     * 
+     *
      */
     private function setControllerAndAction () {
 
@@ -96,8 +101,9 @@ class Core
 
     }
 
-    /*
+    /**
      * Função que ira gerenciar qual action será chamada.
+     * @return bool
      */
     private function setAction () : bool {
 
@@ -108,9 +114,9 @@ class Core
 
     }
 
-    /*
+    /**
      * Remove o primeiro parametro do array.
-     *
+     * @return mixed
      */
     private function removeFirstParameter () {
 
@@ -118,9 +124,9 @@ class Core
 
     }
 
-    /*
-     *  Remove o ultimo parâmetro do array
-     * 
+    /**
+     * Remove o ultimo parâmetro do array
+     * @return mixed
      */
     private function removeLastParameter () {
 
@@ -183,8 +189,11 @@ class Core
         return $this->currentAction = DEFAULT_ACTION . ACTION_COMPLEMENT;
 
     }
-    
-    //Faz a chamada das classes correspondetes de controller e view.
+
+    /**
+     * Faz a chamada das classes correspondetes de controller e view.
+     * @throws ReflectionException
+     */
     private function callControllerAndAction () {
 
         //Caso o Controller e a Action existam.
@@ -209,6 +218,7 @@ class Core
     /**
      * Verifica se o controller e a action existem e se os parÂmetros adicionais condizem com a quantidade certa.
      * @return bool
+     * @throws ReflectionException
      */
     private function ClassAndMethodExistsAndParamsAreValid () : bool {
 
@@ -219,6 +229,7 @@ class Core
     /**
      * Função que valida se o numero de argumentos passados é igual ao da action em questão.
      * É uma função totalmente maleavel e se adapta a qualquer actopn.
+     * @throws ReflectionException
      */
     private function validateNumberOfParams () : bool {
 
