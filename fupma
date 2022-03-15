@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+function serve() {
+
+    shell_exec('php -S localhost:8000 -t public_html');
+
+}
+
+$argv = $argv ?? $_SERVER['argv'] ?? [];
+
+try {
+
+    $argv[1]();
+
+} catch(Exception $e) {
+
+    echo $e->getMessage();
+
+} catch(Error $e) {
+
+    echo 'The requested command was not found';
+
+}
+
