@@ -4,7 +4,7 @@
     "license": "MIT",
 
     "require": {
-        "php" : "^7.2",
+        "php" : "^8.1",
         "psr/log" : "*",
         "league/oauth2-google" : "*",
         "hayageek/oauth2-yahoo" : "*",
