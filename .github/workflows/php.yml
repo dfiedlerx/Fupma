@@ -19,19 +19,19 @@ jobs:
     - name: CD App
       run: cd app
     - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      run: cd app && composer validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
       with:
-        path: vendor
+        path: app/vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: cd composer install --prefer-dist --no-progress
+      run: cd app && cd composer install --prefer-dist --no-progress
       
     - name: CD App
       run: cd ../
