@@ -1,5 +1,7 @@
 {
     "name": "eevos/site",
+    "description": "A compact PHP MVC Framework",
+    "license": "MIT",
 
     "require": {
         "php" : "^7.2",
