@@ -16,10 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: CD App
-      run: cd app
+    
     - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      run: cd app && composer validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
@@ -31,14 +30,12 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: cd composer install --prefer-dist --no-progress
+      run: cd app && composer install --prefer-dist --no-progress
       
-    - name: CD App
-      run: cd ../
       
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     # - name: Run test suite
-    #   run: composer run-script test
+    #   run: cd app && composer run-script test
