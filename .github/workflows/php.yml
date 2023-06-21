@@ -19,7 +19,7 @@ jobs:
     - name: CD App
       run: cd app
     - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      run: cd app && composer validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
